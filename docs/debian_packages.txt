@@ -1,0 +1,2 @@
+Ziroba Dependencies:
+ncurses-bin libncurses-dev libbluetooth-dev bluetooth gcc g++
