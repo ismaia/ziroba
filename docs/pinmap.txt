@@ -1,5 +1,4 @@
-
-BeagleBone Pin Connections
+BeagleBone Pin Mapping
 
 #motor 1 <=> L293D / SN754410
 m1En  = GPIO_20   Chip Enable
