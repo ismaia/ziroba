@@ -1,5 +1,5 @@
-Ziroba
-======
+Ziroba Robot
+============
 
  Ziroba Robot is a small car robot that uses beaglebone-black
  
