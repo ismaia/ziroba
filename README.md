@@ -20,6 +20,6 @@ Todo:
 
 Ziroba-Robot
 ------------
-![alt tag](https://raw.github.com/ismaia/ziroba/tree/master/docs/ziroba.jpg)
-![alt tag](https://raw.github.com/ismaia/ziroba/tree/master/docs/ziroba_circuits.jpg)
+![alt tag](https://github.com/ismaia/ziroba/raw/master/docs/ziroba.jpg)
+![alt tag](https://github.com/ismaia/ziroba/raw/master/docs/ziroba_circuits.jpg)
 
