@@ -1,0 +1,10 @@
+[Unit]
+Description=Serial Bluetooth
+Requires=bluetooth.service  
+After=ssh.service 
+
+[Service]
+ExecStart=/usr/bin/rfcomm watch /dev/rfcomm0 3 /sbin/agetty rfcomm0 115200 linux
+
+[Install]
+WantedBy=multi-user.target

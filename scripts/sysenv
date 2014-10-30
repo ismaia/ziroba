@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#the full directory name of the script no matter where it is being called from
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+ROOT_DIR=`(cd $SCRIPT_DIR/.. && pwd)`
+CSD_DIR=$ROOT_DIR/csd
+
+export PATH=$PATH:$ROOT_DIR/bin
+export PATH=$PATH:$ROOT_DIR/scripts
+

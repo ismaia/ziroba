@@ -1,0 +1,19 @@
+
+BeagleBone Pin Connections
+
+#motor 1 <=> L293D / SN754410
+m1En  = GPIO_20   Chip Enable
+m1I1  = GPIO_68   Input Logic 1
+m1I2  = GPIO_44   Input Logic 2
+
+#motor 2 <=> L293D / SN754410
+m2En  = GPIO_49   Chip Enable
+m2I1  = GPIO_46   Input Logic 1
+m2I2  = GPIO_65   Input Logic 2
+
+
+#motor 1/2 PWM : must disable m1En and m2En above
+pwm1  = EHRPWM1A   Chip Enable 1  
+pwm2  = EHRPWM1B   Chip Enable 2            
+
+

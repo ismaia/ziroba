@@ -1,0 +1,12 @@
+#hciconfig hci0 up piscan
+
+
+#bluetoothctl
+power on
+scan on
+scan off
+agent on
+default-agent
+pairable on
+discoverable on 
+pair 00:15:83:3D:0A:57

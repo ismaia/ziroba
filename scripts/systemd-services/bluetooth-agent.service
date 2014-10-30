@@ -1,0 +1,11 @@
+[Unit]
+Description=Bluetooth Agent Service
+Requires=bluetooth.service  
+After=ssh.service 
+
+[Service]
+WorkingDirectory=/usr/bin
+ExecStart=/usr/bin/bluetooth-agent --adapter hci0 0000 
+
+[Install]
+WantedBy=multi-user.target
