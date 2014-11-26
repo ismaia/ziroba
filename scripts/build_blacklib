@@ -19,9 +19,9 @@ fi
 cd $BIN_DIR/BlackLib/v1_0
 g++ -O2 -std=c++11 -c BlackLib.cpp -o blacklib.o
 ar rcs libblacklib.a blacklib.o
-mkdir -p  $ROOT_DIR/libs/blacklib
-cp *.h    $ROOT_DIR/libs/blacklib
-cp *.a    $ROOT_DIR/libs/blacklib 
+mkdir -p  $ROOT_DIR/lib/blacklib
+cp *.h    $ROOT_DIR/lib/blacklib
+cp *.a    $ROOT_DIR/lib/blacklib 
 
 #v2.0
 #cd $BIN_DIR/BlackLib/v2_0
