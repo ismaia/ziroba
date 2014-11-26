@@ -1,7 +1,7 @@
 Ziroba Robot
 ============
 
-Ziroba is a small car robot
+    Ziroba is a small car robot
  
 Features:
 ---------
@@ -18,10 +18,10 @@ Features:
 
 Install:
 --------
-On Beaglebone Black:
-mkdir build
-cd build
-cmake -DCMAKE_INSTALL_PREFIX=/path/to/installdir ../
+   On Beaglebone Black:
+   mkdir build
+   cd build
+   cmake -DCMAKE_INSTALL_PREFIX=/path/to/installdir ../
 
 Ziroba-Robot
 ------------
