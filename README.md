@@ -6,19 +6,18 @@ Ziroba is a small car robot
 Features:
 ---------
 
-   * Communication over bluetooth stack
+   * Communication over Wifi or bluetooth stack
    * Serial terminal over bluetooth
-   * Control from PC (Joystick or ncurses ui)   
-   * Beaglebone-black / Raspberry Pi compatible
+   * Control from PC / Android
+   * Beaglebone-black / Raspberry Pi / Galileo compatible
    * Wifi Direct Communication (TODO)
-   * Camera Vision (TODO)
+   * Camera Vision
    * UV Sensor (TODO)
-   * Android Control (TODO)
 
 
 Install:
 --------
-    On Beaglebone Black:
+    On target platform:
     mkdir build
     cd build
     cmake -DCMAKE_INSTALL_PREFIX=/path/to/installdir ../
@@ -31,5 +30,5 @@ Ziroba-Robot
 
 Dependencies
 ------------
-Beaglebone Black: Blacklib
+Beaglebone Black Board: Blacklib
 
