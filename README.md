@@ -24,8 +24,7 @@ Install:
 
 Ziroba-Robot
 ------------
-![alt tag](https://github.com/ismaia/ziroba/raw/master/docs/ziroba_v3.jpg)
-![alt tag](https://github.com/ismaia/ziroba/raw/master/docs/ziroba_circuits.jpg)
+![alt tag](https://github.com/ismaia/ziroba/raw/master/docs/ziroba.jpg)
 
 
 Dependencies
