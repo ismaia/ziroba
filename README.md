@@ -1,18 +1,18 @@
 Ziroba Robot
 ============
 
-Ziroba is a small car robot
+Ziroba is a low cost car robot buit of cheap parts
+
+Our main goal is easy replication and modification
  
 Features:
 ---------
 
    * Communication over Wifi or bluetooth stack
-   * Serial terminal over bluetooth
    * Control from PC / Android
    * Beaglebone-black / Raspberry Pi / Galileo compatible
-   * Wifi Direct Communication (TODO)
+   * Wifi Direct Communication
    * Camera Vision
-   * UV Sensor (TODO)
 
 
 Install:
