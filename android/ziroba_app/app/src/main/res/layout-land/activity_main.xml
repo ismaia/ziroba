@@ -1,19 +1,20 @@
-<RelativeLayout
+<GridLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:columnCount="8"
+    android:rowCount="4"
+    android:orientation="horizontal"
     tools:context=".MainActivity" >
-
 
     <ImageButton
         android:id="@+id/button_a"
         android:src="@drawable/button_a"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:padding="5dp"
-        android:onClick="action_a"
+        android:layout_row="0"
+        android:layout_column="0"
         style="?android:attr/borderlessButtonStyle"
         />
     <ImageButton
@@ -21,27 +22,39 @@
         android:src="@drawable/button_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/button_a"
-        android:padding="5dp"
+        android:layout_row="0"
+        android:layout_column="1"
         style="?android:attr/borderlessButtonStyle"
         />
-
     <ImageButton
         android:id="@+id/button_b"
         android:src="@drawable/button_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/button_up"
-        android:padding="5dp"
+        android:layout_row="0"
+        android:layout_column="2"
         style="?android:attr/borderlessButtonStyle"
         />
+    <net.bomtec.zirobaapp.VerticalSeekBar
+        android:id="@+id/seekbar1"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_rowSpan="3"
+        android:layout_row="0"
+        android:layout_column="3"
+        android:max="100"
+        android:padding="20dp"
+        />
+
+
+
     <ImageButton
         android:id="@+id/button_left"
         android:src="@drawable/button_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/button_a"
-        android:padding="5dp"
+        android:layout_row="1"
+        android:layout_column="0"
         style="?android:attr/borderlessButtonStyle"
         />
     <ImageButton
@@ -49,9 +62,8 @@
         android:src="@drawable/button_x"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/button_up"
-        android:layout_toRightOf="@id/button_left"
-        android:padding="5dp"
+        android:layout_row="1"
+        android:layout_column="1"
         style="?android:attr/borderlessButtonStyle"
         />
     <ImageButton
@@ -59,18 +71,20 @@
         android:src="@drawable/button_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/button_b"
-        android:layout_toRightOf="@id/button_x"
-        android:padding="5dp"
+        android:layout_row="1"
+        android:layout_column="2"
         style="?android:attr/borderlessButtonStyle"
         />
+
+
+
     <ImageButton
         android:id="@+id/button_c"
         android:src="@drawable/button_c"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/button_left"
-        android:padding="5dp"
+        android:layout_row="2"
+        android:layout_column="0"
         style="?android:attr/borderlessButtonStyle"
         />
     <ImageButton
@@ -78,9 +92,8 @@
         android:src="@drawable/button_down"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/button_x"
-        android:layout_toRightOf="@id/button_c"
-        android:padding="5dp"
+        android:layout_row="2"
+        android:layout_column="1"
         style="?android:attr/borderlessButtonStyle"
         />
     <ImageButton
@@ -88,29 +101,130 @@
         android:src="@drawable/button_d"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/button_right"
-        android:layout_toRightOf="@id/button_down"
-        android:padding="5dp"
+        android:layout_row="2"
+        android:layout_column="2"
         style="?android:attr/borderlessButtonStyle"
         />
-    <TextView
-        android:id="@+id/text_speed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/button_b"
-        android:paddingLeft="10dp"
-        android:paddingTop="20dp"
-        android:textSize="25dp"
-        android:text="@string/text_speed"
-        />
-    <SeekBar
-        android:id="@+id/seekbar1"
+</GridLayout>
+
+
+
+
+    <!--
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="100"
-        android:layout_below="@id/text_speed"
-        android:layout_toRightOf="@id/button_b"
-        />
+        android:layout_height="match_parent"
+        tools:context=".MainActivity" >
 
-</RelativeLayout>
 
+        <ImageButton
+            android:id="@+id/button_a"
+            android:src="@drawable/button_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:padding="5dp"
+            android:onClick="action_a"
+            style="?android:attr/borderlessButtonStyle"
+            />
+        <ImageButton
+            android:id="@+id/button_up"
+            android:src="@drawable/button_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/button_a"
+            android:padding="5dp"
+            style="?android:attr/borderlessButtonStyle"
+            />
+
+        <ImageButton
+            android:id="@+id/button_b"
+            android:src="@drawable/button_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/button_up"
+            android:padding="5dp"
+            style="?android:attr/borderlessButtonStyle"
+            />
+        <ImageButton
+            android:id="@+id/button_left"
+            android:src="@drawable/button_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_a"
+            android:padding="5dp"
+            style="?android:attr/borderlessButtonStyle"
+            />
+        <ImageButton
+            android:id="@+id/button_x"
+            android:src="@drawable/button_x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_up"
+            android:layout_toRightOf="@id/button_left"
+            android:padding="5dp"
+            style="?android:attr/borderlessButtonStyle"
+            />
+        <ImageButton
+            android:id="@+id/button_right"
+            android:src="@drawable/button_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_b"
+            android:layout_toRightOf="@id/button_x"
+            android:padding="5dp"
+            style="?android:attr/borderlessButtonStyle"
+            />
+        <ImageButton
+            android:id="@+id/button_c"
+            android:src="@drawable/button_c"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_left"
+            android:padding="5dp"
+            style="?android:attr/borderlessButtonStyle"
+            />
+        <ImageButton
+            android:id="@+id/button_down"
+            android:src="@drawable/button_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_x"
+            android:layout_toRightOf="@id/button_c"
+            android:padding="5dp"
+            style="?android:attr/borderlessButtonStyle"
+            />
+        <ImageButton
+            android:id="@+id/button_d"
+            android:src="@drawable/button_d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_right"
+            android:layout_toRightOf="@id/button_down"
+            android:padding="5dp"
+            style="?android:attr/borderlessButtonStyle"
+            />
+        <TextView
+            android:id="@+id/text_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/button_b"
+            android:paddingLeft="10dp"
+            android:paddingTop="20dp"
+            android:textSize="25dp"
+            android:text="@string/text_speed"
+            />
+        <SeekBar
+            android:id="@+id/seekbar1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:layout_below="@id/text_speed"
+            android:layout_toRightOf="@id/button_b"
+            />
+
+    </RelativeLayout>
+
+    -->
