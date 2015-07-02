@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:columnCount="4"
     android:rowCount="8"
-    android:orientation="horizontal"
     tools:context=".MainActivity" >
 
 
