@@ -2,10 +2,10 @@
 
     <!-- These settings headers are only used on tablets. -->
 
-    <header android:fragment="net.bomtec.ziroba.SettingsActivity$GeneralPreferenceFragment"
-        android:title="@string/pref_header_general" />
+    <header android:fragment="net.bomtec.ziroba.SettingsActivity$GeneralPrefFragment"
+        android:title="@string/pref_general_title" />
 
-    <header android:fragment="net.bomtec.ziroba.SettingsActivity$NotificationPreferenceFragment"
-        android:title="@string/pref_header_commands" />
+    <header android:fragment="net.bomtec.ziroba.SettingsActivity$CommandsPrefFragment"
+        android:title="@string/pref_commands_title" />
 
 </preference-headers>

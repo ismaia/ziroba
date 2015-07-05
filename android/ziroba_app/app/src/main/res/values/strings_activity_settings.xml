@@ -1,9 +1,9 @@
 <resources>
     <string name="title_activity_settings">Settings</string>
 
-    <!-- Strings related to Settings -->
 
-    <!-- Example General settings -->
+    <!--  General settings -->
+    <string name="pref_general_title">General</string>
     <string name="pref_header_general">General</string>
 
     <string name="pref_title_camera">Camera</string>
@@ -34,35 +34,34 @@
         <item>100</item>
     </string-array>
 
+    <!--  Commands Settings -->
+    <string name="pref_commands_title">Control Commands</string>
+    <string name="pref_title_a_command">Button A</string>
+    <string name="pref_a_command">a</string>
 
-    <!-- Example settings for Messages -->
-    <string name="pref_header_commands">Button Commands</string>
-    <string name="pref_title_button_a_command">Button A command</string>
-    <string name="pref_button_a_command">a</string>
+    <string name="pref_title_up_command">Button UP</string>
+    <string name="pref_up_command">up</string>
 
-    <string name="pref_title_button_up_command">Button UP command</string>
-    <string name="pref_button_up_command">up</string>
+    <string name="pref_title_b_command">Button B</string>
+    <string name="pref_b_command">b</string>
 
-    <string name="pref_title_button_b_command">Button B command</string>
-    <string name="pref_button_b_command">b</string>
+    <string name="pref_title_left_command">Button Left</string>
+    <string name="pref_left_command">left</string>
 
-    <string name="pref_title_button_left_command">Button Left command</string>
-    <string name="pref_button_left_command">left</string>
+    <string name="pref_title_x_command">Button X</string>
+    <string name="pref_x_command">x</string>
 
-    <string name="pref_title_button_x_command">Button X command</string>
-    <string name="pref_button_x_command">x</string>
+    <string name="pref_title_right_command">Button Right</string>
+    <string name="pref_right_command">right</string>
 
-    <string name="pref_title_button_right_command">Button Right command</string>
-    <string name="pref_button_right_command">right</string>
+    <string name="pref_title_c_command">Button C</string>
+    <string name="pref_c_command">c</string>
 
-    <string name="pref_title_button_c_command">Button C command</string>
-    <string name="pref_button_c_command">c</string>
+    <string name="pref_title_down_command">Button Down</string>
+    <string name="pref_down_command">down</string>
 
-    <string name="pref_title_button_down_command">Button Down command</string>
-    <string name="pref_button_down_command">c</string>
-
-    <string name="pref_title_button_d_command">Button D command</string>
-    <string name="pref_button_d_command">d</string>
+    <string name="pref_title_d_command">Button D</string>
+    <string name="pref_d_command">d</string>
 
 
 

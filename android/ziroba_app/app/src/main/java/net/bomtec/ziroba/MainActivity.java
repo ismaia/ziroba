@@ -12,11 +12,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
-import net.bomtec.zirobaapp.R;
+import net.bomtec.ziroba.R;
 
 
 public class MainActivity extends Activity {
-    private static SocketClient socketClient;
+    private SocketClient socketClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,14 +24,16 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
 
-      /*  SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+       /* SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String host = prefs.getString("host_text", "");
         EditText editText = (EditText)findViewById(R.id.edit_text_status_bar);
         String port = prefs.getString("port_text", "");
-        editText.setText("Host:"+host+" Port:"+port);*/
-/*
+        editText.setText("Host:"+host+" Port:"+port);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        socketClient = new SocketClient(host, Integer.parseInt(port));*/
+
+
+        /*SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = prefs.edit();
         editor.clear();
         editor.commit();*/
