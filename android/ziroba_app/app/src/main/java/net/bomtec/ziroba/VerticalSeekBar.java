@@ -1,4 +1,4 @@
-package net.bomtec.zirobaapp;
+package net.bomtec.ziroba;
 
 import android.content.Context;
 import android.graphics.Canvas;
