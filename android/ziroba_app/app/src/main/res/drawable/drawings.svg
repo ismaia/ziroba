@@ -12,7 +12,7 @@
    height="60.0000000"
    id="svg1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="buttons.svg"
+   sodipodi:docname="drawings.svg"
    sodipodi:version="0.32"
    version="1.0"
    width="60.0000000"
@@ -74,115 +74,110 @@
      bordercolor="#666666"
      borderopacity="1.0"
      id="base"
-     inkscape:cx="-52.609724"
-     inkscape:cy="7.6044684"
+     inkscape:cx="-59.102105"
+     inkscape:cy="41.869356"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:window-height="1057"
      inkscape:window-width="1880"
      inkscape:window-x="40"
      inkscape:window-y="0"
-     inkscape:zoom="8"
+     inkscape:zoom="22.627417"
      pagecolor="#ffffff"
      showgrid="false"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg1"
-     showguides="true"
+     showguides="false"
      inkscape:guide-bbox="true" />
   <defs
      id="defs3" />
   <g
-     id="g4440"
-     transform="translate(3.375,-35.625)">
+     id="g4374"
+     inkscape:export-xdpi="703.24268"
+     inkscape:export-ydpi="703.24268">
     <circle
        r="3.8511205"
-       cy="45.416824"
-       cx="-28.836697"
+       cy="9.7918243"
+       cx="-25.461697"
        id="path3333"
        style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <text
        sodipodi:linespacing="125%"
        id="text4135"
-       y="47.573704"
-       x="-30.900202"
+       y="11.9487"
+       x="-27.650202"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.22475004px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
-         y="47.573704"
-         x="-30.900202"
+         y="11.9487"
+         x="-27.650202"
          id="tspan4137"
          sodipodi:role="line">A</tspan></text>
   </g>
   <g
-     id="g4246"
-     inkscape:export-filename="/home/isaac/workspace/ziroba/android/ziroba_app/app/src/main/res/drawable/button_b.png"
-     inkscape:export-xdpi="703.24268"
-     inkscape:export-ydpi="703.24268"
-     transform="translate(3.2203202,-35.491514)">
+     id="g4379"
+     inkscape:export-xdpi="703.24261"
+     inkscape:export-ydpi="703.24261">
     <circle
        r="3.8511205"
-       cy="45.28334"
-       cx="-11.048543"
+       cy="9.7918262"
+       cx="-7.8282228"
        id="path3333-0"
        style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <text
        sodipodi:linespacing="125%"
        id="text4135-0"
-       y="47.443329"
-       x="-13.158733"
+       y="11.951815"
+       x="-9.7509136"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.22475004px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
-         y="47.443329"
-         x="-13.158733"
+         y="11.951815"
+         x="-9.7509136"
          id="tspan4137-5"
          sodipodi:role="line">B</tspan></text>
   </g>
   <g
-     id="g4251"
-     inkscape:export-filename="/home/isaac/workspace/ziroba/android/ziroba_app/app/src/main/res/drawable/button_c.png"
+     id="g4369"
      inkscape:export-xdpi="703.24261"
-     inkscape:export-ydpi="703.24261"
-     transform="translate(3.220321,-35.624999)">
+     inkscape:export-ydpi="703.24261">
     <circle
        r="3.8511205"
-       cy="62.740036"
-       cx="-28.682018"
+       cy="27.115038"
+       cx="-25.461697"
        id="path3333-3"
        style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <text
        sodipodi:linespacing="125%"
        id="text4135-8"
-       y="64.900024"
-       x="-30.714399"
+       y="29.275026"
+       x="-27.806578"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.22475004px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
-         y="64.900024"
-         x="-30.714399"
+         y="29.275026"
+         x="-27.806578"
          id="tspan4137-3"
          sodipodi:role="line">C</tspan></text>
   </g>
   <g
-     id="g4256"
-     inkscape:export-filename="/home/isaac/workspace/ziroba/android/ziroba_app/app/src/main/res/drawable/button_d.png"
+     id="g4364"
      inkscape:export-xdpi="703.24261"
-     inkscape:export-ydpi="703.24261"
-     transform="translate(3.5296798,-35.315639)">
+     inkscape:export-ydpi="703.24261">
     <circle
        style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="circle4187"
-       cx="-11.357903"
-       cy="62.430676"
+       cx="-7.8282228"
+       cy="27.115036"
        r="3.8511205" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.22475004px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="-13.664172"
-       y="64.59066"
+       x="-9.8844919"
+       y="29.275024"
        id="text4189"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4191"
-         x="-13.664172"
-         y="64.59066">D</tspan></text>
+         x="-9.8844919"
+         y="29.275024">D</tspan></text>
   </g>
   <g
      id="g4261"
@@ -312,45 +307,195 @@
      id="g4308-40"
      transform="translate(-3.4029507,4.1542523)"
      style="stroke:none;stroke-width:0.29499999;stroke-miterlimit:4;stroke-dasharray:none" />
+  <rect
+     style="opacity:1;fill:#ffcc00;fill-opacity:1;stroke:#404040;stroke-width:0.19008264;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     id="rect4202"
+     width="22.809917"
+     height="22.809917"
+     x="-77.042473"
+     y="4.7950401"
+     rx="0.65467834"
+     ry="0.79072952"
+     inkscape:export-filename="/home/isaac/workspace/ziroba/android/ziroba_app/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+     inkscape:export-xdpi="60"
+     inkscape:export-ydpi="60" />
   <path
-     style="opacity:1;fill:#bfbfbf;fill-opacity:1;stroke:#404040;stroke-width:0.81644994;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-     d="m -41.038682,20.73906 a 11.334817,11.334817 0 0 0 0.05423,-1.140564 11.334817,11.334817 0 0 0 -11.335381,-11.335381 11.334817,11.334817 0 0 0 -11.33538,11.335381 11.334817,11.334817 0 0 0 0.07026,1.140564 l 22.546433,0 z"
+     style="opacity:1;fill:#bfbfbf;fill-opacity:1;stroke:#404040;stroke-width:0.58927917;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     d="m -57.495269,16.951858 a 8.1809927,8.1809927 0 0 0 0.03914,-0.823211 8.1809927,8.1809927 0 0 0 -8.1814,-8.1814001 8.1809927,8.1809927 0 0 0 -8.181399,8.1814001 8.1809927,8.1809927 0 0 0 0.05071,0.823211 l 16.273063,0 z"
      id="rect4507"
      inkscape:connector-curvature="0" />
   <rect
      style="opacity:1;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
      id="rect4545"
-     width="2.059706"
-     height="10.681879"
-     x="-53.418926"
-     y="10.229425"
-     ry="0.17677653"
-     rx="0.28726214" />
+     width="1.4866089"
+     height="5.8019586"
+     x="-66.380821"
+     y="11.004187"
+     ry="0.1767765"
+     rx="0.28726217" />
   <rect
      style="opacity:1;fill:#404040;fill-opacity:1;stroke:none;stroke-width:0.29499999;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
      id="rect4550"
-     width="4.4806056"
-     height="8.0421972"
-     x="-67.324554"
-     y="21.102938"
-     rx="0.15467945"
-     ry="0.16572799" />
+     width="3.2339122"
+     height="5.8045187"
+     x="-76.475105"
+     y="17.783218"
+     rx="0.15467946"
+     ry="0.165728" />
   <rect
      style="opacity:1;fill:#404040;fill-opacity:1;stroke:none;stroke-width:0.29499999;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
      id="rect4557"
-     width="21.017759"
-     height="5.1987281"
-     x="-62.603912"
-     y="21.223789"
-     rx="0.12153381"
-     ry="0.08838819" />
+     width="14.091607"
+     height="3.7522228"
+     x="-72.683311"
+     y="17.93034"
+     rx="0.12153385"
+     ry="0.088388197" />
   <rect
      style="opacity:1;fill:#404040;fill-opacity:1;stroke:none;stroke-width:0.29499999;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
      id="rect4550-6"
-     width="4.4806056"
-     height="8.0421972"
-     x="-41.276138"
-     y="21.102938"
-     rx="0.15467945"
-     ry="0.16572799" />
+     width="3.2339122"
+     height="5.8045187"
+     x="-58.033833"
+     y="17.723322"
+     rx="0.15467946"
+     ry="0.165728" />
+  <g
+     id="g4322"
+     transform="translate(3.244518,-24.927536)"
+     inkscape:export-xdpi="703.24261"
+     inkscape:export-ydpi="703.24261">
+    <circle
+       r="3.8511205"
+       cy="62.740036"
+       cx="-28.682018"
+       id="path3333-3-4"
+       style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4135-8-9"
+       y="64.896912"
+       x="-30.557434"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.22475004px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="64.896912"
+         x="-30.557434"
+         id="tspan4137-3-7"
+         sodipodi:role="line">1</tspan></text>
+  </g>
+  <g
+     id="g4327"
+     transform="translate(3.244518,-24.927536)"
+     inkscape:export-xdpi="703.24261"
+     inkscape:export-ydpi="703.24261">
+    <circle
+       r="3.8511205"
+       cy="62.615036"
+       cx="-19.682018"
+       id="path3333-3-4-1"
+       style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4135-8-9-3"
+       y="64.821709"
+       x="-21.369934"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.22475004px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="64.821709"
+         x="-21.369934"
+         id="tspan4137-3-7-1"
+         sodipodi:role="line">2</tspan></text>
+  </g>
+  <g
+     id="g4332"
+     transform="translate(3.244518,-24.927536)"
+     inkscape:export-xdpi="703.24261"
+     inkscape:export-ydpi="703.24261">
+    <circle
+       r="3.8511205"
+       cy="62.490036"
+       cx="-10.557018"
+       id="path3333-3-4-1-1"
+       style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4135-8-9-3-3"
+       y="64.696709"
+       x="-12.244934"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.22475004px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="64.696709"
+         x="-12.244934"
+         id="tspan4137-3-7-1-5"
+         sodipodi:role="line">3</tspan></text>
+  </g>
+  <g
+     id="g4337"
+     transform="translate(3.244518,-24.927536)"
+     inkscape:export-xdpi="703.24261"
+     inkscape:export-ydpi="703.24261">
+    <circle
+       r="3.8511205"
+       cy="71.490036"
+       cx="-28.807018"
+       id="path3333-3-4-9"
+       style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4135-8-9-4"
+       y="73.646912"
+       x="-30.932434"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.22475004px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="73.646912"
+         x="-30.932434"
+         id="tspan4137-3-7-8"
+         sodipodi:role="line">4</tspan></text>
+  </g>
+  <g
+     id="g4342"
+     transform="translate(3.244518,-24.927536)"
+     inkscape:export-xdpi="703.24261"
+     inkscape:export-ydpi="703.24261">
+    <circle
+       r="3.8511205"
+       cy="71.365036"
+       cx="-19.807018"
+       id="path3333-3-4-1-9"
+       style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4135-8-9-3-6"
+       y="73.475227"
+       x="-21.494934"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.22475004px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="73.475227"
+         x="-21.494934"
+         id="tspan4137-3-7-1-1"
+         sodipodi:role="line">5</tspan></text>
+  </g>
+  <g
+     id="g4347"
+     transform="translate(3.244518,-24.927536)"
+     inkscape:export-xdpi="703.24261"
+     inkscape:export-ydpi="703.24261">
+    <circle
+       r="3.8511205"
+       cy="71.240036"
+       cx="-10.682018"
+       id="path3333-3-4-1-1-5"
+       style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4135-8-9-3-3-0"
+       y="73.359566"
+       x="-12.619934"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.22475004px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="73.359566"
+         x="-12.619934"
+         id="tspan4137-3-7-1-5-6"
+         sodipodi:role="line">6</tspan></text>
+  </g>
 </svg>

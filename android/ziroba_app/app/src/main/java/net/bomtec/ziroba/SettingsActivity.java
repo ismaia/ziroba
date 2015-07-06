@@ -9,28 +9,21 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.preference.SwitchPreference;
+import android.util.Log;
 
-
-import net.bomtec.ziroba.R;
 
 import java.util.List;
 
 
 
 /**
- * A {@link PreferenceActivity} that presents a set of application settings. On
- * handset devices, settings are presented as a single list. On tablets,
- * settings are split by category, with category headers shown to the left of
- * the list of settings.
- * <p/>
- * See <a href="http://developer.android.com/design/patterns/settings.html">
- * Android Design: Settings</a> for design guidelines and the <a
- * href="http://developer.android.com/guide/topics/ui/settings.html">Settings
- * API Guide</a> for more information on developing a Settings UI.
+ * A PreferenceActivity that presents a set of application settings.
+ * @author Isaac Maia
  */
 public class SettingsActivity extends PreferenceActivity {
 
-    public static final String PREF_CONNECTION_KEY = "switch_connect";
+    public static final String PREF_SW_CONNECTION_KEY = "switch_connect";
     public static final String PREF_HOSTTEXT_KEY = "host_text";
     public static final String PREF_PORTTEXT_KEY = "port_text";
     public static final String PREF_SPEEDLIST_KEY = "speed_list";
@@ -44,7 +37,6 @@ public class SettingsActivity extends PreferenceActivity {
     public static final String PREF_COMMAND_C_KEY = "c_command";
     public static final String PREF_COMMAND_DOWN_KEY = "down_command";
     public static final String PREF_COMMAND_D_KEY = "d_command";
-    
     
 
 
@@ -105,6 +97,25 @@ public class SettingsActivity extends PreferenceActivity {
 
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
                                               String key) {
+            if (key.equals(PREF_SW_CONNECTION_KEY)) {
+
+
+                String host = sharedPreferences.getString(PREF_HOSTTEXT_KEY, "");
+                String port = sharedPreferences.getString(PREF_PORTTEXT_KEY, "");
+
+                boolean swState = sharedPreferences.getBoolean(PREF_SW_CONNECTION_KEY, false);
+                SwitchPreference sw = (SwitchPreference)findPreference(PREF_SW_CONNECTION_KEY);
+
+                if (swState) {
+                    NetClient.getInstance().stop();
+                    NetClient.getInstance().setup(host, port);
+                    NetClient.getInstance().start();
+                }else {
+                    //close client socket
+                    NetClient.getInstance().stop();
+                }
+            }
+
             updateSummaries();
         }
 
@@ -125,7 +136,7 @@ public class SettingsActivity extends PreferenceActivity {
 
 
         private void updateSummaries() {
-            updatePrefSummary(findPreference(PREF_CONNECTION_KEY), PREF_CONNECTION_KEY);
+            updatePrefSummary(findPreference(PREF_SW_CONNECTION_KEY), PREF_SW_CONNECTION_KEY);
             updatePrefSummary(findPreference(PREF_HOSTTEXT_KEY), PREF_HOSTTEXT_KEY);
             updatePrefSummary(findPreference(PREF_PORTTEXT_KEY), PREF_PORTTEXT_KEY);
             updatePrefSummary(findPreference(PREF_SPEEDLIST_KEY), PREF_SPEEDLIST_KEY);

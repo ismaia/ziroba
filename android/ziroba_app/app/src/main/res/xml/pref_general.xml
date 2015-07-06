@@ -19,8 +19,6 @@
             android:summaryOff="Cammera is Off"
             android:defaultValue="false" />
 
-        <!-- NOTE: EditTextPreference accepts EditText attributes. -->
-        <!-- NOTE: EditTextPreference's summary should be set to its value by the activity code. -->
         <EditTextPreference
             android:key="host_text"
             android:title="@string/pref_title_host"
@@ -30,8 +28,6 @@
             android:singleLine="true"
             android:maxLines="1" />
 
-        <!-- NOTE: EditTextPreference accepts EditText attributes. -->
-        <!-- NOTE: EditTextPreference's summary should be set to its value by the activity code. -->
         <EditTextPreference
             android:key="port_text"
             android:title="@string/pref_title_port"
