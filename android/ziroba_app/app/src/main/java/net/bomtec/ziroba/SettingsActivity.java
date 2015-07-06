@@ -1,6 +1,10 @@
 package net.bomtec.ziroba;
 
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
@@ -10,6 +14,7 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.SwitchPreference;
+import android.text.method.CharacterPickerDialog;
 import android.util.Log;
 
 
@@ -27,6 +32,7 @@ public class SettingsActivity extends PreferenceActivity {
     public static final String PREF_HOSTTEXT_KEY = "host_text";
     public static final String PREF_PORTTEXT_KEY = "port_text";
     public static final String PREF_SPEEDLIST_KEY = "speed_list";
+    public static final String PREF_SW_DEFAULTS_KEY = "switch_default_values";
 
     public static final String PREF_COMMAND_A_KEY = "a_command";
     public static final String PREF_COMMAND_UP_KEY = "up_command";
@@ -43,7 +49,6 @@ public class SettingsActivity extends PreferenceActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
 
@@ -95,10 +100,12 @@ public class SettingsActivity extends PreferenceActivity {
         }
 
 
-        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
-                                              String key) {
-            if (key.equals(PREF_SW_CONNECTION_KEY)) {
+        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
 
+
+            if (key.equals(PREF_SW_CONNECTION_KEY) ||
+                    key.equals(PREF_HOSTTEXT_KEY)  ||
+                    key.equals(PREF_PORTTEXT_KEY)) {
 
                 String host = sharedPreferences.getString(PREF_HOSTTEXT_KEY, "");
                 String port = sharedPreferences.getString(PREF_PORTTEXT_KEY, "");
@@ -110,10 +117,53 @@ public class SettingsActivity extends PreferenceActivity {
                     NetClient.getInstance().stop();
                     NetClient.getInstance().setup(host, port);
                     NetClient.getInstance().start();
+
+                    //Blocks the current Thread (Thread.currentThread())
+                    //until the receiver finishes its execution and dies.
+                    NetClient.getInstance().join();
+
+
+                    if (!NetClient.getInstance().isActive()) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        builder.setTitle("Connection");
+                        builder.setMessage(R.string.dialog_connection_text);
+                        builder.setCancelable(true);
+                        builder.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                        builder.show();
+                    }
                 }else {
                     //close client socket
                     NetClient.getInstance().stop();
                 }
+
+                //update the sw state
+                sw.setChecked(NetClient.getInstance().isActive());
+            }else if (key.equals(PREF_SW_DEFAULTS_KEY)) {
+                final SharedPreferences sharedPrefs = sharedPreferences;
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("Reset Values");
+                builder.setMessage("Do you want to reset all values?");
+                builder.setCancelable(true);
+                builder.setPositiveButton(
+                        "Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                SharedPreferences.Editor editor = sharedPrefs.edit();
+                                editor.clear();
+                                editor.commit();
+                            }
+                        });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+                builder.show();
+                SwitchPreference sw = (SwitchPreference)findPreference(PREF_SW_DEFAULTS_KEY);
+                sw.setChecked(false);
             }
 
             updateSummaries();
@@ -196,9 +246,8 @@ public class SettingsActivity extends PreferenceActivity {
             updatePrefSummary(findPreference(PREF_COMMAND_DOWN_KEY), PREF_COMMAND_DOWN_KEY);
             updatePrefSummary(findPreference(PREF_COMMAND_D_KEY),PREF_COMMAND_D_KEY);
         }
-        
-
     }
+
 
 }
 

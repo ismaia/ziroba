@@ -8,6 +8,7 @@ import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 
 
@@ -17,12 +18,13 @@ import java.net.Socket;
  * @author Isaac Maia
  */
 
-public class NetClient  {
+public class NetClient   {
     private String host;
     private int port;
     private InetAddress hostAddr;
     private Socket socket = null;
     private volatile boolean active = false;
+    private Thread thread;
 
     private static volatile NetClient instance = null;
 
@@ -39,9 +41,10 @@ public class NetClient  {
 
     private NetClient() {}
 
+
     public synchronized void start() {
         if (!active) {
-            new Thread(new Runnable() {
+            thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
                     try {
@@ -54,7 +57,17 @@ public class NetClient  {
                         e.printStackTrace();
                     }
                 }
-            }).start();
+            });
+            thread.start();
+        }
+    }
+
+
+    public void join() {
+        try {
+            thread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 

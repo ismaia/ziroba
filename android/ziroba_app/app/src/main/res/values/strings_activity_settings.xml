@@ -9,8 +9,8 @@
     <string name="pref_title_camera">Camera</string>
     <string name="pref_description_camera">Enable Robot camera</string>
 
-    <string name="pref_title_host">Host Name or IP address</string>
-    <string name="pref_default_host_name">ziroba</string>
+    <string name="pref_title_host">Host IP address</string>
+    <string name="pref_default_host_name">192.168.0.5</string>
 
     <string name="pref_title_port">Port</string>
     <string name="pref_default_port">8090</string>

@@ -21,12 +21,6 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String host = prefs.getString(SettingsActivity.PREF_HOSTTEXT_KEY, "");
-        String port = prefs.getString(SettingsActivity.PREF_PORTTEXT_KEY, "");
-        NetClient.getInstance().setup(host, port);
-
     }
 
     @Override
