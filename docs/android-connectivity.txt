@@ -1,0 +1,15 @@
+
+On PC side:
+    ncat -v -l -k -p 8090 #netcat 
+
+
+On Smarthphone: 
+    Start the Ziroba App
+    Configure IP addr and Port number
+    Turn on Connection Switch
+    Go back to main Activity
+
+
+
+Now press buttons to check if connection is ok
+If ok you will see messages on the PC
