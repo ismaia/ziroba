@@ -74,15 +74,15 @@
      bordercolor="#666666"
      borderopacity="1.0"
      id="base"
-     inkscape:cx="-59.102105"
-     inkscape:cy="41.869356"
+     inkscape:cx="-61.102786"
+     inkscape:cy="19.219752"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:window-height="1057"
-     inkscape:window-width="1880"
-     inkscape:window-x="40"
-     inkscape:window-y="0"
-     inkscape:zoom="22.627417"
+     inkscape:window-height="1033"
+     inkscape:window-width="1885"
+     inkscape:window-x="35"
+     inkscape:window-y="24"
+     inkscape:zoom="11.313709"
      pagecolor="#ffffff"
      showgrid="false"
      inkscape:window-maximized="1"
@@ -93,8 +93,8 @@
      id="defs3" />
   <g
      id="g4374"
-     inkscape:export-xdpi="703.24268"
-     inkscape:export-ydpi="703.24268">
+     inkscape:export-xdpi="527.42999"
+     inkscape:export-ydpi="527.42999">
     <circle
        r="3.8511205"
        cy="9.7918243"
@@ -115,8 +115,8 @@
   </g>
   <g
      id="g4379"
-     inkscape:export-xdpi="703.24261"
-     inkscape:export-ydpi="703.24261">
+     inkscape:export-xdpi="527.42999"
+     inkscape:export-ydpi="527.42999">
     <circle
        r="3.8511205"
        cy="9.7918262"
@@ -137,8 +137,8 @@
   </g>
   <g
      id="g4369"
-     inkscape:export-xdpi="703.24261"
-     inkscape:export-ydpi="703.24261">
+     inkscape:export-xdpi="527.42999"
+     inkscape:export-ydpi="527.42999">
     <circle
        r="3.8511205"
        cy="27.115038"
@@ -159,8 +159,8 @@
   </g>
   <g
      id="g4364"
-     inkscape:export-xdpi="703.24261"
-     inkscape:export-ydpi="703.24261">
+     inkscape:export-xdpi="527.42999"
+     inkscape:export-ydpi="527.42999">
     <circle
        style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="circle4187"
@@ -182,8 +182,8 @@
   <g
      id="g4261"
      inkscape:export-filename="/home/isaac/workspace/ziroba/android/ziroba_app/app/src/main/res/drawable/button_x.png"
-     inkscape:export-xdpi="703.24261"
-     inkscape:export-ydpi="703.24261"
+     inkscape:export-xdpi="527.42999"
+     inkscape:export-ydpi="527.42999"
      transform="translate(3.4412907,-35.77968)">
     <circle
        r="3.8511205"
@@ -206,8 +206,8 @@
   <g
      id="g4416"
      transform="translate(34.509796,-35.358931)"
-     inkscape:export-xdpi="703.24261"
-     inkscape:export-ydpi="703.24261">
+     inkscape:export-xdpi="527.42999"
+     inkscape:export-ydpi="527.42999">
     <g
        transform="translate(-7.2036503,-2.5632621)"
        id="g4311">
@@ -231,8 +231,8 @@
   <g
      id="g4434"
      transform="translate(34.509795,-27.272303)"
-     inkscape:export-xdpi="703.24261"
-     inkscape:export-ydpi="703.24261">
+     inkscape:export-xdpi="527.42999"
+     inkscape:export-ydpi="527.42999">
     <g
        transform="matrix(-1,0,0,-1,-94.97328,102.10136)"
        id="g4311-2">
@@ -256,8 +256,8 @@
   <g
      id="g4428"
      transform="translate(35.658843,-26.764068)"
-     inkscape:export-xdpi="703.24261"
-     inkscape:export-ydpi="703.24261">
+     inkscape:export-xdpi="527.42999"
+     inkscape:export-ydpi="527.42999">
     <g
        transform="matrix(0,-1,1,0,-108.83456,1.3101365)"
        id="g4311-1">
@@ -281,8 +281,8 @@
   <g
      id="g4422"
      transform="translate(33.228164,-26.587291)"
-     inkscape:export-xdpi="703.24261"
-     inkscape:export-ydpi="703.24261">
+     inkscape:export-xdpi="527.42999"
+     inkscape:export-ydpi="527.42999">
     <g
        transform="matrix(0,1,-1,0,6.6576327,88.90299)"
        id="g4311-17">
@@ -312,190 +312,271 @@
      id="rect4202"
      width="22.809917"
      height="22.809917"
-     x="-77.042473"
-     y="4.7950401"
-     rx="0.65467834"
-     ry="0.79072952"
-     inkscape:export-filename="/home/isaac/workspace/ziroba/android/ziroba_app/app/src/main/res/mipmap-mdpi/ic_launcher.png"
-     inkscape:export-xdpi="60"
-     inkscape:export-ydpi="60" />
-  <path
-     style="opacity:1;fill:#bfbfbf;fill-opacity:1;stroke:#404040;stroke-width:0.58927917;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-     d="m -57.495269,16.951858 a 8.1809927,8.1809927 0 0 0 0.03914,-0.823211 8.1809927,8.1809927 0 0 0 -8.1814,-8.1814001 8.1809927,8.1809927 0 0 0 -8.181399,8.1814001 8.1809927,8.1809927 0 0 0 0.05071,0.823211 l 16.273063,0 z"
-     id="rect4507"
-     inkscape:connector-curvature="0" />
-  <rect
-     style="opacity:1;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-     id="rect4545"
-     width="1.4866089"
-     height="5.8019586"
-     x="-66.380821"
-     y="11.004187"
-     ry="0.1767765"
-     rx="0.28726217" />
-  <rect
-     style="opacity:1;fill:#404040;fill-opacity:1;stroke:none;stroke-width:0.29499999;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-     id="rect4550"
-     width="3.2339122"
-     height="5.8045187"
-     x="-76.475105"
-     y="17.783218"
-     rx="0.15467946"
-     ry="0.165728" />
-  <rect
-     style="opacity:1;fill:#404040;fill-opacity:1;stroke:none;stroke-width:0.29499999;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-     id="rect4557"
-     width="14.091607"
-     height="3.7522228"
-     x="-72.683311"
-     y="17.93034"
-     rx="0.12153385"
-     ry="0.088388197" />
-  <rect
-     style="opacity:1;fill:#404040;fill-opacity:1;stroke:none;stroke-width:0.29499999;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-     id="rect4550-6"
-     width="3.2339122"
-     height="5.8045187"
-     x="-58.033833"
-     y="17.723322"
-     rx="0.15467946"
-     ry="0.165728" />
+     x="-59.983524"
+     y="6.4744186"
+     rx="2.2456686"
+     ry="2.2049432"
+     inkscape:export-filename="/home/isaac/workspace/ziroba/android/ziroba_app/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+     inkscape:export-xdpi="704.34998"
+     inkscape:export-ydpi="704.34998" />
   <g
-     id="g4322"
-     transform="translate(3.244518,-24.927536)"
-     inkscape:export-xdpi="703.24261"
-     inkscape:export-ydpi="703.24261">
-    <circle
-       r="3.8511205"
-       cy="62.740036"
-       cx="-28.682018"
-       id="path3333-3-4"
-       style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-    <text
-       sodipodi:linespacing="125%"
-       id="text4135-8-9"
-       y="64.896912"
-       x="-30.557434"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.22475004px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
-         y="64.896912"
-         x="-30.557434"
-         id="tspan4137-3-7"
-         sodipodi:role="line">1</tspan></text>
+     id="g4229"
+     transform="matrix(0.7611731,-0.64854877,0.64854877,0.7611731,-10.810914,-38.374279)"
+     inkscape:export-filename="/home/isaac/workspace/ziroba/android/ziroba_app/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+     inkscape:export-xdpi="704.34998"
+     inkscape:export-ydpi="704.34998">
+    <path
+       inkscape:export-ydpi="125.22"
+       inkscape:export-xdpi="125.22"
+       inkscape:export-filename="/home/isaac/workspace/ziroba/android/ziroba_app/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+       inkscape:connector-curvature="0"
+       id="rect4507"
+       d="m -57.423348,16.552 a 8.1809927,8.1809927 0 0 0 0.03914,-0.823211 8.1809927,8.1809927 0 0 0 -8.1814,-8.1814001 8.1809927,8.1809927 0 0 0 -8.181399,8.1814001 8.1809927,8.1809927 0 0 0 0.05071,0.823211 l 16.273063,0 z"
+       style="opacity:1;fill:#ffcc00;fill-opacity:1;stroke:#404040;stroke-width:0.89999998;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <rect
+       inkscape:export-ydpi="125.22"
+       inkscape:export-xdpi="125.22"
+       inkscape:export-filename="/home/isaac/workspace/ziroba/android/ziroba_app/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+       rx="0.28726217"
+       ry="0.1767765"
+       y="10.604327"
+       x="-66.308899"
+       height="5.8019586"
+       width="1.4866089"
+       id="rect4545"
+       style="opacity:1;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <rect
+       inkscape:export-ydpi="125.22"
+       inkscape:export-xdpi="125.22"
+       inkscape:export-filename="/home/isaac/workspace/ziroba/android/ziroba_app/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+       ry="0.165728"
+       rx="0.15467946"
+       y="17.395126"
+       x="-75.977707"
+       height="5.8045187"
+       width="3.2339122"
+       id="rect4550"
+       style="opacity:1;fill:#404040;fill-opacity:1;stroke:none;stroke-width:0.29499999;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <rect
+       inkscape:export-ydpi="125.22"
+       inkscape:export-xdpi="125.22"
+       inkscape:export-filename="/home/isaac/workspace/ziroba/android/ziroba_app/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+       ry="0.088388197"
+       rx="0.12153385"
+       y="17.853827"
+       x="-72.081062"
+       height="3.7522228"
+       width="13.030947"
+       id="rect4557"
+       style="opacity:1;fill:#404040;fill-opacity:1;stroke:none;stroke-width:0.29499999;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <rect
+       inkscape:export-ydpi="125.22"
+       inkscape:export-xdpi="125.22"
+       inkscape:export-filename="/home/isaac/workspace/ziroba/android/ziroba_app/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+       ry="0.165728"
+       rx="0.15467946"
+       y="17.395126"
+       x="-58.387386"
+       height="5.8045187"
+       width="3.2339122"
+       id="rect4550-6"
+       style="opacity:1;fill:#404040;fill-opacity:1;stroke:none;stroke-width:0.29499999;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
   </g>
-  <g
-     id="g4327"
-     transform="translate(3.244518,-24.927536)"
-     inkscape:export-xdpi="703.24261"
-     inkscape:export-ydpi="703.24261">
-    <circle
-       r="3.8511205"
-       cy="62.615036"
-       cx="-19.682018"
-       id="path3333-3-4-1"
-       style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-    <text
-       sodipodi:linespacing="125%"
-       id="text4135-8-9-3"
-       y="64.821709"
-       x="-21.369934"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.22475004px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
-         y="64.821709"
-         x="-21.369934"
-         id="tspan4137-3-7-1"
-         sodipodi:role="line">2</tspan></text>
-  </g>
-  <g
-     id="g4332"
-     transform="translate(3.244518,-24.927536)"
-     inkscape:export-xdpi="703.24261"
-     inkscape:export-ydpi="703.24261">
-    <circle
-       r="3.8511205"
-       cy="62.490036"
-       cx="-10.557018"
-       id="path3333-3-4-1-1"
-       style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-    <text
-       sodipodi:linespacing="125%"
-       id="text4135-8-9-3-3"
-       y="64.696709"
-       x="-12.244934"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.22475004px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
-         y="64.696709"
-         x="-12.244934"
-         id="tspan4137-3-7-1-5"
-         sodipodi:role="line">3</tspan></text>
-  </g>
-  <g
-     id="g4337"
-     transform="translate(3.244518,-24.927536)"
-     inkscape:export-xdpi="703.24261"
-     inkscape:export-ydpi="703.24261">
-    <circle
-       r="3.8511205"
-       cy="71.490036"
-       cx="-28.807018"
-       id="path3333-3-4-9"
-       style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-    <text
-       sodipodi:linespacing="125%"
-       id="text4135-8-9-4"
-       y="73.646912"
-       x="-30.932434"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.22475004px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
-         y="73.646912"
-         x="-30.932434"
-         id="tspan4137-3-7-8"
-         sodipodi:role="line">4</tspan></text>
-  </g>
-  <g
-     id="g4342"
-     transform="translate(3.244518,-24.927536)"
-     inkscape:export-xdpi="703.24261"
-     inkscape:export-ydpi="703.24261">
-    <circle
-       r="3.8511205"
-       cy="71.365036"
-       cx="-19.807018"
-       id="path3333-3-4-1-9"
-       style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-    <text
-       sodipodi:linespacing="125%"
-       id="text4135-8-9-3-6"
-       y="73.475227"
-       x="-21.494934"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.22475004px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
-         y="73.475227"
-         x="-21.494934"
-         id="tspan4137-3-7-1-1"
-         sodipodi:role="line">5</tspan></text>
-  </g>
-  <g
-     id="g4347"
-     transform="translate(3.244518,-24.927536)"
-     inkscape:export-xdpi="703.24261"
-     inkscape:export-ydpi="703.24261">
-    <circle
-       r="3.8511205"
-       cy="71.240036"
-       cx="-10.682018"
-       id="path3333-3-4-1-1-5"
-       style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-    <text
-       sodipodi:linespacing="125%"
-       id="text4135-8-9-3-3-0"
-       y="73.359566"
-       x="-12.619934"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.22475004px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
-         y="73.359566"
-         x="-12.619934"
-         id="tspan4137-3-7-1-5-6"
-         sodipodi:role="line">6</tspan></text>
-  </g>
+  <circle
+     style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     id="path3333-2"
+     cx="-59.124996"
+     cy="39.75"
+     r="3.8511205"
+     inkscape:export-xdpi="351.62"
+     inkscape:export-ydpi="351.62" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.22475004px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="-60.872272"
+     y="41.906876"
+     id="text4135-2"
+     sodipodi:linespacing="125%"
+     inkscape:export-xdpi="351.62"
+     inkscape:export-ydpi="351.62"><tspan
+       sodipodi:role="line"
+       id="tspan4137-2"
+       x="-60.872272"
+       y="41.906876">1</tspan></text>
+  <circle
+     inkscape:export-ydpi="351.62"
+     inkscape:export-xdpi="351.62"
+     r="3.8511205"
+     cy="39.661613"
+     cx="-50.197773"
+     id="circle4207"
+     style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+  <text
+     inkscape:export-ydpi="351.62"
+     inkscape:export-xdpi="351.62"
+     sodipodi:linespacing="125%"
+     id="text4209"
+     y="41.818489"
+     x="-51.945049"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.22475004px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       y="41.818489"
+       x="-51.945049"
+       id="tspan4211"
+       sodipodi:role="line">1</tspan></text>
+  <circle
+     style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     id="circle4213"
+     cx="-41.535717"
+     cy="39.30806"
+     r="3.8511205"
+     inkscape:export-xdpi="351.62"
+     inkscape:export-ydpi="351.62" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.22475004px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="-43.282993"
+     y="41.464935"
+     id="text4215"
+     sodipodi:linespacing="125%"
+     inkscape:export-xdpi="351.62"
+     inkscape:export-ydpi="351.62"><tspan
+       sodipodi:role="line"
+       id="tspan4217"
+       x="-43.282993"
+       y="41.464935">1</tspan></text>
+  <circle
+     inkscape:export-ydpi="351.62"
+     inkscape:export-xdpi="351.62"
+     r="3.8511205"
+     cy="47.616566"
+     cx="-41.182163"
+     id="circle4219"
+     style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+  <text
+     inkscape:export-ydpi="351.62"
+     inkscape:export-xdpi="351.62"
+     sodipodi:linespacing="125%"
+     id="text4221"
+     y="49.773441"
+     x="-42.92944"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.22475004px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       y="49.773441"
+       x="-42.92944"
+       id="tspan4223"
+       sodipodi:role="line">1</tspan></text>
+  <circle
+     style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     id="circle4225"
+     cx="-50.639717"
+     cy="47.704952"
+     r="3.8511205"
+     inkscape:export-xdpi="351.62"
+     inkscape:export-ydpi="351.62" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.22475004px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="-52.386993"
+     y="49.861828"
+     id="text4227"
+     sodipodi:linespacing="125%"
+     inkscape:export-xdpi="351.62"
+     inkscape:export-ydpi="351.62"><tspan
+       sodipodi:role="line"
+       id="tspan4229"
+       x="-52.386993"
+       y="49.861828">1</tspan></text>
+  <circle
+     inkscape:export-ydpi="351.62"
+     inkscape:export-xdpi="351.62"
+     r="3.8511205"
+     cy="48.41206"
+     cx="-59.56694"
+     id="circle4231"
+     style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+  <text
+     inkscape:export-ydpi="351.62"
+     inkscape:export-xdpi="351.62"
+     sodipodi:linespacing="125%"
+     id="text4233"
+     y="50.568935"
+     x="-61.314217"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.22475004px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       y="50.568935"
+       x="-61.314217"
+       id="tspan4235"
+       sodipodi:role="line">1</tspan></text>
+  <circle
+     style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     id="circle4237"
+     cx="-59.56694"
+     cy="56.455399"
+     r="3.8511205"
+     inkscape:export-xdpi="351.62"
+     inkscape:export-ydpi="351.62" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.22475004px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="-61.314217"
+     y="58.612274"
+     id="text4239"
+     sodipodi:linespacing="125%"
+     inkscape:export-xdpi="351.62"
+     inkscape:export-ydpi="351.62"><tspan
+       sodipodi:role="line"
+       id="tspan4241"
+       x="-61.314217"
+       y="58.612274">1</tspan></text>
+  <circle
+     inkscape:export-ydpi="351.62"
+     inkscape:export-xdpi="351.62"
+     r="3.8511205"
+     cy="56.632175"
+     cx="-50.46294"
+     id="circle4243"
+     style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+  <text
+     inkscape:export-ydpi="351.62"
+     inkscape:export-xdpi="351.62"
+     sodipodi:linespacing="125%"
+     id="text4245"
+     y="58.789051"
+     x="-52.210217"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.22475004px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       y="58.789051"
+       x="-52.210217"
+       id="tspan4247"
+       sodipodi:role="line">1</tspan></text>
+  <circle
+     style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     id="circle4249"
+     cx="-42.242825"
+     cy="56.455399"
+     r="3.8511205"
+     inkscape:export-xdpi="351.62"
+     inkscape:export-ydpi="351.62" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.22475004px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#404040;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="-43.990101"
+     y="58.612274"
+     id="text4251"
+     sodipodi:linespacing="125%"
+     inkscape:export-xdpi="351.62"
+     inkscape:export-ydpi="351.62"><tspan
+       sodipodi:role="line"
+       id="tspan4253"
+       x="-43.990101"
+       y="58.612274">1</tspan></text>
+  <circle
+     style="opacity:1;fill:#bfbfbf;fill-opacity:0.99607843;stroke:#404040;stroke-width:0.48838884;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     id="path3333-2-3"
+     cx="-24.48357"
+     cy="42.587494"
+     r="3.8511205"
+     inkscape:export-xdpi="351.62"
+     inkscape:export-ydpi="351.62" />
 </svg>

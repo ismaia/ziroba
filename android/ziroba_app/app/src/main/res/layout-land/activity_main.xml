@@ -11,45 +11,53 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:paddingBottom="20dp"
+        android:paddingBottom="10dp"
         >
         <net.bomtec.ziroba.VerticalSeekBar
             android:id="@+id/seekbar1"
             android:layout_width="wrap_content"
             android:layout_height="140dp"
             android:max="100"
-            android:paddingBottom="20dp"
-            android:paddingTop="20dp"
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp"
             />
         <net.bomtec.ziroba.VerticalSeekBar
             android:id="@+id/seekbar2"
             android:layout_width="wrap_content"
             android:layout_height="140dp"
             android:max="100"
-            android:paddingBottom="20dp"
-            android:paddingTop="20dp"
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp"
             />
+
+        <VideoView
+            android:id="@+id/videoview"
+            android:layout_width="240dp"
+            android:layout_height="160dp"
+            />
+
         <net.bomtec.ziroba.VerticalSeekBar
             android:id="@+id/seekbar3"
             android:layout_width="wrap_content"
             android:layout_height="140dp"
             android:max="100"
-            android:paddingBottom="20dp"
-            android:paddingTop="20dp"
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp"
             />
         <net.bomtec.ziroba.VerticalSeekBar
             android:id="@+id/seekbar4"
             android:layout_width="wrap_content"
             android:layout_height="140dp"
             android:max="100"
-            android:paddingBottom="20dp"
-            android:paddingTop="20dp"
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp"
             />
     </LinearLayout>
 
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="center"
         >
         <Button
@@ -88,14 +96,6 @@
             android:layout_height="wrap_content"
             android:onClick="sendCommandD"
             />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        >
-
         <Button
             android:id="@+id/button5"
             android:text="@string/button5_text"
@@ -131,18 +131,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="sendCommandH"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        >
-        <VideoView
-            android:id="@+id/videoview"
-            android:layout_width="240dp"
-            android:layout_height="160dp"
             />
     </LinearLayout>
 

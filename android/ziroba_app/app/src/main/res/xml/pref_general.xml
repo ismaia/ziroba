@@ -15,8 +15,8 @@
         <CheckBoxPreference
             android:key="camera_checkbox"
             android:title="@string/pref_title_camera"
-            android:summaryOn="Cammera is On"
-            android:summaryOff="Cammera is Off"
+            android:summaryOn="Camera is On"
+            android:summaryOff="Camera is Off"
             android:defaultValue="false" />
 
         <EditTextPreference
@@ -37,10 +37,7 @@
             android:singleLine="true"
             android:maxLines="1" />
 
-        <!-- NOTE: Hide buttons to simplify the UI. Users can touch outside the dialog to
-             dismiss it. -->
-        <!-- NOTE: ListPreference's summary should be set to its value by the activity code. -->
-        <ListPreference
+         <ListPreference
             android:key="speed_list"
             android:title="@string/pref_title_default_speed"
             android:defaultValue="60"
@@ -49,12 +46,11 @@
             android:negativeButtonText="@null"
             android:positiveButtonText="@null" />
 
-        <SwitchPreference
-            android:key="switch_default_values"
+        <Preference
+            android:key="pref_default_values"
             android:title="Defaults"
-            android:defaultValue="false"
-            android:summaryOn="Reset values to defaults"
-            android:summaryOff="Reset values to defaults"
+            android:summary="Reset values to defaults"
+            android:enabled="true"
             />
 
 

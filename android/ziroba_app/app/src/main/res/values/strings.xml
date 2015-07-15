@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">Ziroba</string>
     <string name="action_settings">Settings</string>
-    <string name="dialog_connection_text">Cannot connect to destination host,
-                                          check IP and the Port number</string>
+    <string name="button1_text">A</string>
+    <string name="button2_text">B</string>
+    <string name="button3_text">C</string>
+    <string name="button4_text">D</string>
+    <string name="button5_text">E</string>
+    <string name="button6_text">F</string>
+    <string name="button7_text">G</string>
+    <string name="button8_text">H</string>
 </resources>

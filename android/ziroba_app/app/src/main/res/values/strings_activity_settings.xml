@@ -34,35 +34,34 @@
         <item>100</item>
     </string-array>
 
-    <!--  Commands Settings -->
-    <string name="pref_commands_title">Control Commands</string>
+    <string name="dialog_connection_text">Cannot connect to destination host,
+                                          check IP and the Port number</string>
+
+    <!--  Buttons Settings -->
+    <string name="pref_commands_title">Buttons</string>
     <string name="pref_title_a_command">Button A</string>
     <string name="pref_a_command">a</string>
-
-    <string name="pref_title_up_command">Button UP</string>
-    <string name="pref_up_command">up</string>
 
     <string name="pref_title_b_command">Button B</string>
     <string name="pref_b_command">b</string>
 
-    <string name="pref_title_left_command">Button Left</string>
-    <string name="pref_left_command">left</string>
-
-    <string name="pref_title_x_command">Button X</string>
-    <string name="pref_x_command">x</string>
-
-    <string name="pref_title_right_command">Button Right</string>
-    <string name="pref_right_command">right</string>
-
     <string name="pref_title_c_command">Button C</string>
     <string name="pref_c_command">c</string>
-
-    <string name="pref_title_down_command">Button Down</string>
-    <string name="pref_down_command">down</string>
 
     <string name="pref_title_d_command">Button D</string>
     <string name="pref_d_command">d</string>
 
+    <string name="pref_title_e_command">Button E</string>
+    <string name="pref_e_command">e</string>
+
+    <string name="pref_title_f_command">Button F</string>
+    <string name="pref_f_command">f</string>
+
+    <string name="pref_title_g_command">Button G</string>
+    <string name="pref_g_command">g</string>
+
+    <string name="pref_title_h_command">Button H</string>
+    <string name="pref_h_command">h</string>
 
 
 </resources>

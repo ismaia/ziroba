@@ -26,7 +26,7 @@ install(TARGETS zrobot DESTINATION lib)
 
 #these are all compiled the same way
 set(PROGRAMS ZKeypad ZBtJoystickClient ZBtJoystickServer)
-set(CORELIBS bluetooth ncurses zrobot blacklib)
+set(CORELIBS ncurses zrobot blacklib)
 
 foreach(program ${PROGRAMS})
     string(TOLOWER ${program} lcaseprogram)

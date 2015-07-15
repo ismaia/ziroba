@@ -2,8 +2,6 @@ package net.bomtec.ziroba;
 
 
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,8 +12,6 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.SwitchPreference;
-import android.text.method.CharacterPickerDialog;
-import android.util.Log;
 
 
 import java.util.List;
@@ -28,27 +24,30 @@ import java.util.List;
  */
 public class SettingsActivity extends PreferenceActivity {
 
-    public static final String PREF_SW_CONNECTION_KEY = "switch_connect";
-    public static final String PREF_HOSTTEXT_KEY = "host_text";
-    public static final String PREF_PORTTEXT_KEY = "port_text";
-    public static final String PREF_SPEEDLIST_KEY = "speed_list";
-    public static final String PREF_SW_DEFAULTS_KEY = "switch_default_values";
+    public static final String PREF_KEY_SW_CONNECTION = "switch_connect";
+    public static final String PREF_KEY_HOST_TEXT = "host_text";
+    public static final String PREF_KEY_PORT_TEXT = "port_text";
+    public static final String PREF_KEY_SPEED_LIST = "speed_list";
+    public static final String PREF_KEY_DEFAULT = "pref_default_values";
 
-    public static final String PREF_COMMAND_A_KEY = "a_command";
-    public static final String PREF_COMMAND_UP_KEY = "up_command";
-    public static final String PREF_COMMAND_B_KEY = "b_command";
-    public static final String PREF_COMMAND_LEFT_KEY = "left_command";
-    public static final String PREF_COMMAND_X_KEY = "x_command";
-    public static final String PREF_COMMAND_RIGHT_KEY = "right_command";
-    public static final String PREF_COMMAND_C_KEY = "c_command";
-    public static final String PREF_COMMAND_DOWN_KEY = "down_command";
-    public static final String PREF_COMMAND_D_KEY = "d_command";
-    
+    public static final String PREF_KEY_COMMAND_A = "a_command";
+    public static final String PREF_KEY_COMMAND_B = "b_command";
+    public static final String PREF_KEY_COMMAND_C = "c_command";
+    public static final String PREF_KEY_COMMAND_D = "d_command";
+    public static final String PREF_KEY_COMMAND_E = "e_command";
+    public static final String PREF_KEY_COMMAND_F = "f_command";
+    public static final String PREF_KEY_COMMAND_G = "g_command";
+    public static final String PREF_KEY_COMMAND_H = "h_command";
+
+
+    private static SharedPreferences sharedPreferences;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sharedPreferences =   PreferenceManager.getDefaultSharedPreferences(this);
+
     }
 
 
@@ -60,9 +59,8 @@ public class SettingsActivity extends PreferenceActivity {
     }
 
 
-
     /**
-     * Populate the activity with the top-level headers.
+     * Populates the activity with the top-level headers.
      */
     @Override
     public void onBuildHeaders(List<Header> target) {
@@ -70,10 +68,17 @@ public class SettingsActivity extends PreferenceActivity {
     }
 
 
-    private static void updatePrefSummary(Preference pref, String key) {
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(pref.getContext());
-        if (pref instanceof EditTextPreference || pref instanceof  ListPreference) {
-            pref.setSummary(sharedPreferences.getString(key, ""));
+    /**
+     * Updates summaries with their new values
+     * @param pref
+     */
+    private static void updatePrefSummary(Preference pref) {
+        if (pref instanceof EditTextPreference) {
+            EditTextPreference editTextPref = (EditTextPreference)pref;
+            pref.setSummary(editTextPref.getText());
+        }else if (pref instanceof ListPreference) {
+            ListPreference listPref = (ListPreference) pref;
+            pref.setSummary(listPref.getEntry());
         }
     }
 
@@ -96,6 +101,38 @@ public class SettingsActivity extends PreferenceActivity {
 
             addPreferencesFromResource(R.xml.pref_general);
 
+
+            Preference pref = (Preference) findPreference(PREF_KEY_DEFAULT);
+            pref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                public boolean onPreferenceClick(Preference preference) {
+                    //open browser or intent here
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setTitle("Reset Values");
+                    builder.setMessage("Do you want to reset all values?");
+                    builder.setCancelable(true);
+                    builder.setPositiveButton(
+                            "Yes", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.clear();
+                                    editor.commit();
+                                }
+                            });
+                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+                    builder.create();
+                    builder.show();
+                    return true;
+                }
+            });
+
+            //sets the right value to the connection switch
+            SwitchPreference sw = (SwitchPreference)findPreference(PREF_KEY_SW_CONNECTION);
+            sw.setChecked(CmdClient.getInstance().isActive());
+
             updateSummaries();
         }
 
@@ -103,27 +140,26 @@ public class SettingsActivity extends PreferenceActivity {
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
 
 
-            if (key.equals(PREF_SW_CONNECTION_KEY) ||
-                    key.equals(PREF_HOSTTEXT_KEY)  ||
-                    key.equals(PREF_PORTTEXT_KEY)) {
+            if (key.equals(PREF_KEY_SW_CONNECTION) ||
+                    key.equals(PREF_KEY_HOST_TEXT)  ||
+                    key.equals(PREF_KEY_PORT_TEXT)) {
 
-                String host = sharedPreferences.getString(PREF_HOSTTEXT_KEY, "");
-                String port = sharedPreferences.getString(PREF_PORTTEXT_KEY, "");
+                String host = sharedPreferences.getString(PREF_KEY_HOST_TEXT, "");
+                String port = sharedPreferences.getString(PREF_KEY_PORT_TEXT, "");
 
-                boolean swState = sharedPreferences.getBoolean(PREF_SW_CONNECTION_KEY, false);
-                SwitchPreference sw = (SwitchPreference)findPreference(PREF_SW_CONNECTION_KEY);
+                boolean swState = sharedPreferences.getBoolean(PREF_KEY_SW_CONNECTION, false);
+                SwitchPreference sw = (SwitchPreference)findPreference(PREF_KEY_SW_CONNECTION);
 
                 if (swState) {
-                    NetClient.getInstance().stop();
-                    NetClient.getInstance().setup(host, port);
-                    NetClient.getInstance().start();
+                    CmdClient.getInstance().stop();
+                    CmdClient.getInstance().setup(host, port);
+                    CmdClient.getInstance().start();
 
-                    //Blocks the current Thread (Thread.currentThread())
-                    //until the receiver finishes its execution and dies.
-                    NetClient.getInstance().join();
+                    //Blocks the current Thread until the receiver finishes its execution and dies.
+                    CmdClient.getInstance().join();
 
 
-                    if (!NetClient.getInstance().isActive()) {
+                    if (!CmdClient.getInstance().isActive()) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                         builder.setTitle("Connection");
                         builder.setMessage(R.string.dialog_connection_text);
@@ -133,37 +169,16 @@ public class SettingsActivity extends PreferenceActivity {
                                 dialog.cancel();
                             }
                         });
+                        builder.create();
                         builder.show();
                     }
                 }else {
                     //close client socket
-                    NetClient.getInstance().stop();
+                    CmdClient.getInstance().stop();
                 }
 
                 //update the sw state
-                sw.setChecked(NetClient.getInstance().isActive());
-            }else if (key.equals(PREF_SW_DEFAULTS_KEY)) {
-                final SharedPreferences sharedPrefs = sharedPreferences;
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setTitle("Reset Values");
-                builder.setMessage("Do you want to reset all values?");
-                builder.setCancelable(true);
-                builder.setPositiveButton(
-                        "Yes", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                SharedPreferences.Editor editor = sharedPrefs.edit();
-                                editor.clear();
-                                editor.commit();
-                            }
-                        });
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-                builder.show();
-                SwitchPreference sw = (SwitchPreference)findPreference(PREF_SW_DEFAULTS_KEY);
-                sw.setChecked(false);
+                sw.setChecked(CmdClient.getInstance().isActive());
             }
 
             updateSummaries();
@@ -186,10 +201,10 @@ public class SettingsActivity extends PreferenceActivity {
 
 
         private void updateSummaries() {
-            updatePrefSummary(findPreference(PREF_SW_CONNECTION_KEY), PREF_SW_CONNECTION_KEY);
-            updatePrefSummary(findPreference(PREF_HOSTTEXT_KEY), PREF_HOSTTEXT_KEY);
-            updatePrefSummary(findPreference(PREF_PORTTEXT_KEY), PREF_PORTTEXT_KEY);
-            updatePrefSummary(findPreference(PREF_SPEEDLIST_KEY), PREF_SPEEDLIST_KEY);
+            updatePrefSummary(findPreference(PREF_KEY_SW_CONNECTION));
+            updatePrefSummary(findPreference(PREF_KEY_HOST_TEXT));
+            updatePrefSummary(findPreference(PREF_KEY_PORT_TEXT));
+            updatePrefSummary(findPreference(PREF_KEY_SPEED_LIST));
         }
 
     }
@@ -206,10 +221,10 @@ public class SettingsActivity extends PreferenceActivity {
             // want this in a shared function that is used to retrieve the
             // SharedPreferences wherever they are needed.
             PreferenceManager.setDefaultValues(getActivity(),
-                    R.xml.pref_commands, false);
+                    R.xml.pref_buttons, false);
 
             // Load the preferences from an XML resource
-            addPreferencesFromResource(R.xml.pref_commands);
+            addPreferencesFromResource(R.xml.pref_buttons);
             
             // Load and show default values
             updateSummaries();
@@ -236,15 +251,16 @@ public class SettingsActivity extends PreferenceActivity {
 
 
         private void updateSummaries() {
-            updatePrefSummary(findPreference(PREF_COMMAND_A_KEY),PREF_COMMAND_A_KEY);
-            updatePrefSummary(findPreference(PREF_COMMAND_UP_KEY), PREF_COMMAND_UP_KEY);
-            updatePrefSummary(findPreference(PREF_COMMAND_B_KEY),PREF_COMMAND_B_KEY);
-            updatePrefSummary(findPreference(PREF_COMMAND_LEFT_KEY), PREF_COMMAND_LEFT_KEY);
-            updatePrefSummary(findPreference(PREF_COMMAND_X_KEY),PREF_COMMAND_X_KEY);
-            updatePrefSummary(findPreference(PREF_COMMAND_RIGHT_KEY), PREF_COMMAND_RIGHT_KEY);
-            updatePrefSummary(findPreference(PREF_COMMAND_C_KEY),PREF_COMMAND_C_KEY);
-            updatePrefSummary(findPreference(PREF_COMMAND_DOWN_KEY), PREF_COMMAND_DOWN_KEY);
-            updatePrefSummary(findPreference(PREF_COMMAND_D_KEY),PREF_COMMAND_D_KEY);
+            updatePrefSummary(findPreference(PREF_KEY_COMMAND_A));
+            updatePrefSummary(findPreference(PREF_KEY_COMMAND_B));
+            updatePrefSummary(findPreference(PREF_KEY_COMMAND_C));
+            updatePrefSummary(findPreference(PREF_KEY_COMMAND_D));
+            updatePrefSummary(findPreference(PREF_KEY_COMMAND_E));
+            updatePrefSummary(findPreference(PREF_KEY_COMMAND_F));
+            updatePrefSummary(findPreference(PREF_KEY_COMMAND_G));
+            updatePrefSummary(findPreference(PREF_KEY_COMMAND_H));
+
+
         }
     }
 

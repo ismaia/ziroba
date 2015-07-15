@@ -1,24 +1,20 @@
 package net.bomtec.ziroba;
 
 
-import android.os.AsyncTask;
-import android.util.Log;
-
 import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.InetAddress;
-import java.net.InetSocketAddress;
 import java.net.Socket;
 
 
 /**
- * Socket Client
- * Used to send commands to the remote destination
+ * TCP Socket Client
+ * Handles command messages to the server (the robot)
  * @author Isaac Maia
  */
 
-public class NetClient   {
+public class CmdClient {
     private String host;
     private int port;
     private InetAddress hostAddr;
@@ -26,20 +22,20 @@ public class NetClient   {
     private volatile boolean active = false;
     private Thread thread;
 
-    private static volatile NetClient instance = null;
+    private static volatile CmdClient instance = null;
 
     /**
      * setHost and setPort must be callled
-     * @return a unique instance of NetClient
+     * @return a unique instance of CmdClient
      */
-    public static synchronized NetClient getInstance() {
+    public static synchronized CmdClient getInstance() {
         if (instance == null) {
-            instance = new NetClient();
+            instance = new CmdClient();
         }
         return instance;
     }
 
-    private NetClient() {}
+    private CmdClient() {}
 
 
     public synchronized void start() {
@@ -65,7 +61,7 @@ public class NetClient   {
 
     public void join() {
         try {
-            thread.join();
+            thread.join(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

@@ -1,0 +1,82 @@
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/pref_commands_title" >
+
+        <EditTextPreference
+            android:key="a_command"
+            android:title="@string/pref_title_a_command"
+            android:defaultValue="@string/pref_a_command"
+            android:selectAllOnFocus="true"
+            android:inputType="text"
+            android:singleLine="true"
+            android:maxLines="1" />
+
+        <EditTextPreference
+            android:key="b_command"
+            android:title="@string/pref_title_b_command"
+            android:defaultValue="@string/pref_b_command"
+            android:selectAllOnFocus="true"
+            android:inputType="text"
+            android:singleLine="true"
+            android:maxLines="1" />
+
+        <EditTextPreference
+            android:key="c_command"
+            android:title="@string/pref_title_c_command"
+            android:defaultValue="@string/pref_c_command"
+            android:selectAllOnFocus="true"
+            android:inputType="text"
+            android:singleLine="true"
+            android:maxLines="1" />
+
+        <EditTextPreference
+            android:key="d_command"
+            android:title="@string/pref_title_d_command"
+            android:defaultValue="@string/pref_d_command"
+            android:selectAllOnFocus="true"
+            android:inputType="text"
+            android:singleLine="true"
+            android:maxLines="1" />
+
+
+        <EditTextPreference
+            android:key="e_command"
+            android:title="@string/pref_title_e_command"
+            android:defaultValue="@string/pref_e_command"
+            android:selectAllOnFocus="true"
+            android:inputType="text"
+            android:singleLine="true"
+            android:maxLines="1" />
+
+        <EditTextPreference
+            android:key="f_command"
+            android:title="@string/pref_title_f_command"
+            android:defaultValue="@string/pref_f_command"
+            android:selectAllOnFocus="true"
+            android:inputType="text"
+            android:singleLine="true"
+            android:maxLines="1" />
+
+        <EditTextPreference
+            android:key="g_command"
+            android:title="@string/pref_title_g_command"
+            android:defaultValue="@string/pref_g_command"
+            android:selectAllOnFocus="true"
+            android:inputType="text"
+            android:singleLine="true"
+            android:maxLines="1" />
+
+        <EditTextPreference
+            android:key="h_command"
+            android:title="@string/pref_title_h_command"
+            android:defaultValue="@string/pref_h_command"
+            android:selectAllOnFocus="true"
+            android:inputType="text"
+            android:singleLine="true"
+            android:maxLines="1" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
