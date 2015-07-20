@@ -1,17 +1,17 @@
 Ziroba Robot
 ============
 
-Ziroba is a low cost car robot buit of cheap parts
+Ziroba is a low cost car robot built from cheap parts
 
 Our main goal is easy replication and modification
  
 Features:
 ---------
 
-   * Communication over Wifi or bluetooth stack
+   * Communication over Wifi or bluetooth
    * Control from PC / Android
-   * Beaglebone-black / Raspberry Pi / Galileo compatible
-   * Wifi Direct Communication
+   * Cross Platform
+      * Beaglebone-black / Raspberry Pi / Intel Galileo g1,g2 / esp8266
    * Camera Vision
 
 
@@ -26,8 +26,4 @@ Ziroba-Robot
 ------------
 ![alt tag](https://github.com/ismaia/ziroba/raw/master/docs/ziroba.jpg)
 
-
-Dependencies
-------------
-Beaglebone Black Board: Blacklib
 
