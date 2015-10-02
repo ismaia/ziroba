@@ -6,4 +6,4 @@ ROOT_DIR=`(cd $SCRIPT_DIR/.. && pwd)`
 
 export PATH=$PATH:$ROOT_DIR/bin
 export PATH=$PATH:$ROOT_DIR/scripts
-
+export LD_LIBRARY_PATH=$ROOD_DIR/lib/mraa/lib:$ROOD_DIR/lib/mraa/lib64 
