@@ -22,6 +22,20 @@ Install:
     cd build
     cmake -DCMAKE_INSTALL_PREFIX=/path/to/installdir ../
 
+Runing:
+------
+    * setting up environment
+       * source scripts/sysenv
+
+    * stand-alone 
+       * ssh to ziroba (ssh root@ziroba.local)
+       * ./ziroba_pad
+
+    * android 
+       * ssh to ziroba
+       * start the robot service: ./ziroba
+       * on android start the ziroba app, connect to ziroba and start using the app
+
 Ziroba-Robot
 ------------
 ![alt tag](https://github.com/ismaia/ziroba/raw/master/docs/ziroba.jpg)
