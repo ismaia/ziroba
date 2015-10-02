@@ -6,4 +6,9 @@ ROOT_DIR=`(cd $SCRIPT_DIR/.. && pwd)`
 
 export PATH=$PATH:$ROOT_DIR/bin
 export PATH=$PATH:$ROOT_DIR/scripts
-export LD_LIBRARY_PATH=$ROOD_DIR/lib/mraa/lib:$ROOD_DIR/lib/mraa/lib64 
+export LD_LIBRARY_PATH=$ROOT_DIR/lib/mraa/lib:$ROOT_DIR/lib/mraa/lib64 
+
+
+#remove duplicates from PATH
+PATH=`echo -n $PATH | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}'`
+export PATH

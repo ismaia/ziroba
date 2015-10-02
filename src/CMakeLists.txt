@@ -11,7 +11,7 @@ ExternalProject_Add(
     Mraa
     GIT_REPOSITORY    https://github.com/intel-iot-devkit/mraa
     GIT_TAG           v0.8.0
-    CMAKE_ARGS        -DBUILDSWIG=OFF -DBUILDSWIGNODE=OFF -DBUILDSWIGPYTHON=OFF -DCMAKE_INSTALL_PREFIX=${MRAA_DIR}
+    CMAKE_ARGS        -DBUILDSWIG=OFF -DBUILDSWIGNODE=OFF -DBUILDSWIGPYTHON=OFF -DCMAKE_INSTALL_PREFIX=${MRAA_DIR} 
     SOURCE_DIR        ${CMAKE_SOURCE_DIR}/build/mraa
 )
 
@@ -23,7 +23,6 @@ ExternalProject_Add(
 set(CPP_PROGRAMS)
 set(C_PROGRAMS mraa-gpio)
 set(CORELIBS ncurses mraa)
-
 
 set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -O2 -Wall -std=c99")
 foreach(program ${C_PROGRAMS})
