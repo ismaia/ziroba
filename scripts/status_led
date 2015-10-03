@@ -1,0 +1,21 @@
+#!/bin/bash
+
+
+status=""
+upstate="state UP"
+gpionum="60"
+
+while [ -z "$status" ]
+do
+    status=`ip addr | grep -v 'lo:' | grep "$upstate"`
+    echo "status: $upstate"
+    sleep 1
+done
+
+if [ ! -d  /sys/class/gpio/gpio"$gpionum" ]
+then
+    echo "$gpionum" > /sys/class/gpio/export
+    echo "out" > /sys/class/gpio/gpio"$gpionum"/direction
+    echo "1" > /sys/class/gpio/gpio"$gpionum"/value
+    echo "LED On"
+fi
