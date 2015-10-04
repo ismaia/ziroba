@@ -1,0 +1,10 @@
+[Unit]
+Description=Status LED: Turns ON a GPIO when any network interface is UP and ready
+Requires=connman.service  
+After=sshd.service 
+
+[Service]
+ExecStart=/sbin/status_led
+
+[Install]
+WantedBy=multi-user.target
