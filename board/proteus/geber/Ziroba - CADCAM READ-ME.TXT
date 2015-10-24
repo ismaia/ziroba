@@ -1,0 +1,50 @@
+LABCENTER PROTEUS TOOL INFORMATION FILE
+=======================================
+
+In case of difficulty, please e-mail support@labcenter.co.uk
+
+Tool set up for Proteus layout 'Ziroba.pdsprj'.
+CADCAM generated at 20:19:59 on quarta-feira, 21 de outubro de 2015.
+
+File List
+---------
+Bottom Copper           : Ziroba - CADCAM Bottom Copper.TXT
+Top Solder Resist       : Ziroba - CADCAM Top Solder Resist.TXT
+Bottom Solder Resist    : Ziroba - CADCAM Bottom Solder Resist.TXT
+Mechanical 1            : Ziroba - CADCAM Mechanical 1.TXT
+Drill                   : Ziroba - CADCAM Drill.TXT
+
+Photoplotter Setup
+------------------
+Format: RS274X, ASCII, 2.4, imperial, absolute, eob=*, LZO
+Notes:  D=Diameter, S=Side, W=Width, H=Height, C=Chamfer
+
+D10	CIRCLE  D=25th                                                            DRAW
+D11	CIRCLE  D=20th                                                            DRAW
+D12	CIRCLE  D=30th                                                            DRAW
+D13	CIRCLE  D=2.5th                                                           DRAW
+D14	CIRCLE  D=10th                                                            DRAW
+D15	CIRCLE  D=80th                                                            FLASH
+D16	SQUARE  S=80th                                                            FLASH
+D17	SQUARE  S=100th                                                           FLASH
+D18	DIL     W=100th               H=60th                C=12th                FLASH
+D19	DIL     W=60th                H=100th               C=12th                FLASH
+D70	CIRCLE  D=70th                                                            FLASH
+D71	CIRCLE  D=8th                                                             DRAW
+D20	CIRCLE  D=100th                                                           FLASH
+D21	SQUARE  S=130th                                                           FLASH
+D22	DIL     W=120th               H=80th                C=12th                FLASH
+D23	DIL     W=80th                H=120th               C=12th                FLASH
+D24	CIRCLE  D=90th                                                            FLASH
+
+NC Drill Setup
+--------------
+Format: ASCII, 2.4, imperial, absolute, eob=<CR><LF>, no zero suppression.
+Notes:  Tool sizes are diameters. Layer sets are in brackets - 0=TOP, 15=BOTTOM, 1-14=INNER.
+
+T01	40th (0-15)
+T02	50th (0-15)
+T03	30th (0-15)
+
+
+[END OF FILE]
