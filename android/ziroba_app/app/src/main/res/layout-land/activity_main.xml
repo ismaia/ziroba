@@ -11,23 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:paddingBottom="10dp"
         >
         <net.bomtec.ziroba.VerticalSeekBar
             android:id="@+id/seekbar1"
             android:layout_width="wrap_content"
-            android:layout_height="140dp"
+            android:layout_height="180dp"
             android:max="100"
-            android:paddingBottom="15dp"
-            android:paddingTop="15dp"
-            />
-        <net.bomtec.ziroba.VerticalSeekBar
-            android:id="@+id/seekbar2"
-            android:layout_width="wrap_content"
-            android:layout_height="140dp"
-            android:max="100"
-            android:paddingBottom="15dp"
-            android:paddingTop="15dp"
+            android:paddingBottom="50dp"
+            android:paddingTop="50dp"
             />
 
         <VideoView
@@ -37,20 +28,12 @@
             />
 
         <net.bomtec.ziroba.VerticalSeekBar
-            android:id="@+id/seekbar3"
+            android:id="@+id/seekbar2"
             android:layout_width="wrap_content"
-            android:layout_height="140dp"
+            android:layout_height="180dp"
             android:max="100"
-            android:paddingBottom="15dp"
-            android:paddingTop="15dp"
-            />
-        <net.bomtec.ziroba.VerticalSeekBar
-            android:id="@+id/seekbar4"
-            android:layout_width="wrap_content"
-            android:layout_height="140dp"
-            android:max="100"
-            android:paddingBottom="15dp"
-            android:paddingTop="15dp"
+            android:paddingBottom="50dp"
+            android:paddingTop="50dp"
             />
     </LinearLayout>
 

@@ -20,9 +20,9 @@ ExternalProject_Add(
 #install(TARGETS zrobot DESTINATION lib)
 
 #these are all compiled the same way
-set(CPP_PROGRAMS)
+set(CPP_PROGRAMS ziroba)
 set(C_PROGRAMS mraa-gpio)
-set(CORELIBS ncurses mraa)
+set(CORELIBS ncurses mraa sfml-system sfml-network)
 
 set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -O2 -Wall -std=c99")
 foreach(program ${C_PROGRAMS})
