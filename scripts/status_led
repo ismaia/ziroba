@@ -1,9 +1,8 @@
 #!/bin/bash
 
-
 status=""
 upstate="state UP"
-gpionum="60"
+gpionum="49"
 
 while [ -z "$status" ]
 do

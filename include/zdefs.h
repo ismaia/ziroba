@@ -6,10 +6,12 @@ namespace ziro {
     int port;
   };
   args zargs = { -1 };
+
+  bool running;
 }
 
 
-#define CLEAR_BUFF(buff) memset(buff, 0, sizeof(buff)) 
+
 
 #endif
 
