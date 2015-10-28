@@ -74,7 +74,7 @@ int main(int argc, char ** argv) {
 
     int port = (zargs.port == -1) ? 8090 :  zargs.port;
 
-    std::cout <<  PinMapper::getInstance().getPin("GPIO66") << std::endl;
+    
     char *buff;
     ZCommandService cmdService(port);
 
