@@ -1,4 +1,4 @@
-#include "znet.h"
+#include "znet.hpp"
 #include <iostream>
 #include <string.h>
 
@@ -80,5 +80,3 @@ void ZCommandService::wait()
     netMonitor.add(socket);
     netMonitor.wait();
 }
-
-

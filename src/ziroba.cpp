@@ -1,45 +1,45 @@
 #include <iostream>
-#include <zvision.h>
-#include <zmotion.h>
 #include <getopt.h>
 #include <unistd.h>
 
 
 #include "mraa.h"
 #include <SFML/Network.hpp>
-#include "zdefs.h"
-#include "znet.h"
+#include "zdefs.hpp"
+#include "znet.hpp"
+#include "zmotion.hpp"
+#include "pinmapper.hpp"
 
 
 
 //parse command line arguments
-static void 
+static void
 parse_args(int argc, char **argv)
-{   
-       int opt=0;  
-       opterr=0;   
-       
+{
+       int opt=0;
+       opterr=0;
+
        static struct option long_options[] = {
             {"help"    ,no_argument      , 0,  'h' },
             {"verbose" ,no_argument      , 0,  'v' },
             {"port"    ,required_argument, 0,  'p' },
             {0,0,0,0}
        };
-       
+
         int long_index =0;
-        int show_help  =0;   
-        
+        int show_help  =0;
+
         while ((opt = getopt_long(argc, argv,"hvd:n:b:m",
                        long_options, &long_index )) != -1) {
-          
+
             switch (opt) {
                  case 'h' :
                      show_help=1;
                      break;
                  case 'v' :
-                     break;                                
+                     break;
                  case 'p' :
-                     ziro::zargs.port = atoi(optarg); 
+                     ziro::zargs.port = atoi(optarg);
                      break;
                  case '?':
                  default:
@@ -47,8 +47,8 @@ parse_args(int argc, char **argv)
                      break;
            }//switch
         }//while
-       
-        
+
+
         if (show_help) {
            std::cout <<
                 "usage: ziroba [options] \n"             <<
@@ -56,7 +56,7 @@ parse_args(int argc, char **argv)
                 "-h, --help   : show this help\n"        <<
                 "-v, --verbose: show verbose output\n"   <<
                 "-p, --port   : TCP port for commands\n" << std::endl;
-           
+
            exit(EXIT_FAILURE);
         }
 
@@ -65,19 +65,17 @@ parse_args(int argc, char **argv)
 
 using namespace ziro;
 
-int main(int argc, char ** argv) {    
+int main(int argc, char ** argv) {
     parse_args(argc,argv);
     running = true;
 
-    std::cout << "Ziroba Robot, " <<  "mraa Version:" << mraa_get_version() << std::endl;
-
-
+    std::cout << "Ziroba Robot, " <<  "mraa Version:" << mraa_get_version() <<
+                                                                       std::endl;
 
     int port = (zargs.port == -1) ? 8090 :  zargs.port;
 
+    std::cout <<  PinMapper::getInstance().getPin("GPIO66") << std::endl;
     char *buff;
-
-
     ZCommandService cmdService(port);
 
 

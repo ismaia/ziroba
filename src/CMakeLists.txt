@@ -1,9 +1,9 @@
 include_directories(${CMAKE_SOURCE_DIR}/include)
-link_directories(${CMAKE_SOURCE_DIR}/lib) 
+link_directories(${CMAKE_SOURCE_DIR}/lib)
 
 set(MRAA_DIR  ${CMAKE_SOURCE_DIR}/lib/mraa)
 include_directories(${MRAA_DIR}/include)
-link_directories(${MRAA_DIR}/lib ${MRAA_DIR}/lib64) 
+link_directories(${MRAA_DIR}/lib ${MRAA_DIR}/lib64)
 
 
 include(ExternalProject)
@@ -11,12 +11,12 @@ ExternalProject_Add(
     Mraa
     GIT_REPOSITORY    https://github.com/intel-iot-devkit/mraa
     GIT_TAG           v0.8.0
-    CMAKE_ARGS        -DBUILDSWIG=OFF -DBUILDSWIGNODE=OFF -DBUILDSWIGPYTHON=OFF -DCMAKE_INSTALL_PREFIX=${MRAA_DIR} 
+    CMAKE_ARGS        -DBUILDSWIG=OFF -DBUILDSWIGNODE=OFF -DBUILDSWIGPYTHON=OFF -DCMAKE_INSTALL_PREFIX=${MRAA_DIR}
     SOURCE_DIR        ${CMAKE_SOURCE_DIR}/build/mraa
 )
 
 
-add_library(zrobot STATIC znet.cpp zmotion.cpp)
+add_library(zrobot STATIC znet.cpp zmotion.cpp pinmapper.cpp)
 install(TARGETS zrobot DESTINATION lib)
 
 #these are all compiled the same way
@@ -40,5 +40,3 @@ foreach(program ${CPP_PROGRAMS})
     target_link_libraries(${lcaseprogram} ${CORELIBS})
     install(TARGETS ${lcaseprogram} DESTINATION bin)
 endforeach(program)
-
-
