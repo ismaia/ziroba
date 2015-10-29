@@ -1,8 +1,7 @@
 #ifndef __ZMOTION__
 #define __ZMOTION__
 
-#include "mraa/gpio.h"
-#include "mraa/pwm.h"
+#include "mraa.hpp"
 
 
 class DCMotor {
@@ -42,10 +41,10 @@ class DCMotor {
 
     private:
        //dc motor 1
-       mraa_pwm_context   pwm;
+       mraa::Pwm          *pwm;
        int                ppin;
 
-       mraa_gpio_context  gpio;
+       mraa::Gpio         *gpio;
        int                gpin;
 
 };

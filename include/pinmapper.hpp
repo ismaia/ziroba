@@ -1,5 +1,6 @@
 #ifndef __PINMAPPER__
 #define __PINMAPPER__
+#include <fstream>
 
 class PinMapper {
   public:
@@ -8,13 +9,15 @@ class PinMapper {
       return instance;
     }
 
+    int init(const char * pinMapFile);
+    void listPlatformPins();
 
-    int getPin(const char * pinName);
 
   private:
     PinMapper() {}
     PinMapper(PinMapper const &);
-    void operator=(PinMapper const &);    
+    void operator=(PinMapper const &);
+    std::fstream mapfile;
 };
 
 #endif

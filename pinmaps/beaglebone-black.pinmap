@@ -1,0 +1,110 @@
+#progname    physical name
+gpio1          GPIO67
+gpio2          GPIO68
+gpio3          GPIO44
+gpio4          GPIO26
+pwm1           GPIO23
+pwm2           GPIO22
+pwm3           GPIO50
+pwm4           GPIO51
+
+
+
+#./mraa-gpio list
+
+================== P8 ===================
+01         GND:
+02         GND:
+03     MMC1_D6:
+04     MMC1_D7:
+05     MMC1_D2:
+06     MMC1_D3:
+07      GPIO66: GPIO
+08      GPIO67: GPIO
+09      GPIO69: GPIO
+10      GPIO68: GPIO
+11      GPIO45: GPIO
+12      GPIO44: GPIO
+13      GPIO23: GPIO PWM
+14      GPIO26: GPIO
+15      GPIO47: GPIO
+16      GPIO46: GPIO
+17      GPIO27: GPIO
+18      GPIO65: GPIO
+19      GPIO22: GPIO PWM
+20    MMC1_CMD:
+21    MMC1_CLK:
+22     MMC1_D5:
+23      MMC_D4:
+24      MMC_D1:
+25     MMC1_D0:
+26      GPIO61: GPIO
+27      GPIO86: GPIO
+28      GPIO88: GPIO
+29      GPIO87: GPIO
+30      GPIO89: GPIO
+31      GPIO10: GPIO
+32      GPIO11: GPIO
+33       GPIO9: GPIO
+34      GPIO81: GPIO PWM
+35       GPIO8: GPIO
+36      GPIO80: GPIO PWM
+37      GPIO78: GPIO UART
+38      GPIO79: GPIO UART
+39      GPIO76: GPIO
+40      GPIO77: GPIO
+41      GPIO74: GPIO
+42      GPIO75: GPIO
+43      GPIO72: GPIO
+44      GPIO73: GPIO
+45      GPIO70: GPIO PWM
+46      GPIO71: GPIO PWM
+
+
+=============== P9 ==================
+47         GND:
+48         GND:
+49        3.3V:
+50        3.3V:
+51          5V:
+52          5V:
+53          5V:
+54          5V:
+55         PWR:
+56       RESET:
+57      GPIO30: GPIO UART
+58      GPIO60: GPIO
+59      GPIO31: GPIO UART
+60      GPIO50: GPIO PWM
+61      GPIO48: GPIO
+62      GPIO51: GPIO PWM
+63     I2C1SCL: I2C  SPI
+64     I2C1SDA: I2C  SPI
+65     I2C2SCL: I2C
+66     I2C2SDA: I2C
+67       GPIO3: GPIO SPI  PWM  UART
+68       GPIO2: GPIO SPI  PWM  UART
+69      GPIO49: GPIO
+70      GPIO15: GPIO UART
+71     GPIO117: GPIO
+72      GPIO14: GPIO UART
+73     GPIO115: GPIO
+74    MCASP0XX: SPI
+75     MMC1_SD:
+76     MMC2_SD:
+77     MMC0_SD:
+78     VDD_ADC:
+79        AIN4: AIO
+80     GND_ADC:
+81        AIN6: AIO
+82        AIN5: AIO
+83        AIN2: AIO
+84        AIN3: AIO
+85        AIN0: AIO
+86        AIN1: AIO
+87      GPIO20: GPIO
+88       GPIO7: GPIO
+89         GND:
+90         GND:
+91         GND:
+92         GND:

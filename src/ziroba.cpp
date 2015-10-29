@@ -3,7 +3,7 @@
 #include <unistd.h>
 
 
-#include "mraa.h"
+#include "mraa.hpp"
 #include <SFML/Network.hpp>
 #include "zdefs.hpp"
 #include "znet.hpp"
@@ -69,12 +69,12 @@ int main(int argc, char ** argv) {
     parse_args(argc,argv);
     running = true;
 
-    std::cout << "Ziroba Robot, " <<  "mraa Version:" << mraa_get_version() <<
-                                                                       std::endl;
+    std::cout << "Ziroba Robot\n"
+              << "mraa Version:" << mraa::getVersion() << std::endl;
 
     int port = (zargs.port == -1) ? 8090 :  zargs.port;
 
-    
+
     char *buff;
     ZCommandService cmdService(port);
 
