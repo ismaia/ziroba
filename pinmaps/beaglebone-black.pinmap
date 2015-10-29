@@ -11,6 +11,7 @@ pwm4           GPIO51
 
 
 #./mraa-gpio list
+#BeagleBone Black Pin List
 
 ================== P8 ===================
 01         GND:

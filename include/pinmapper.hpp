@@ -9,15 +9,17 @@ class PinMapper {
       return instance;
     }
 
-    int init(const char * pinMapFile);
+    void init(char * pinmapFile);
+    int getPinNumber(const char * pinName);
     void listPlatformPins();
+
 
 
   private:
     PinMapper() {}
     PinMapper(PinMapper const &);
     void operator=(PinMapper const &);
-    std::fstream mapfile;
+
 };
 
 #endif

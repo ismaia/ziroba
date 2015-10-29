@@ -21,7 +21,7 @@ install(TARGETS zrobot DESTINATION lib)
 
 #these are all compiled the same way
 set(CPP_PROGRAMS ziroba)
-set(C_PROGRAMS mraa-gpio)
+set(C_PROGRAMS )
 set(CORELIBS ncurses mraa sfml-system sfml-network zrobot)
 
 set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -O2 -Wall -std=c99")
