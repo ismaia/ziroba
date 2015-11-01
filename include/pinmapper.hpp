@@ -1,6 +1,6 @@
 #ifndef __PINMAPPER__
 #define __PINMAPPER__
-#include <fstream>
+#include "zdefs.hpp"
 
 class PinMapper {
   public:

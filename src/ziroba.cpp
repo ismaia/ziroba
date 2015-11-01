@@ -18,8 +18,6 @@ static void signal_handler(int sig);
 
 
 
-using namespace ziro;
-
 int main(int argc, char ** argv) {
     parse_args(argc,argv);
     zbot.running = true;

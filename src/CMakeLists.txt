@@ -16,7 +16,7 @@ ExternalProject_Add(
 )
 
 
-add_library(zrobot STATIC znet.cpp zmotion.cpp pinmapper.cpp)
+add_library(zrobot STATIC zcommon.cpp znet.cpp zmotion.cpp pinmapper.cpp)
 install(TARGETS zrobot DESTINATION lib)
 
 #these are all compiled the same way
