@@ -6,7 +6,6 @@ static size_t buff_bytes;
 
 sf::SocketSelector netMonitor;
 
-
 ZCommandService::ZCommandService(int port, size_t buff_size)
     :listener(),
       socket(),

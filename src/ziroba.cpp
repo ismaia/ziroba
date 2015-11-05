@@ -93,7 +93,6 @@ int main(int argc, char ** argv) {
     return 0;
 }
 
-
 //parse command line arguments
 static void
 parse_args(int argc, char **argv)
