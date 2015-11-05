@@ -8,7 +8,6 @@ import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.SeekBar;
 
 
 public class MainActivity extends Activity {
@@ -23,45 +22,13 @@ public class MainActivity extends Activity {
         PreferenceManager.setDefaultValues(this, R.xml.pref_general, true);
         PreferenceManager.setDefaultValues(this, R.xml.pref_buttons, true);
 
-        SeekBar seekBar1 = (SeekBar)findViewById(R.id.seekbar1);
+        VerticalSeekBar seekBar1 = (VerticalSeekBar)findViewById(R.id.skb1);
+        seekBar1.init();
 
 
-        seekBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                CmdClient.getInstance().sendMessage("bar1:" + Integer.toString(progress));
-            }
+        VerticalSeekBar seekBar2 = (VerticalSeekBar)findViewById(R.id.skb2);
+        seekBar2.init();
 
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
-
-        SeekBar seekBar2 = (SeekBar)findViewById(R.id.seekbar2);
-
-
-        seekBar2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                CmdClient.getInstance().sendMessage("Bar2:"+Integer.toString(progress));
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
     }
 
     @Override
@@ -95,13 +62,6 @@ public class MainActivity extends Activity {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String cmd = prefs.getString(SettingsActivity.PREF_KEY_COMMAND_A, "");
         CmdClient.getInstance().sendMessage(cmd);
-        SeekBar seekBar1 = (SeekBar)findViewById(R.id.seekbar1);
-        int progress = seekBar1.getMax()/2;
-        seekBar1.setProgress(progress);
-
-        SeekBar seekBar2 = (SeekBar)findViewById(R.id.seekbar2);
-        progress = seekBar2.getMax()/2;
-        seekBar2.setProgress( progress );
     }
 
     public void sendCommandB(View view) {

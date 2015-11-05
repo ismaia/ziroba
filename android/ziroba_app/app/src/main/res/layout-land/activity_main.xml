@@ -1,120 +1,141 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:columnCount="6"
     android:orientation="vertical"
-    >
+    android:rowCount="3"
+    tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <net.bomtec.ziroba.VerticalSeekBar
+        android:id="@+id/skb1"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_column="0"
+        android:layout_row="0"
+        android:layout_rowSpan="3"
+        android:max="100"
+        android:paddingBottom="50dp"
+        android:paddingTop="50dp"
+        />
+
+    <Button
+        android:id="@+id/but1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        >
-        <net.bomtec.ziroba.VerticalSeekBar
-            android:id="@+id/seekbar1"
-            android:layout_width="wrap_content"
-            android:layout_height="180dp"
-            android:max="100"
-            android:paddingBottom="50dp"
-            android:paddingTop="50dp"
-            />
+        android:layout_column="1"
+        android:layout_row="0"
+        android:maxLength="3"
+        android:onClick="sendCommandA"
+        android:text="@string/button1_text"
+        android:textSize="25sp"
+        />
 
-        <VideoView
-            android:id="@+id/videoview"
-            android:layout_width="240dp"
-            android:layout_height="160dp"
-            />
+    <Button
+        android:id="@+id/but2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="2"
+        android:layout_row="0"
+        android:maxLength="3"
+        android:onClick="sendCommandA"
+        android:text="@string/button2_text"
+        android:textSize="25sp" />
 
-        <net.bomtec.ziroba.VerticalSeekBar
-            android:id="@+id/seekbar2"
-            android:layout_width="wrap_content"
-            android:layout_height="180dp"
-            android:max="100"
-            android:paddingBottom="50dp"
-            android:paddingTop="50dp"
-            />
-    </LinearLayout>
+    <Button
+        android:id="@+id/but3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="3"
+        android:layout_row="0"
+        android:maxLength="3"
+        android:onClick="sendCommandC"
+        android:text="@string/button3_text"
+        android:textSize="25sp"
+        />
 
+    <Button
+        android:id="@+id/but4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="4"
+        android:layout_row="0"
+        android:maxLength="3"
+        android:onClick="sendCommandD"
+        android:text="@string/button4_text"
+        android:textSize="25sp"
+        />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        >
-        <Button
-            android:id="@+id/button1"
-            android:text="@string/button1_text"
-            android:textSize="25sp"
-            android:maxLength="3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="sendCommandA"
-            />
-        <Button
-            android:id="@+id/button2"
-            android:text="@string/button2_text"
-            android:textSize="25sp"
-            android:maxLength="3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="sendCommandB"
-            />
-        <Button
-            android:id="@+id/button3"
-            android:text="@string/button3_text"
-            android:textSize="25sp"
-            android:maxLength="3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="sendCommandC"
-            />
-        <Button
-            android:id="@+id/button4"
-            android:text="@string/button4_text"
-            android:textSize="25sp"
-            android:maxLength="3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="sendCommandD"
-            />
-        <Button
-            android:id="@+id/button5"
-            android:text="@string/button5_text"
-            android:textSize="25sp"
-            android:maxLength="3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="sendCommandE"
-            />
-        <Button
-            android:id="@+id/button6"
-            android:text="@string/button6_text"
-            android:textSize="25sp"
-            android:maxLength="3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="sendCommandF"
-            />
-        <Button
-            android:id="@+id/button7"
-            android:text="@string/button7_text"
-            android:textSize="25sp"
-            android:maxLength="3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="sendCommandG"
-            />
-        <Button
-            android:id="@+id/button8"
-            android:text="@string/button8_text"
-            android:textSize="25sp"
-            android:maxLength="3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="sendCommandH"
-            />
-    </LinearLayout>
+    <VideoView
+        android:id="@+id/vid1"
+        android:layout_width="255dp"
+        android:layout_height="160dp"
+        android:layout_column="1"
+        android:layout_columnSpan="4"
+        android:layout_row="1" />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/but5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_row="2"
+        android:maxLength="3"
+        android:onClick="sendCommandE"
+        android:text="@string/button5_text"
+        android:textSize="25sp"
+
+        />
+
+    <Button
+        android:id="@+id/but6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="2"
+        android:layout_row="2"
+        android:maxLength="3"
+        android:onClick="sendCommandF"
+        android:text="@string/button6_text"
+        android:textSize="25sp"
+
+        />
+
+    <Button
+        android:id="@+id/but7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="3"
+        android:layout_row="2"
+        android:maxLength="3"
+        android:onClick="sendCommandG"
+        android:text="@string/button7_text"
+        android:textSize="25sp"
+        />
+
+    <Button
+        android:id="@+id/but8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="4"
+        android:layout_row="2"
+        android:maxLength="3"
+        android:onClick="sendCommandH"
+        android:text="@string/button8_text"
+        android:textSize="25sp"
+
+        />
+
+    <net.bomtec.ziroba.VerticalSeekBar
+        android:id="@+id/skb2"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_column="5"
+        android:layout_row="0"
+        android:layout_rowSpan="3"
+        android:max="100"
+        android:paddingBottom="50dp"
+        android:paddingTop="50dp"
+
+        />
+
+</GridLayout>

@@ -25,19 +25,19 @@ import java.util.List;
 public class SettingsActivity extends PreferenceActivity {
 
     public static final String PREF_KEY_SW_CONNECTION = "switch_connect";
-    public static final String PREF_KEY_HOST_TEXT = "host_text";
-    public static final String PREF_KEY_PORT_TEXT = "port_text";
-    public static final String PREF_KEY_SPEED_LIST = "speed_list";
-    public static final String PREF_KEY_DEFAULT = "pref_default_values";
+    public static final String PREF_KEY_HOST_TEXT     = "host_text";
+    public static final String PREF_KEY_PORT_TEXT     = "port_text";
+    public static final String PREF_KEY_SPEED_LIST    = "speed_list";
+    public static final String PREF_KEY_DEFAULT       = "pref_default_values";
 
-    public static final String PREF_KEY_COMMAND_A = "a_command";
-    public static final String PREF_KEY_COMMAND_B = "b_command";
-    public static final String PREF_KEY_COMMAND_C = "c_command";
-    public static final String PREF_KEY_COMMAND_D = "d_command";
-    public static final String PREF_KEY_COMMAND_E = "e_command";
-    public static final String PREF_KEY_COMMAND_F = "f_command";
-    public static final String PREF_KEY_COMMAND_G = "g_command";
-    public static final String PREF_KEY_COMMAND_H = "h_command";
+    public static final String PREF_KEY_COMMAND_A     = "a_command";
+    public static final String PREF_KEY_COMMAND_B     = "b_command";
+    public static final String PREF_KEY_COMMAND_C     = "c_command";
+    public static final String PREF_KEY_COMMAND_D     = "d_command";
+    public static final String PREF_KEY_COMMAND_E     = "e_command";
+    public static final String PREF_KEY_COMMAND_F     = "f_command";
+    public static final String PREF_KEY_COMMAND_G     = "g_command";
+    public static final String PREF_KEY_COMMAND_H     = "h_command";
 
 
     private static SharedPreferences sharedPreferences;
@@ -225,7 +225,7 @@ public class SettingsActivity extends PreferenceActivity {
 
             // Load the preferences from an XML resource
             addPreferencesFromResource(R.xml.pref_buttons);
-            
+
             // Load and show default values
             updateSummaries();
         }
