@@ -5,10 +5,6 @@ set(MRAA_DIR  ${CMAKE_SOURCE_DIR}/lib/mraa)
 include_directories(${MRAA_DIR}/include)
 link_directories(${MRAA_DIR}/lib ${MRAA_DIR}/lib64)
 
-set(BLIBDIR ${CMAKE_SOURCE_DIR}/lib/blackib)
-include_directories(${BLIBDIR}/include)
-link_directories(${BLIBDIR}/lib)
-
 
 include(ExternalProject)
 ExternalProject_Add(
@@ -19,23 +15,9 @@ ExternalProject_Add(
     SOURCE_DIR        ${CMAKE_SOURCE_DIR}/build/mraa
 )
 
-include(ExternalProject)
-ExternalProject_Add(
-    BlackLib
-    GIT_REPOSITORY    https://github.com/yigityuce/BlackLib
-    SOURCE_DIR        ${CMAKE_SOURCE_DIR}/build/BlackLib
-    CONFIGURE_COMMAND ""
-    BUILD_COMMAND     ""
-    UPDATE_COMMAND    ""
-    PATCH_COMMAND     ""
-    INSTALL_COMMAND   ""
-)
 
 add_library(zrobot STATIC zcommon.cpp znet.cpp zmotion.cpp pinmapper.cpp)
 install(TARGETS zrobot DESTINATION lib)
-
-#add_library(blacklib STATIC   )
-#SOURCES=./BlackADC/BlackADC.cpp ./BlackDirectory/BlackDirectory.cpp  ./BlackGPIO/BlackGPIO.cpp ./BlackI2C/BlackI2C.cpp ./BlackMutex/BlackMutex.cpp ./BlackPWM/BlackPWM.cpp ./BlackSPI/BlackSPI.cpp ./BlackThread/BlackThread.cpp ./BlackTime/BlackTime.cpp  ./BlackUART/BlackUART.cpp ./BlackCore.cpp
 
 #these are all compiled the same way
 set(CPP_PROGRAMS ziroba)

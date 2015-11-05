@@ -6,17 +6,16 @@
 
 #include "mraa.hpp"
 #include <SFML/Network.hpp>
-#include "zdefs.hpp"
+#include "zcommon.hpp"
 #include "znet.hpp"
 #include "zmotion.hpp"
 #include "pinmapper.hpp"
 
 
 static void parse_args(int argc, char **argv);
-static void parse_cmd(const char *cmd);
 static void signal_handler(int sig);
 
-
+using namespace mraa;
 
 int main(int argc, char ** argv) {
     parse_args(argc,argv);
@@ -39,16 +38,28 @@ int main(int argc, char ** argv) {
 
 
     //===================== Robot Devices Initialization =====================
+    int statusLEDPin;
     int pwm1Pin;
     int gpio1Pin;
     int pwm2Pin;
     int gpio2Pin;
 
 
-    DCMotor * dcmotor1;
-    DCMotor * dcmotor2;
+    DCMotor * dcmotor1 = NULL;
+    DCMotor * dcmotor2 = NULL;
+    Gpio    * statusLED = NULL;
 
     if (zbot.enDevs) {
+      cout << "Platform:" << mraa_get_platform_name() << std::endl;
+      int res =  mraa_init();
+      if (res == MRAA_ERROR_PLATFORM_ALREADY_INITIALISED)
+          cerr << "MRAA already initialized!!" << std::endl;
+        else if (res == MRAA_UNKNOWN_PLATFORM)
+                 cerr << "MRAA unknown Platform!!" << std::endl;
+          else if (res == MRAA_ERROR_PLATFORM_NOT_INITIALISED)
+                  cerr << "MRAA platform not initialized!!" << std::endl;
+
+
       pwm1Pin  = PinMapper::getInstance().getPinNumber("pwm1");
       gpio1Pin = PinMapper::getInstance().getPinNumber("gpio1");
 
@@ -57,6 +68,12 @@ int main(int argc, char ** argv) {
 
       dcmotor1 = new DCMotor(pwm1Pin, gpio1Pin);
       dcmotor2 = new DCMotor(pwm2Pin, gpio2Pin);
+
+      //Turn ON Staus LED
+      statusLEDPin = PinMapper::getInstance().getPinNumber("gpio3");
+      statusLED    = new Gpio(statusLEDPin);
+      statusLED->dir(mraa::DIR_OUT);
+      statusLED->write(1);
     }
 
     //===================== Network Initialization ===========================
@@ -65,18 +82,23 @@ int main(int argc, char ** argv) {
     ZCommandService cmdService(port);
 
     cmdService.listenAndConnect();
-    std::cout << "Connected to port [" << port << "] for commands" << std::endl;
+    std::cout << "Receiving commands on port [" << port << "] " << std::endl;
     //========================================================================
 
 
     //=================== Main Loop ==========================================
+    std::vector<std::string> cmdTokens;
+
     while (zbot.running) {
         cmdService.wait();
         if (cmdService.isReady()) {
             cmdService.recvBuff();
             buff = cmdService.getBuff();
-            std::cout << buff << std::endl;
-            // switch (cmd) {
+
+            ZCmd zcmd;
+            decodeCmd(buff, zcmd);
+
+            // switch (zcmd) {
             //     case DCMOTOR1_ID:
             //        dcmmotor1.execCommand(cmd);
             //        break;
@@ -87,11 +109,13 @@ int main(int argc, char ** argv) {
             //        break;
             // }
             cmdService.clearBuff();
+            cmdTokens.clear();
         }
     }
 
     return 0;
 }
+
 
 //parse command line arguments
 static void
@@ -165,4 +189,6 @@ parse_args(int argc, char **argv)
 static void signal_handler(int sig) {
    zbot.running = false;
    std::cout << "Ziroba Turned Off" << std::endl;
+   mraa_deinit();
+   exit(EXIT_SUCCESS);
 }

@@ -1,7 +1,7 @@
 #ifndef __ZNET_H__
 #define __ZNET_H__
 #include <SFML/Network.hpp>
-#include <sstream>
+#include "zcommon.hpp"
 
 
 //TCP Server

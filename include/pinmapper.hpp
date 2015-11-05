@@ -1,6 +1,6 @@
 #ifndef __PINMAPPER__
 #define __PINMAPPER__
-#include "zdefs.hpp"
+#include "zcommon.hpp"
 
 class PinMapper {
   public:

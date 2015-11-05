@@ -4,7 +4,6 @@
 #include <string>
 
 
-
 DCMotor::DCMotor(int pwmPin, int gpioPin)
    :period(0),
     duty(0),
@@ -16,10 +15,9 @@ DCMotor::DCMotor(int pwmPin, int gpioPin)
          std::cerr << "Can't open PWM pin :" <<  pwmPin << std::endl;
          exit(1);
      }
-     pwm->enable(true);
-     period = pwm->max_period();
-     pwm->period_ms(period);
-
+     pwm->period_us(300);
+     pwm->enable(1);
+     
 
      gpio = new mraa::Gpio( gpioPin );
      if (gpio == NULL) {

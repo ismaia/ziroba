@@ -1,10 +1,12 @@
 #include "znet.hpp"
+#include "zcommon.hpp"
 #include <iostream>
 #include <string.h>
 
 static size_t buff_bytes;
 
 sf::SocketSelector netMonitor;
+
 
 ZCommandService::ZCommandService(int port, size_t buff_size)
     :listener(),
@@ -22,7 +24,6 @@ ZCommandService::ZCommandService(int port, size_t buff_size)
 ZCommandService::~ZCommandService() {
     delete buff;
 }
-
 
 bool ZCommandService::isReady()
 {
