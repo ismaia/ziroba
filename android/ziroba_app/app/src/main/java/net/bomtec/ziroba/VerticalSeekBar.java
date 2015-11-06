@@ -134,11 +134,11 @@ public class VerticalSeekBar extends SeekBar{
             Arrays.fill(progressTable, 0 , 10 , 100);
             Arrays.fill(progressTable, 10, 20 , 75);
             Arrays.fill(progressTable, 20, 30 , 50);
-            Arrays.fill(progressTable, 30, 40 , 25);
-            Arrays.fill(progressTable, 40, 44 , 10);
+            Arrays.fill(progressTable, 30, 40 , 40);
+            Arrays.fill(progressTable, 40, 44 , 30);
             Arrays.fill(progressTable, 45, 55 , 0);
-            Arrays.fill(progressTable, 56, 60 , -10);
-            Arrays.fill(progressTable, 60, 70 , -25);
+            Arrays.fill(progressTable, 56, 60 , -30);
+            Arrays.fill(progressTable, 60, 70 , -40);
             Arrays.fill(progressTable, 70, 80 , -50);
             Arrays.fill(progressTable, 80, 90 , -75);
             Arrays.fill(progressTable, 90, 101, -100);
