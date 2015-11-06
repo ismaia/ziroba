@@ -52,11 +52,11 @@ fi
 #call ziroba
 if [ -f $ROOT_DIR/bin/ziroba ] ;
 then
-  #  . $ROOT_DIR/bin/ziroba --chip P8_13_chip --pwm 0 \
-  #                         --chip P8_19_chip --pwm 1 \
-  #                         --gpio_export $GPIO_67 \
-  #                         --gpio_export $GPIO_68 \
-  #                         --gpio_export $GPIO_44
+    . $ROOT_DIR/bin/ziroba --dev pwm_chip=$P8_13_chip,pwm_n=0 \
+                           --dev pwm_chip=$P8_19_chip,pwm_n=1 \
+                           --dev gpio_export=$GPIO_67         \
+                           --dev gpio_export=$GPIO_68         \
+                           --dev gpio_export=$GPIO_12
 else
    echo "ziroba binary not found"
 fi

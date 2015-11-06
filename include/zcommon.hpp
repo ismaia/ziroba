@@ -13,9 +13,10 @@ struct ZSysArgs {
   int  port;
   bool enableDevs;
   bool debug;
+  std::vector<mraa::Gpio *> gpioVec;
+  std::vector<mraa::Pwm *> pwmVec;
 };
 extern ZSysArgs zargs;
-
 
 /**
  * Protocol:
@@ -29,6 +30,8 @@ void listPlatformPins();
 void Tokenize(const string& str,
                       vector<string>& tokens,
                       const string& delimiters);
+
+void parse_args(int argc, char **argv);
 
 
 #endif
