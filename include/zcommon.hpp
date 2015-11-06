@@ -2,6 +2,7 @@
 #define __ZCOMMON__
 
 #include <vector>
+#include <map>
 #include <string>
 #include <mraa.hpp>
 #include "zmotion.hpp"
@@ -18,12 +19,14 @@ struct ZSysArgs {
 };
 extern ZSysArgs zargs;
 
-/**
- * Protocol:
- * Android_ResID:cmd:value
- */
+//Nerwork Command Format: device:action:value
+struct ZNetCmd {
+       int  device;
+       int  action;
+       int  value;
+};
 
-
+extern std::map<std::string,int> actionMap;
 
 void listPlatformPins();
 

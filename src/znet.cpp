@@ -15,13 +15,6 @@ static std::map<std::string,int> androidResMap {
  };
 
 
-static std::map<std::string,int> actionMap {
-   { "setduty"  , 0 },
-   { "stop"     , 1 },
-   { "setdir"   , 2 },
-   { "toggledir", 3 }
-};
-
 
 ZCommandService::ZCommandService(int port, size_t buff_size)
     :listener(),
@@ -118,4 +111,8 @@ int ZCommandService::decodeCmd(const char *cmd, ZNetCmd & zcmd) {
        }
    }
    return -1;
+}
+
+int ZCommandService::getAction(const string & actionName) {
+    return actionMap[actionName];
 }

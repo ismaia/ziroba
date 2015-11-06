@@ -14,21 +14,21 @@ PATH=`echo -n $PATH | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":"
 
 PLATPATH=/sys/devices/platform
 SLOTS=$PLATPATH/bone_capemgr/slots
-OCP=$PLATPATH/ocp/
+OCP=$PLATPATH/ocp
 CAPE=cape-universaln
 
 #linux 4.1.x: load overlay
 if [ ! -d /sys/class/pwm/pwmchip0 ] ;
 then
-    echo $CAPE > $SLOTS
-    sleep 1
+		echo $CAPE > $SLOTS
+		sleep 1
 fi
 
 
 P8_13="ocp:P8_13_pinmux"
 P8_13_chip=$(ls /sys/devices/platform/ocp/48304000.epwmss/48304200.ehrpwm/pwm | sed  's/[a-z]*//g')
 P8_19="ocp:P8_19_pinmux"
-P8_13_chip=$(ls /sys/devices/platform/ocp/48304000.epwmss/48304200.ehrpwm/pwm | sed  's/[a-z]*//g')
+P8_19_chip=$(ls /sys/devices/platform/ocp/48304000.epwmss/48304200.ehrpwm/pwm | sed  's/[a-z]*//g')
 
 P9_14="ocp:P9_14_pinmux"
 P9_14_chip=$(ls /sys/devices/platform/ocp/48302000.epwmss/48302200.ehrpwm/pwm | sed  's/[a-z]*//g')
@@ -40,23 +40,28 @@ GPIO_68="10"
 GPIO_44="12"
 
 #set pin modes to pwm
-if [ ! -d /sys/class/pwm/pwmchip0 ] ;
+if [ -d /sys/class/pwm/pwmchip0 ] ;
 then
-    echo pwm > $OCP/$P8_13/state
-    echo pwm > $OCP/$P8_19/state
-    echo pwm > $OCP/$P9_14/state
-    echo pwm > $OCP/$P9_16/state
+		echo pwm > $OCP/$P8_13/state
+		echo pwm > $OCP/$P8_19/state
+		echo pwm > $OCP/$P9_14/state
+		echo pwm > $OCP/$P9_16/state
 fi
+
+
+DEV_OPTS="--dev pwm_chip=$P8_13_chip,pwm_n=0  \
+          --dev pwm_chip=$P8_19_chip,pwm_n=1  \
+          --dev gpio_export=$GPIO_67          \
+          --dev gpio_export=$GPIO_68          \
+          --dev gpio_export=$GPIO_44"
 
 
 #call ziroba
 if [ -f $ROOT_DIR/bin/ziroba ] ;
 then
-    . $ROOT_DIR/bin/ziroba --dev pwm_chip=$P8_13_chip,pwm_n=0 \
-                           --dev pwm_chip=$P8_19_chip,pwm_n=1 \
-                           --dev gpio_export=$GPIO_67         \
-                           --dev gpio_export=$GPIO_68         \
-                           --dev gpio_export=$GPIO_12
+	 cd $ROOT_DIR/bin
+		./ziroba -p8090 $DEV_OPTS -v
+  echo $DEVS
 else
-   echo "ziroba binary not found"
+	 echo "ziroba binary not found"
 fi

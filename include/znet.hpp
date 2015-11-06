@@ -4,13 +4,6 @@
 #include "zcommon.hpp"
 
 
-//Nerwork Command Format: device:action:value
-struct ZNetCmd {
-       int  device;
-       int  action;
-       int  value;
-};
-
 
 //TCP Server
 class ZCommandService {
@@ -25,6 +18,7 @@ class ZCommandService {
         char *          getBuff();
         void            wait();
         int             decodeCmd(const char *cmd, ZNetCmd & zcmd);
+        int             getAction(const string & actionName);
     private:
         sf::TcpListener   listener;
         sf::TcpSocket     socket;

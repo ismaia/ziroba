@@ -2,11 +2,8 @@
 gpio1          GPIO67
 gpio2          GPIO68
 gpio3          GPIO44
-gpio4          GPIO26
 pwm1           GPIO23
 pwm2           GPIO22
-pwm3           GPIO50
-pwm4           GPIO51
 
 #kernel 4.1
 #48304000.epwmss/48304200.ehrpwm/pwm/pwmchip? pwm0  EHRPWM2A

@@ -8,16 +8,15 @@ class DCMotor {
     public:
        DCMotor(mraa::Pwm * pwm, mraa::Gpio *gpio);
        ~DCMotor();
-       void setSpeed(int duty);
+       void setDuty(float duty);
+       void setDir(int dir);
        void toggleDir();
        void stop();
-
-
+       void disablePwm();
+       void enablePwm();
     private:
        //dc motor 1
        mraa::Pwm          *pwm;
-       int                period;
-       int                duty;
        mraa::Gpio         *gpio;
        bool               gpioVal;
 
