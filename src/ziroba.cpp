@@ -9,7 +9,6 @@
 #include "zcommon.hpp"
 #include "znet.hpp"
 #include "zmotion.hpp"
-#include "pinmapper.hpp"
 
 
 static void parse_args(int argc, char **argv);
@@ -60,20 +59,7 @@ int main(int argc, char ** argv) {
                   cerr << "MRAA platform not initialized!!" << std::endl;
 
 
-      pwm1Pin  = PinMapper::getInstance().getPinNumber("pwm1");
-      gpio1Pin = PinMapper::getInstance().getPinNumber("gpio1");
 
-      pwm2Pin  = PinMapper::getInstance().getPinNumber("pwm2");
-      gpio2Pin = PinMapper::getInstance().getPinNumber("gpio2");
-
-      dcmotor1 = new DCMotor(pwm1Pin, gpio1Pin);
-      dcmotor2 = new DCMotor(pwm2Pin, gpio2Pin);
-
-      //Turn ON Staus LED
-      statusLEDPin = PinMapper::getInstance().getPinNumber("gpio3");
-      statusLED    = new Gpio(statusLEDPin);
-      statusLED->dir(mraa::DIR_OUT);
-      statusLED->write(1);
     }
 
     //===================== Network Initialization ===========================
@@ -129,15 +115,17 @@ parse_args(int argc, char **argv)
             {"verbose" ,no_argument      , 0,  'v' },
             {"port"    ,required_argument, 0,  'p' },
             {"pins"    ,no_argument      , 0,  'l' },
-            {"mapfile" ,required_argument, 0,  'f' },
             {"ndevs"   ,no_argument      , 0,  'n' },
+            {"pwm"     ,required_argument, 0,  'm' },
+            {"gpio"    ,required_argument, 0,  'g' },
+            {"chip"    ,required_argument, 0,  'c' },
             {0,0,0,0}
        };
 
         int long_index =0;
         int show_help  =0;
 
-        while ((opt = getopt_long(argc, argv,"hvp:lf:n",
+        while ((opt = getopt_long(argc, argv,"hvp:ln:m:g:c:",
                        long_options, &long_index )) != -1) {
 
             switch (opt) {
@@ -150,17 +138,17 @@ parse_args(int argc, char **argv)
                      zbot.port = atoi(optarg);
                      break;
                  case 'l' :
-                     PinMapper::getInstance().listPlatformPins();
+                     listPlatformPins();
                      exit(EXIT_SUCCESS);
                      break;
-                 case 'f' :
-                     PinMapper::getInstance().init(optarg);
-                     break;
                  case 'n' :
-                     zbot.enDevs = false;
                  break;
-
-
+                 case 'm' :
+                 break;
+                 case 'g' :
+                 break;
+                 case 'c' :
+                 break;
                  case '?':
                  default:
                      show_help=1;

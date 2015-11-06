@@ -16,7 +16,7 @@ ExternalProject_Add(
 )
 
 
-add_library(zrobot STATIC zcommon.cpp znet.cpp zmotion.cpp pinmapper.cpp)
+add_library(zrobot STATIC zcommon.cpp znet.cpp zmotion.cpp)
 install(TARGETS zrobot DESTINATION lib)
 
 #these are all compiled the same way
@@ -24,7 +24,7 @@ set(CPP_PROGRAMS ziroba)
 set(C_PROGRAMS )
 set(CORELIBS mraa sfml-system sfml-network zrobot)
 
-set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -O2 -Wall -std=c99")
+set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -O2 -Wall -std=c11")
 foreach(program ${C_PROGRAMS})
     string(TOLOWER ${program} lcaseprogram)
     add_executable(${lcaseprogram} ${program}.c)

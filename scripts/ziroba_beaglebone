@@ -1,0 +1,48 @@
+#!/bin/bash
+
+#the full directory name of the script no matter where it is being called from
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+ROOT_DIR=`(cd $SCRIPT_DIR/.. && pwd)`
+
+export PATH=$PATH:$ROOT_DIR/bin
+export PATH=$PATH:$ROOT_DIR/scripts
+export LD_LIBRARY_PATH=$ROOT_DIR/lib/mraa/lib:$ROOT_DIR/lib/mraa/lib64
+
+
+#remove duplicates from PATH
+PATH=`echo -n $PATH | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}'`
+
+if [ -f $ROOT_DIR/bin/ziroba ] ;
+then
+   . $ROOT_DIR/bin/ziroba
+else
+   echo "ziroba binary not found"
+fi
+
+PLATPATH=/sys/devices/platform
+SLOTS=$PLATPATH/bone_capemgr/slots
+OCP=$PLATPATH/ocp/
+CAPE=cape-universaln
+
+
+
+P8_13="ocp:P8_13_pinmux"
+P8_13_chip=$(ls /sys/devices/platform/ocp/48304000.epwmss/48304200.ehrpwm/pwm)
+P8_19="ocp:P8_19_pinmux"
+P8_13_chip=$(ls /sys/devices/platform/ocp/48304000.epwmss/48304200.ehrpwm/pwm)
+
+P9_14="ocp:P9_14_pinmux"
+P9_14_chip=$(ls /sys/devices/platform/ocp/48302000.epwmss/48302200.ehrpwm/pwm)
+P9_16="ocp:P9_16_pinmux"
+P9_16_chip=$(ls /sys/devices/platform/ocp/48302000.epwmss/48302200.ehrpwm/pwm)
+
+#load overlays and pin modes (pwm)
+if [ ! -d /sys/class/pwm/pwmchip0 ] ;
+then
+    #linux 4.1.x
+    echo $CAPE > $SLOTS
+    echo pwm > $OCP/$P8_13/state
+    echo pwm > $OCP/$P8_19/state
+    echo pwm > $OCP/$P9_14/state
+    echo pwm > $OCP/$P9_16/state
+fi

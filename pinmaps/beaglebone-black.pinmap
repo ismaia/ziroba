@@ -8,6 +8,30 @@ pwm2           GPIO22
 pwm3           GPIO50
 pwm4           GPIO51
 
+#kernel 4.1
+#48304000.epwmss/48304200.ehrpwm/pwm/pwmchip? pwm0  EHRPWM2A
+#48304000.epwmss/48304200.ehrpwm/pwm/pwmchip? pwm1  EHRPWM2B
+
+#48302000.epwmss/48302200.ehrpwm/pwm/pwmchip? pwm0  EHRPWM1A
+#48302000.epwmss/48302200.ehrpwm/pwm/pwmchip? pwm1  EHRPWM1B
+
+
+#kernel 3.8
+#pwm0     -> ../../devices/ocp.3/48300000.epwmss/48300200.ehrpwm/pwm/pwm0  EHRPWM0A
+#pwm1     -> ../../devices/ocp.3/48300000.epwmss/48300200.ehrpwm/pwm/pwm1  EHRPWM0B
+#pwm2     -> ../../devices/ocp.3/48300000.epwmss/48300100.ecap/pwm/pwm2    ECAPPWM0
+#pwm3     -> ../../devices/ocp.3/48302000.epwmss/48302200.ehrpwm/pwm/pwm3  EHRPWM1A
+#pwm4     -> ../../devices/ocp.3/48302000.epwmss/48302200.ehrpwm/pwm/pwm4  EHRPWM1B
+#pwm5     -> ../../devices/ocp.3/48304000.epwmss/48304200.ehrpwm/pwm/pwm5  EHRPWM2A
+#pwm6     -> ../../devices/ocp.3/48304000.epwmss/48304200.ehrpwm/pwm/pwm6  EHRPWM2B
+#pwm7     -> ../../devices/ocp.3/48304000.epwmss/48304100.ecap/pwm/pwm7    ECAPPWM2
+#pwmchip0 -> ../../devices/ocp.3/48300000.epwmss/48300200.ehrpwm/pwm/pwmchip0
+#pwmchip2 -> ../../devices/ocp.3/48300000.epwmss/48300100.ecap/pwm/pwmchip2
+#pwmchip3 -> ../../devices/ocp.3/48302000.epwmss/48302200.ehrpwm/pwm/pwmchip3
+#pwmchip5 -> ../../devices/ocp.3/48304000.epwmss/48304200.ehrpwm/pwm/pwmchip5
+#pwmchip7 -> ../../devices/ocp.3/48304000.epwmss/48304100.ecap/pwm/pwmchip7
+
+
 
 
 #./mraa-gpio list

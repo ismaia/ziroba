@@ -3,17 +3,12 @@
 
 #include <vector>
 #include <string>
+#include <mraa.hpp>
+#include "zmotion.hpp"
 
 using namespace std;
 
 
-// /**
-//  * Protocol:
-//  * Android's ResourceID:cmd:value
-//  */
-// enum zcmds {  CMD_DCMOT1 = 2131624015,
-//               CMD_DCMOT2 = 2131624016      };
-//
 
 struct ZCmd {
    int  device;
@@ -22,9 +17,12 @@ struct ZCmd {
 };
 
 struct ZiroRobot {
-    int  port;
-    bool running;
-    bool enDevs;
+      std::vector<mraa::Gpio *>     gpioVec;
+      std::vector<mraa::Pwm  *>     pwmVec;
+      std::vector<DCMotor *>  dcMotorVec;
+      int  port;
+      bool running;
+      bool enDevs;
 };
 
 extern ZiroRobot zbot;
@@ -39,6 +37,9 @@ void Tokenize(const string& str,
  * Android_ResID:cmd:value
  */
 int decodeCmd(const char *cmd, ZCmd & zcmd);
+
+
+void listPlatformPins();
 
 
 #endif
