@@ -6,7 +6,7 @@
 
 class DCMotor {
     public:
-       DCMotor(int pwmPin, int gpioPin);
+       DCMotor(mraa::Pwm * pwm, mraa::Gpio *gpio);
        ~DCMotor();
        void setSpeed(int duty);
        void toggleDir();
@@ -18,10 +18,8 @@ class DCMotor {
        mraa::Pwm          *pwm;
        int                period;
        int                duty;
-
-
        mraa::Gpio         *gpio;
-       bool                gpioVal;
+       bool               gpioVal;
 
 };
 

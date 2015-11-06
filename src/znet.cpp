@@ -7,6 +7,21 @@ static size_t buff_bytes;
 
 sf::SocketSelector netMonitor;
 
+//Android Resource Map [ResName, LocalID]
+static std::map<std::string,int> androidResMap {
+   { "skb1", 1 },  //seekbar1
+   { "skb2", 2 },  //seekbar2
+   { "but1", 3 }   //buttomA
+ };
+
+
+static std::map<std::string,int> actionMap {
+   { "setduty"  , 0 },
+   { "stop"     , 1 },
+   { "setdir"   , 2 },
+   { "toggledir", 3 }
+};
+
 
 ZCommandService::ZCommandService(int port, size_t buff_size)
     :listener(),
@@ -59,7 +74,7 @@ void ZCommandService::clearBuff() {
 bool ZCommandService::sendBuff()
 {
     sf::Socket::Status status;
-    socket.send(buff,buff_size);
+    status = socket.send(buff,buff_size);
     return (status == sf::Socket::Done);
 }
 
@@ -79,4 +94,28 @@ void ZCommandService::wait()
 {
     netMonitor.add(socket);
     netMonitor.wait();
+}
+
+int ZCommandService::decodeCmd(const char *cmd, ZNetCmd & zcmd) {
+   std::string strCmd(cmd);
+   std::vector<std::string> cmdTokens;
+   //std::cout << cmd << std::endl;
+
+   Tokenize(strCmd, cmdTokens, ":");
+
+   if (cmdTokens.size() >= 3) {
+       std::string resName = cmdTokens[0];
+       int action   = actionMap[ cmdTokens[1] ];
+       int value    = std::atoi(cmdTokens[2].c_str());
+
+       zcmd.device  = androidResMap[resName];
+       zcmd.action  = action;
+       zcmd.value   = value;
+       if (zargs.debug) {
+           std::cout << "device:"  << zcmd.device << "," <<
+                        "action:"  << zcmd.action << "," <<
+                        "value:"   << zcmd.value << std::endl;
+       }
+   }
+   return -1;
 }

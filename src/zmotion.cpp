@@ -4,24 +4,21 @@
 #include <string>
 
 
-DCMotor::DCMotor(int pwmPin, int gpioPin)
-   :period(0),
-    duty(0),
+DCMotor::DCMotor(mraa::Pwm * pwm, mraa::Gpio *gpio)
+   :pwm(pwm),
+    gpio(gpio),
     gpioVal(0)
  {
-
-     pwm  = new mraa::Pwm( pwmPin );
      if (pwm == NULL) {
-         std::cerr << "Can't open PWM pin :" <<  pwmPin << std::endl;
+         std::cerr << "Can't open PWM!" << std::endl;
          exit(1);
      }
-     pwm->period_us(300);
+     //pwm->percent
+     pwm->period_us(1000);
      pwm->enable(1);
-     
 
-     gpio = new mraa::Gpio( gpioPin );
      if (gpio == NULL) {
-         std::cerr << "Can't open GPIO pin :" << gpioPin << std::endl;
+         std::cerr << "Can't open GPIO!" << std::endl;
          exit(1);
      }
      gpio->dir(mraa::DIR_OUT);
@@ -33,7 +30,7 @@ void DCMotor::setSpeed(int duty) {
 }
 
 void DCMotor::stop() {
-     pwm->enable(false);
+     pwm->config_percent( period, 0 );
 }
 
 void DCMotor::toggleDir() {
@@ -44,15 +41,4 @@ void DCMotor::toggleDir() {
 DCMotor::~DCMotor() {
     delete pwm;
     delete gpio;
-}
-
-
-
-void parseAndExecCommand(const char * cmd) {
-   std::string str(cmd);
-   size_t pos = str.find("bar1");
-   if (pos != std::string::npos) {
-     std::cout << str.substr(pos+2) << std::endl;
-   }
-
 }

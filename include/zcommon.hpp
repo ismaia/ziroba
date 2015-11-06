@@ -9,37 +9,26 @@
 using namespace std;
 
 
-
-struct ZCmd {
-   int  device;
-   int  action;
-   int  value;
+struct ZSysArgs {
+  int  port;
+  bool enableDevs;
+  bool debug;
 };
-
-struct ZiroRobot {
-      std::vector<mraa::Gpio *>     gpioVec;
-      std::vector<mraa::Pwm  *>     pwmVec;
-      std::vector<DCMotor *>  dcMotorVec;
-      int  port;
-      bool running;
-      bool enDevs;
-};
-
-extern ZiroRobot zbot;
-
-void Tokenize(const string& str,
-              vector<string>& tokens,
-              const std::string& delimiters = " ");
+extern ZSysArgs zargs;
 
 
 /**
  * Protocol:
  * Android_ResID:cmd:value
  */
-int decodeCmd(const char *cmd, ZCmd & zcmd);
+
 
 
 void listPlatformPins();
+
+void Tokenize(const string& str,
+                      vector<string>& tokens,
+                      const string& delimiters);
 
 
 #endif

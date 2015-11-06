@@ -7,22 +7,8 @@
 #include <mraa.h>
 
 
-ZiroRobot zbot;
+ZSysArgs  zargs;
 
-//Android Resource Map [ResName, LocalID]
-static std::map<std::string,int> androidResMap {
-   { "skb1", 1 },  //seekbar1
-   { "skb2", 2 },  //seekbar2
-   { "but1", 3 }   //buttomA
- };
-
-
-static std::map<std::string,int> actionMap {
-   { "setduty"  , 0 },
-   { "stop"     , 1 },
-   { "setdir"   , 2 },
-   { "toggledir", 3 }
-};
 
 void Tokenize(const string& str,
                       vector<string>& tokens,
@@ -44,26 +30,7 @@ void Tokenize(const string& str,
     }
 }
 
-int decodeCmd(const char *cmd, ZCmd & zcmd) {
-   std::string strCmd(cmd);
-   std::vector<std::string> cmdTokens;
-   //std::cout << cmd << std::endl;
 
-   Tokenize(strCmd, cmdTokens, ":");
-
-   if (cmdTokens.size() >= 3) {
-       std::string resName = cmdTokens[0];
-       int action   = actionMap[ cmdTokens[1] ];
-       int value    = std::atoi(cmdTokens[2].c_str());
-
-       zcmd.device  = androidResMap[resName];
-       zcmd.action  = action;
-       zcmd.value   = value;
-       cout << "resID:"  << zcmd.device << "," <<
-               "action:" << zcmd.action << "," <<
-               "value:"  << zcmd.value << std::endl;
-   }
-}
 
 
 void listPlatformPins() {
