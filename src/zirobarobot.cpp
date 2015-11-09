@@ -1,7 +1,6 @@
 #include "zirobarobot.hpp"
 #include <iostream>
 
-
 ZirobaRobot zbot;
 
 
@@ -44,37 +43,35 @@ void ZirobaRobot::executeCmd(ZNetCmd & zcmd) {
   float value = zcmd.value;
   DCMotor * dcMotor = NULL;
 
-	#pragma omp parallel shared(zcmd)
-	{
-		// //select device
-		switch (dev) {
-			case DCMOTOR1:
-			dcMotor = dcMotor1;
-			break;
-			case DCMOTOR2:
-			dcMotor = dcMotor2;
-			break;
-			default:
-			break;
-		}
+	// //select device
+	switch (dev) {
+		case DCMOTOR1:
+				dcMotor = dcMotor1;
+				break;
+		case DCMOTOR2:
+				dcMotor = dcMotor2;
+				break;
+		default:
+		    break;
+	}
 
-		switch (act) {
-			case SET_DUTY:
-			value = (float)value/100.0f;
-			dcMotor->setDuty(value);
-			usleep(10000);
-			if (zargs.debug) std::cout << "setduty:" << value << std::endl;
-			break;
-			case SET_DIR:
-			dcMotor->setDir(value);
-			usleep(10000);
-			if (zargs.debug) std::cout << "setdir:" << value << std::endl;
-			break;
-			case STOP:
-			dcMotor->stop();
-			usleep(10000);
-			default:
-			break;
-		}
+	switch (act) {
+		case SET_DUTY:
+				value = (float)value/100.0f;
+				dcMotor->setDuty(value);
+				usleep(10000);
+				if (zargs.debug) std::cout << "setduty:" << value << std::endl;
+				break;
+		case SET_DIR:
+				dcMotor->setDir(value);
+				usleep(10000);
+				if (zargs.debug) std::cout << "setdir:" << value << std::endl;
+				break;
+		case STOP:
+				dcMotor->stop();
+				usleep(10000);
+		  	break;
+		default:
+		break;
 	}
 }

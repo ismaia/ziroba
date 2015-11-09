@@ -64,8 +64,11 @@ int main(int argc, char ** argv) {
 			cmdService.wait();
 			if (cmdService.isReady()) {
 					cmdService.recvBuff();
-					cmdService.decodeBuff(zCmd);					
-          zbot.executeCmd(zCmd);
+					cmdService.decodeBuff(zCmd);
+          if (zargs.enableDevs) {
+					  zbot.executeCmd(zCmd);
+					}
+					usleep(10000); //IO Wait
 					cmdService.clearBuff();
 			}
 	}

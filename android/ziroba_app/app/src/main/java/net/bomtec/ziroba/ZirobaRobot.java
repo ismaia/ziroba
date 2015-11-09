@@ -80,7 +80,7 @@ public class ZirobaRobot {
             });
             thread.start();
             try {
-                thread.join(1000);
+                thread.join(500);
             }catch (InterruptedException e) {
 
             }
@@ -103,8 +103,10 @@ public class ZirobaRobot {
 
     public synchronized void stop() {
         try {
-            socket.disconnect();
-            socket.close();
+            if (socket != null) {
+                socket.disconnect();
+                socket.close();
+            }
         }catch (Exception e) {
             e.printStackTrace();
         }
@@ -144,21 +146,20 @@ public class ZirobaRobot {
         }
 
 
-//        if (!socket.isConnected()) {
-//            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-//            builder.setTitle("Connection");
-//            builder.setMessage(R.string.dialog_connection_text);
-//            builder.setCancelable(true);
-//            builder.setNeutralButton("OK", new DialogInterface.OnClickListener() {
-//                public void onClick(DialogInterface dialog, int id) {
-//                    dialog.cancel();
-//                }
-//            });
-//            builder.create();
-//            builder.show();
-//            return false;
-//        }
-
+        if ( socket == null || !socket.isConnected() ) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setTitle("Connection");
+            builder.setMessage(R.string.dialog_connection_text);
+            builder.setCancelable(true);
+            builder.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    dialog.cancel();
+                }
+            });
+            builder.create();
+            builder.show();
+            return false;
+        }
 
         return true;
     }
@@ -196,7 +197,7 @@ public class ZirobaRobot {
         sendCmdMsg(dev, ZAction.SET_DUTY, duty);
     }
 
-    public void sendSetDirCmd(int dev, int dir) {
+    public void sendSetdirCmd(int dev, int dir) {
         sendCmdMsg(dev,ZAction.SET_DIR, dir);
     }
 

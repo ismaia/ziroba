@@ -141,48 +141,6 @@ public class SettingsActivity extends PreferenceActivity {
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
 
 
-//            if (key.equals(PREF_KEY_SW_CONNECTION) ||
-//                    key.equals(PREF_KEY_HOST_TEXT)  ||
-//                    key.equals(PREF_KEY_PORT_TEXT)) {
-//
-//                String host = sharedPreferences.getString(PREF_KEY_HOST_TEXT, "");
-//                String port = sharedPreferences.getString(PREF_KEY_PORT_TEXT, "");
-//
-//                boolean swState = sharedPreferences.getBoolean(PREF_KEY_SW_CONNECTION, false);
-//                SwitchPreference sw = (SwitchPreference)findPreference(PREF_KEY_SW_CONNECTION);
-//
-//                if (swState) {
-//                    CmdClient.getInstance().stop();
-//                    CmdClient.getInstance().setup(host, port);
-//                    CmdClient.getInstance().start();
-//
-//                    //Blocks the current Thread until the receiver finishes its execution and dies.
-//                    CmdClient.getInstance().join();
-//
-//
-//                    if (!CmdClient.getInstance().isActive()) {
-//                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-//                        builder.setTitle("Connection");
-//                        builder.setMessage(R.string.dialog_connection_text);
-//                        builder.setCancelable(true);
-//                        builder.setNeutralButton("OK", new DialogInterface.OnClickListener() {
-//                            public void onClick(DialogInterface dialog, int id) {
-//                                dialog.cancel();
-//                            }
-//                        });
-//                        builder.create();
-//                        builder.show();
-//                    }
-//                }else {
-//                    //close client socket
-//                    CmdClient.getInstance().stop();
-//                }
-//
-//                //update the sw state
-//                sw.setChecked(CmdClient.getInstance().isActive());
-//            }
-
-
             if (key.equals(PREF_KEY_SW_CONNECTION) ||
                     key.equals(PREF_KEY_HOST_TEXT)  ||
                     key.equals(PREF_KEY_PORT_TEXT)) {
@@ -193,15 +151,16 @@ public class SettingsActivity extends PreferenceActivity {
                 boolean swState = sharedPreferences.getBoolean(PREF_KEY_SW_CONNECTION, false);
                 SwitchPreference sw = (SwitchPreference)findPreference(PREF_KEY_SW_CONNECTION);
 
+                boolean connState = false;
                 if (swState) {
-                    ZirobaRobot.getInstance().connect(getActivity(),host,port);
+                    connState = ZirobaRobot.getInstance().connect(getActivity(),host,port);
                 }else {
                     //close client socket
                     ZirobaRobot.getInstance().stop();
                 }
 
                 //update the sw state
-                sw.setChecked(ZirobaRobot.getInstance().isActive());
+                sw.setChecked(connState);
             }
 
             updateSummaries();

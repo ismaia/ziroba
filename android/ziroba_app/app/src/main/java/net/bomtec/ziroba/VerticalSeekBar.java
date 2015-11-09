@@ -3,6 +3,7 @@ package net.bomtec.ziroba;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.SeekBar;
 import android.view.MotionEvent;
 
@@ -93,13 +94,16 @@ public class VerticalSeekBar extends SeekBar{
                     }
                 }
 
-                if (value != -1)
-                    ZirobaRobot.getInstance().sendSetDirCmd(mZDevice, value);
+                if (value != -1) {
+                    ZirobaRobot.getInstance().sendSetdirCmd(mZDevice, value);
+                    Log.d("SeekBar:setdir:", mZDevice + ":" + value);
+                }
 
 
                 if (newZProgress != oldZProgress) {
                     action = ZirobaRobot.ZAction.SET_DUTY;
                     value  = Math.abs(newZProgress);
+                    Log.d("SeekBar:Setduty:", mZDevice + ":" + value);
                     ZirobaRobot.getInstance().sendDutyCmd(mZDevice, value);
                 }
 

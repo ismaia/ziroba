@@ -18,6 +18,7 @@ import android.widget.Switch;
 public class MainActivity extends Activity {
     private SharedPreferences sharedPreferences;
     public static Activity mainActivt;
+    Switch connSw;
 
 
     @Override
@@ -85,7 +86,7 @@ public class MainActivity extends Activity {
 
         });
 
-        Switch connSw = (Switch)findViewById(R.id.connection_switch);
+        connSw = (Switch)findViewById(R.id.connection_switch);
 
         connSw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -94,6 +95,7 @@ public class MainActivity extends Activity {
                 String port = sharedPreferences.getString(SettingsActivity.PREF_KEY_PORT_TEXT, "");
                 if (isChecked) {
                     boolean status  = ZirobaRobot.getInstance().connect(mainActivt, host, port);
+                    connSw.setChecked(status);
                 }
             }
 
@@ -126,8 +128,8 @@ public class MainActivity extends Activity {
                     public boolean onTouch(View v, MotionEvent event) {
                         if (event.getAction() == MotionEvent.ACTION_DOWN) {
                             //Log.d("Button A", "clicked");
-                            ZirobaRobot.getInstance().sendSetDirCmd(ZirobaRobot.ZDevice.DCMOTOR1, 0);
-                            ZirobaRobot.getInstance().sendSetDirCmd(ZirobaRobot.ZDevice.DCMOTOR2, 0);
+                            ZirobaRobot.getInstance().sendSetdirCmd(ZirobaRobot.ZDevice.DCMOTOR1, 0);
+                            ZirobaRobot.getInstance().sendSetdirCmd(ZirobaRobot.ZDevice.DCMOTOR2, 0);
                             ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR1, 80);
                             ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR2, 80);
 
@@ -148,8 +150,8 @@ public class MainActivity extends Activity {
                     public boolean onTouch(View v, MotionEvent event) {
                         if (event.getAction() == MotionEvent.ACTION_DOWN) {
                             //Log.d("Button A", "clicked");
-                            ZirobaRobot.getInstance().sendSetDirCmd(ZirobaRobot.ZDevice.DCMOTOR1, 1);
-                            ZirobaRobot.getInstance().sendSetDirCmd(ZirobaRobot.ZDevice.DCMOTOR2, 0);
+                            ZirobaRobot.getInstance().sendSetdirCmd(ZirobaRobot.ZDevice.DCMOTOR1, 1);
+                            ZirobaRobot.getInstance().sendSetdirCmd(ZirobaRobot.ZDevice.DCMOTOR2, 0);
                             ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR1, 80);
                             ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR2, 80);
                         } else if (event.getAction() == MotionEvent.ACTION_UP) {
@@ -169,8 +171,8 @@ public class MainActivity extends Activity {
                     public boolean onTouch(View v, MotionEvent event) {
                         if (event.getAction() == MotionEvent.ACTION_DOWN) {
                             //Log.d("Button A", "clicked");
-                            ZirobaRobot.getInstance().sendSetDirCmd(ZirobaRobot.ZDevice.DCMOTOR1, 0);
-                            ZirobaRobot.getInstance().sendSetDirCmd(ZirobaRobot.ZDevice.DCMOTOR2, 1);
+                            ZirobaRobot.getInstance().sendSetdirCmd(ZirobaRobot.ZDevice.DCMOTOR1, 0);
+                            ZirobaRobot.getInstance().sendSetdirCmd(ZirobaRobot.ZDevice.DCMOTOR2, 1);
                             ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR1, 80);
                             ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR2, 80);
                         } else if (event.getAction() == MotionEvent.ACTION_UP) {
@@ -190,8 +192,8 @@ public class MainActivity extends Activity {
                     public boolean onTouch(View v, MotionEvent event) {
                         if (event.getAction() == MotionEvent.ACTION_DOWN) {
                             //Log.d("Button A", "clicked");
-                            ZirobaRobot.getInstance().sendSetDirCmd(ZirobaRobot.ZDevice.DCMOTOR1, 1);
-                            ZirobaRobot.getInstance().sendSetDirCmd(ZirobaRobot.ZDevice.DCMOTOR2, 1);
+                            ZirobaRobot.getInstance().sendSetdirCmd(ZirobaRobot.ZDevice.DCMOTOR1, 1);
+                            ZirobaRobot.getInstance().sendSetdirCmd(ZirobaRobot.ZDevice.DCMOTOR2, 1);
                             ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR1, 100);
                             ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR2, 100);
                         } else if (event.getAction() == MotionEvent.ACTION_UP) {
