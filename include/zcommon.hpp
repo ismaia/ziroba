@@ -21,19 +21,22 @@ extern ZSysArgs zargs;
 
 //Nerwork Command Format: device:action:value
 struct ZNetCmd {
-       int  device;
-       int  action;
-       int  value;
+  int  device;
+  int  action;
+  int  value;
 };
 
-extern std::map<std::string,int> actionMap;
+enum ZAction {
+  SET_DUTY = 0,
+  SET_DIR,
+  STOP,
+  TOGGLE_DIR,
+  ENABLE_CAMERA,
+  DISABLE_CAMERA
+};
+
 
 void listPlatformPins();
-
-void Tokenize(const string& str,
-                      vector<string>& tokens,
-                      const string& delimiters);
-
 void parse_args(int argc, char **argv);
 
 

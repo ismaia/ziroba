@@ -31,6 +31,7 @@ int main(int argc, char ** argv) {
 		std::cerr << "cannot hangle SIGSEGV!" << std::endl;
 	}
 	//========================================================================
+  zargs.port = -1;
 
 	parse_args(argc,argv);
 	if (zargs.debug) {
@@ -38,41 +39,32 @@ int main(int argc, char ** argv) {
 		std::cout << "GPIO Count:" << zargs.gpioVec.size() << std::endl;
 	}
 
-
 	if (zargs.enableDevs) {
 		cout << "Platform:" << mraa_get_platform_name() << std::endl;
 		mraa_init();
 	}
+  zbot.start();
 
-	parse_args(argc,argv);
-
-	zbot.start();
 
 	//===================== Network Initialization ===========================
 	int port = (zargs.port == -1) ? 8090 :  zargs.port;
-	char *buff;
 	ZCommandService cmdService(port);
 
-	cmdService.listenAndConnect();
+	
 	std::cout << "Receiving commands on port [" << port << "] " << std::endl;
 	//========================================================================
 
 
 	//=================== Main Loop ==========================================
-	std::vector<std::string> cmdTokens;
-
+	ZNetCmd zCmd;
 	while (zbot.isRunning()) {
 			cmdService.wait();
 			if (cmdService.isReady()) {
 					cmdService.recvBuff();
-					buff = cmdService.getBuff();
-
-					ZNetCmd zcmd;
-					cmdService.decodeCmd(buff, zcmd);
-          zbot.executeCmd(zcmd);
+					cmdService.decodeBuff(zCmd);
+          //zbot.executeCmd(zcmd);
 
 					cmdService.clearBuff();
-					cmdTokens.clear();
 			}
 	}
 

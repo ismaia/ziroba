@@ -12,55 +12,93 @@ export LD_LIBRARY_PATH=$ROOT_DIR/lib/mraa/lib:$ROOT_DIR/lib/mraa/lib64
 #remove duplicates from PATH
 PATH=`echo -n $PATH | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}'`
 
-PLATPATH=/sys/devices/platform
-SLOTS=$PLATPATH/bone_capemgr/slots
-OCP=$PLATPATH/ocp
-CAPE=cape-universaln
 
-#linux 4.1.x: load overlay
-if [ ! -d /sys/class/pwm/pwmchip0 ] ;
-then
-		echo $CAPE > $SLOTS
-		sleep 1
+
+args=$(getopt -o hvp:ln -l help,verbose,port:,pins,ndev  -- "$@")
+eval set -- "$args"
+
+while true ; do
+     case "$1" in
+             -v|--verbose)
+                 VERBOSE="-v"
+                 ;;
+             -p|--port)
+                 PORT=$2
+                 ;;
+             -l|--pins)
+                 LIST_PINS="-l"
+                 ;;
+             -n|--ndev)
+                 NDEV="-n"
+                 ;;
+             -h|--help)
+                 SHOW_HELP="-h"
+                 exit 0
+                ;;
+             --)
+                 # No more options left.
+                 shift ;
+                 break;;
+     esac
+     shift
+done
+
+if [ -z $PORT] ; then
+	PORT="8090"
 fi
 
+if [ -z $NDEV ];	then
+		PLATPATH=/sys/devices/platform
+		SLOTS=$PLATPATH/bone_capemgr/slots
+		OCP=$PLATPATH/ocp
+		CAPE=cape-universaln
 
-P8_13="ocp:P8_13_pinmux"
-P8_13_chip=$(ls /sys/devices/platform/ocp/48304000.epwmss/48304200.ehrpwm/pwm | sed  's/[a-z]*//g')
-P8_19="ocp:P8_19_pinmux"
-P8_19_chip=$(ls /sys/devices/platform/ocp/48304000.epwmss/48304200.ehrpwm/pwm | sed  's/[a-z]*//g')
+		#linux 4.1.x: load overlay
+		if [ ! -d /sys/class/pwm/pwmchip0 ] ;
+		then
+				echo $CAPE > $SLOTS
+				sleep 1
+		fi
 
-P9_14="ocp:P9_14_pinmux"
-P9_14_chip=$(ls /sys/devices/platform/ocp/48302000.epwmss/48302200.ehrpwm/pwm | sed  's/[a-z]*//g')
-P9_16="ocp:P9_16_pinmux"
-P9_16_chip=$(ls /sys/devices/platform/ocp/48302000.epwmss/48302200.ehrpwm/pwm | sed  's/[a-z]*//g')
 
-GPIO_67="8"
-GPIO_68="10"
-GPIO_44="12"
+		P8_13="ocp:P8_13_pinmux"
+		P8_13_chip=$(ls /sys/devices/platform/ocp/48304000.epwmss/48304200.ehrpwm/pwm | sed  's/[a-z]*//g')
+		P8_19="ocp:P8_19_pinmux"
+		P8_19_chip=$(ls /sys/devices/platform/ocp/48304000.epwmss/48304200.ehrpwm/pwm | sed  's/[a-z]*//g')
 
-#set pin modes to pwm
-if [ -d /sys/class/pwm/pwmchip0 ] ;
-then
-		echo pwm > $OCP/$P8_13/state
-		echo pwm > $OCP/$P8_19/state
-		echo pwm > $OCP/$P9_14/state
-		echo pwm > $OCP/$P9_16/state
+		P9_14="ocp:P9_14_pinmux"
+		P9_14_chip=$(ls /sys/devices/platform/ocp/48302000.epwmss/48302200.ehrpwm/pwm | sed  's/[a-z]*//g')
+		P9_16="ocp:P9_16_pinmux"
+		P9_16_chip=$(ls /sys/devices/platform/ocp/48302000.epwmss/48302200.ehrpwm/pwm | sed  's/[a-z]*//g')
+
+		GPIO_67="8"
+		GPIO_68="10"
+		GPIO_44="12"
+
+		#set pin modes to pwm
+		if [ -d /sys/class/pwm/pwmchip0 ] ;
+		then
+				echo pwm > $OCP/$P8_13/state
+				echo pwm > $OCP/$P8_19/state
+				echo pwm > $OCP/$P9_14/state
+				echo pwm > $OCP/$P9_16/state
+		fi
+
+
+		DEV_OPTS="--dev pwm_chip=$P8_13_chip,pwm_n=0  \
+		          --dev pwm_chip=$P8_19_chip,pwm_n=1  \
+		          --dev gpio_export=$GPIO_67          \
+		          --dev gpio_export=$GPIO_68          \
+		          --dev gpio_export=$GPIO_44"
+
+
 fi
-
-
-DEV_OPTS="--dev pwm_chip=$P8_13_chip,pwm_n=0  \
-          --dev pwm_chip=$P8_19_chip,pwm_n=1  \
-          --dev gpio_export=$GPIO_67          \
-          --dev gpio_export=$GPIO_68          \
-          --dev gpio_export=$GPIO_44"
-
 
 #call ziroba
 if [ -f $ROOT_DIR/bin/ziroba ] ;
 then
 	 cd $ROOT_DIR/bin
-		./ziroba -p8090 $DEV_OPTS -v
+		./ziroba -p$PORT $DEV_OPTS $VERBOSE $SHOW_HELP $NDEV
   echo $DEVS
 else
 	 echo "ziroba binary not found"

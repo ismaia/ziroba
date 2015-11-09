@@ -4,9 +4,10 @@
 #include "zcommon.hpp"
 
 
-enum ZDevices{
-   DCMOTOR1 = 1,
-   DCMOTOR2
+enum ZDevice {
+   DCMOTOR1 = 0,
+   DCMOTOR2,
+   CAMERA
 };
 
 extern std::map<std::string,int> actionMap;

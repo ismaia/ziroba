@@ -13,7 +13,8 @@ public class VerticalSeekBar extends SeekBar{
 
     private static int progressTable[];
     private static boolean flag = true;
-    private String resName = "";
+    private String resName      = "";
+    private int mZDevice        = -1;  //This seekbar is assigned to a ziroba's device
 
     private OnSeekBarChangeListener mOnSeekBarChangeListener;
 
@@ -80,32 +81,27 @@ public class VerticalSeekBar extends SeekBar{
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 int newZProgress = progressTable[progress];
 
-                String action = "";
-                String value  = "";
+                int    action = -1;
+                int    value  = -1;
                 String msg    = "";
 
-               if (oldZProgress == 0) {
-                   if (newZProgress > 0) {
-                       action = "setdir";
-                       value = "1";
-                   } else if (newZProgress < 0) {
-                       action = "setdir";
-                       value = "0";
-                   }
-               }
-
-                if (action != "") {
-                    msg = resName + ":" +  action + ":" + value;
-                    CmdClient.getInstance().sendMessage(msg);
+                if (oldZProgress == 0) {
+                    if (newZProgress > 0) {
+                        value = 1;
+                    } else if (newZProgress < 0) {
+                        value = 0;
+                    }
                 }
+
+                if (value != -1)
+                    ZirobaRobot.getInstance().sendSetDirCmd(mZDevice, value);
 
 
                 if (newZProgress != oldZProgress) {
-                    action = "setduty";
-                    msg = resName + ":" + action + ":" + Integer.toString(Math.abs(newZProgress));
-                    CmdClient.getInstance().sendMessage(msg);
+                    action = ZirobaRobot.ZAction.SET_DUTY;
+                    value  = Math.abs(newZProgress);
+                    ZirobaRobot.getInstance().sendDutyCmd(mZDevice, value);
                 }
-
 
                 oldZProgress = newZProgress;
             }
@@ -126,32 +122,33 @@ public class VerticalSeekBar extends SeekBar{
 
     public synchronized void init() {
         setProgress(getMax()/2);
-        resName = getResources().getResourceEntryName(getId());
-        CmdClient.getInstance().sendMessage(resName + ":setduty:" + "0");
+
+        //skb1 controls ziroba's dcmotor1
+        if (getId() == R.id.skb1)
+            mZDevice =  ZirobaRobot.ZDevice.DCMOTOR1;
+        else if (getId() == R.id.skb2)
+            mZDevice = ZirobaRobot.ZDevice.DCMOTOR2;
+
+        ZirobaRobot.getInstance().sendCmdMsg(mZDevice, ZirobaRobot.ZAction.STOP,0);
 
         if (flag) {
             progressTable = new int[getMax()+10];
             Arrays.fill(progressTable, 0 , 10 , 100);
-            Arrays.fill(progressTable, 10, 20 , 75);
-            Arrays.fill(progressTable, 20, 30 , 50);
-            Arrays.fill(progressTable, 30, 40 , 40);
-            Arrays.fill(progressTable, 40, 44 , 30);
+            Arrays.fill(progressTable, 10, 20 , 90);
+            Arrays.fill(progressTable, 20, 30 , 80);
+            Arrays.fill(progressTable, 30, 40 , 70);
+            Arrays.fill(progressTable, 40, 44 , 60);
             Arrays.fill(progressTable, 45, 55 , 0);
-            Arrays.fill(progressTable, 56, 60 , -30);
-            Arrays.fill(progressTable, 60, 70 , -40);
-            Arrays.fill(progressTable, 70, 80 , -50);
-            Arrays.fill(progressTable, 80, 90 , -75);
+            Arrays.fill(progressTable, 56, 60 , -60);
+            Arrays.fill(progressTable, 60, 70 , -70);
+            Arrays.fill(progressTable, 70, 80 , -80);
+            Arrays.fill(progressTable, 80, 90 , -90);
             Arrays.fill(progressTable, 90, 101, -100);
             flag = false;
         }
 
         this.initChangeListener();
 
-    }
-
-    public void progress50() {
-        setProgress(getMax() / 2);
-        CmdClient.getInstance().sendMessage(getResources().getResourceEntryName(getId()) + ":0" + "0");
     }
 
 

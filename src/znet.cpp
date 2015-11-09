@@ -7,112 +7,79 @@ static size_t buff_bytes;
 
 sf::SocketSelector netMonitor;
 
-//Android Resource Map [ResName, LocalID]
-static std::map<std::string,int> androidResMap {
-   { "skb1", 1 },  //seekbar1
-   { "skb2", 2 },  //seekbar2
-   { "but1", 3 }   //buttomA
- };
-
 
 
 ZCommandService::ZCommandService(int port, size_t buff_size)
-    :listener(),
-      socket(),
-      port(port),
-      buff_size(buff_size),
-      recv_bytes(0),
-      buff(new char[buff_size])
+:
+socket(),
+sender(),
+port(port),
+buff_size(buff_size),
+recv_bytes(0),
+buff(new char[buff_size])
 {
-    buff_bytes = buff_size*sizeof(char);
-    listener.setBlocking(false);
-    socket.setBlocking(false);
+  buff_bytes = buff_size*sizeof(char);
+  socket.setBlocking(false);
+  socket.bind(port);
 }
 
 ZCommandService::~ZCommandService() {
-    delete buff;
+  delete buff;
 }
 
 bool ZCommandService::isReady()
 {
-    return netMonitor.isReady(socket);
-}
-
-
-bool ZCommandService::listenAndConnect() {
-    if (listener.listen(port) == sf::Socket::Done) {
-        std::cout << "listening on port:" << port << std::endl;
-    }else exit(EXIT_FAILURE);
-
-    netMonitor.add(listener);
-    while (1) {
-        netMonitor.wait();
-        if (netMonitor.isReady(listener))  {
-            if (listener.accept(socket)  == sf::Socket::Done) {
-                netMonitor.add(socket);
-                return true;
-            }else {
-                std::cerr << "Can't accept connection at port " << port << std::endl;
-                exit(EXIT_FAILURE);
-            }
-        }
-    }
+  return netMonitor.isReady(socket);
 }
 
 
 void ZCommandService::clearBuff() {
-    memset(buff, 0 , buff_bytes);
+  memset(buff, 0 , buff_bytes);
 }
 
-bool ZCommandService::sendBuff()
-{
-    sf::Socket::Status status;
-    status = socket.send(buff,buff_size);
-    return (status == sf::Socket::Done);
-}
 
 bool ZCommandService::recvBuff()
 {
-    sf::Socket::Status status;
-    status = socket.receive(buff, buff_bytes, recv_bytes);
-    return (status == sf::Socket::Done);
-}
-
-char * ZCommandService::getBuff()
-{
-    return buff;
+  sf::Socket::Status status;
+  unsigned short    remotePort;
+  status = socket.receive(buff, buff_bytes, recv_bytes, sender, remotePort);
+  return (status == sf::Socket::Done);
 }
 
 void ZCommandService::wait()
 {
-    netMonitor.add(socket);
-    netMonitor.wait();
+  netMonitor.add(socket);
+  netMonitor.wait();
 }
 
-int ZCommandService::decodeCmd(const char *cmd, ZNetCmd & zcmd) {
-   std::string strCmd(cmd);
-   std::vector<std::string> cmdTokens;
-   //std::cout << cmd << std::endl;
 
-   Tokenize(strCmd, cmdTokens, ":");
+int ZCommandService::decodeBuff(ZNetCmd & zcmd) {
+  static char dev[10];
+  static char act[10];
+  static char val[10];
 
-   if (cmdTokens.size() >= 3) {
-       std::string resName = cmdTokens[0];
-       int action   = actionMap[ cmdTokens[1] ];
-       int value    = std::atoi(cmdTokens[2].c_str());
+  memset(dev,'\0',10);
+  memset(act,'\0',10);
+  memset(val,'\0',10);
 
-       zcmd.device  = androidResMap[resName];
-       zcmd.action  = action;
-       zcmd.value   = value;
-       if (zargs.debug) {
-           std::cout << "device:"  << zcmd.device << "," <<
-                        "action:"  << zcmd.action << "," <<
-                        "value:"   << zcmd.value << std::endl;
-       }
-   }
-   return -1;
-}
+  //format dddd:aaaa:vvvvvvvv
+  //       0123456789
+  strncpy(dev, &buff[0] , 4);    //buff[0..3]
+  strncpy(act, &buff[5] , 4);    //buff[5..7]
+  strncpy(val, &buff[10], 8);    //buff[10..18]
 
-int ZCommandService::getAction(const string & actionName) {
-    return actionMap[actionName];
+
+  zcmd.device = std::atoi(dev);
+  zcmd.action = std::atoi(act);
+  zcmd.value  = std::atoi(val);
+
+
+  if (zargs.debug) {
+    std::cout << "Raw cmd....:" << buff << "\n"  <<
+    "Decoded cmd:"
+    << zcmd.device << ":" << zcmd.action << ":" << zcmd.value << std::endl;
+  }
+
+
+  return -1;
 }
