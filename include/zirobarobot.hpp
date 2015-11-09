@@ -19,10 +19,10 @@ class ZirobaRobot {
     void start();
     void stop();
     bool isRunning() { return running; }
-    void initDCMotor1(mraa::Pwm *pwm, mraa::Gpio *gpio);
-    void initDCMotor2(mraa::Pwm *pwm, mraa::Gpio *gpio);
+
     DCMotor *dcMotor1;
     DCMotor *dcMotor2;
+    mraa::Gpio * statusLED;
     bool     running;
     void executeCmd(ZNetCmd & zcmd);
 };

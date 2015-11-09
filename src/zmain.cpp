@@ -31,7 +31,10 @@ int main(int argc, char ** argv) {
 		std::cerr << "cannot hangle SIGSEGV!" << std::endl;
 	}
 	//========================================================================
-  zargs.port = -1;
+
+	//default args
+	zargs.port = -1;
+  zargs.enableDevs = 1;
 
 	parse_args(argc,argv);
 	if (zargs.debug) {
@@ -50,7 +53,7 @@ int main(int argc, char ** argv) {
 	int port = (zargs.port == -1) ? 8090 :  zargs.port;
 	ZCommandService cmdService(port);
 
-	
+
 	std::cout << "Receiving commands on port [" << port << "] " << std::endl;
 	//========================================================================
 
@@ -61,9 +64,8 @@ int main(int argc, char ** argv) {
 			cmdService.wait();
 			if (cmdService.isReady()) {
 					cmdService.recvBuff();
-					cmdService.decodeBuff(zCmd);
-          //zbot.executeCmd(zcmd);
-
+					cmdService.decodeBuff(zCmd);					
+          zbot.executeCmd(zCmd);
 					cmdService.clearBuff();
 			}
 	}

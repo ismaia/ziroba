@@ -14,31 +14,34 @@ PATH=`echo -n $PATH | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":"
 
 
 
-args=$(getopt -o hvp:ln -l help,verbose,port:,pins,ndev  -- "$@")
+args=$(getopt -o rhvp:ln -l reset,help,verbose,port:,pins,ndev  -- "$@")
 eval set -- "$args"
 
 while true ; do
      case "$1" in
-             -v|--verbose)
-                 VERBOSE="-v"
-                 ;;
-             -p|--port)
-                 PORT=$2
-                 ;;
-             -l|--pins)
-                 LIST_PINS="-l"
-                 ;;
-             -n|--ndev)
-                 NDEV="-n"
-                 ;;
-             -h|--help)
-                 SHOW_HELP="-h"
-                 exit 0
-                ;;
-             --)
-                 # No more options left.
-                 shift ;
-                 break;;
+			 -r|--reset)
+			 RESET="r"
+			 ;;
+			 -v|--verbose)
+			 VERBOSE="-v"
+			 ;;
+			 -p|--port)
+			 PORT=$2
+			 ;;
+			 -l|--pins)
+			 LIST_PINS="-l"
+			 ;;
+			 -n|--ndev)
+			 NDEV="-n"
+			 ;;
+			 -h|--help)
+			 SHOW_HELP="-h"
+			 exit 0
+			 ;;
+			 --)
+			 # No more options left.
+			 shift ;
+			 break;;
      esac
      shift
 done
@@ -93,6 +96,7 @@ if [ -z $NDEV ];	then
 
 
 fi
+
 
 #call ziroba
 if [ -f $ROOT_DIR/bin/ziroba ] ;

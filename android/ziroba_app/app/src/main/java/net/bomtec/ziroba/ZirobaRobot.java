@@ -61,8 +61,9 @@ public class ZirobaRobot {
 
     public synchronized void sendMessage(String msg) {
         buff = msg.getBytes();
+
         if (socket != null) {
-            new Thread(new Runnable() {
+            Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
                     try {
@@ -76,42 +77,17 @@ public class ZirobaRobot {
                         active = false;
                     }
                 }
-            }).start();
-        }
-    }
-
-    public synchronized void start() {
-        if (!active) {
-            thread = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        hostAddr = InetAddress.getByName(host);
-                        socket = new DatagramSocket(port);
-                        active = true;
-                        String msg = "check connection";
-                        buff = msg.getBytes();
-                        socket.send(new DatagramPacket(buff, buff.length, hostAddr, port));
-                    } catch (Exception e) {
-                        active = false;
-                        socket.disconnect();
-                        socket.close();
-                        socket = null;
-                        e.printStackTrace();
-                    }
-                }
             });
             thread.start();
+            try {
+                thread.join(1000);
+            }catch (InterruptedException e) {
+
+            }
         }
+
     }
 
-    public void join() {
-        try {
-            thread.join(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
 
     public String getHost() {
         return host;

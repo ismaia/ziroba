@@ -126,10 +126,10 @@ public class MainActivity extends Activity {
                     public boolean onTouch(View v, MotionEvent event) {
                         if (event.getAction() == MotionEvent.ACTION_DOWN) {
                             //Log.d("Button A", "clicked");
-                            ZirobaRobot.getInstance().sendSetDirCmd(ZirobaRobot.ZDevice.DCMOTOR1, 1);
-                            ZirobaRobot.getInstance().sendSetDirCmd(ZirobaRobot.ZDevice.DCMOTOR2, 1);
-                            ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR1, 100);
-                            ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR2, 100);
+                            ZirobaRobot.getInstance().sendSetDirCmd(ZirobaRobot.ZDevice.DCMOTOR1, 0);
+                            ZirobaRobot.getInstance().sendSetDirCmd(ZirobaRobot.ZDevice.DCMOTOR2, 0);
+                            ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR1, 80);
+                            ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR2, 80);
 
                         } else if (event.getAction() == MotionEvent.ACTION_UP) {
                             //Log.d("Button A", "released");
@@ -150,8 +150,8 @@ public class MainActivity extends Activity {
                             //Log.d("Button A", "clicked");
                             ZirobaRobot.getInstance().sendSetDirCmd(ZirobaRobot.ZDevice.DCMOTOR1, 1);
                             ZirobaRobot.getInstance().sendSetDirCmd(ZirobaRobot.ZDevice.DCMOTOR2, 0);
-                            ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR1, 100);
-                            ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR2, 100);
+                            ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR1, 80);
+                            ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR2, 80);
                         } else if (event.getAction() == MotionEvent.ACTION_UP) {
                             //Log.d("Button A", "released");
                             ZirobaRobot.getInstance().sendStopCmd(ZirobaRobot.ZDevice.DCMOTOR1);
@@ -171,8 +171,8 @@ public class MainActivity extends Activity {
                             //Log.d("Button A", "clicked");
                             ZirobaRobot.getInstance().sendSetDirCmd(ZirobaRobot.ZDevice.DCMOTOR1, 0);
                             ZirobaRobot.getInstance().sendSetDirCmd(ZirobaRobot.ZDevice.DCMOTOR2, 1);
-                            ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR1, 100);
-                            ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR2, 100);
+                            ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR1, 80);
+                            ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR2, 80);
                         } else if (event.getAction() == MotionEvent.ACTION_UP) {
                             //Log.d("Button A", "released");
                             ZirobaRobot.getInstance().sendStopCmd(ZirobaRobot.ZDevice.DCMOTOR1);
@@ -190,8 +190,8 @@ public class MainActivity extends Activity {
                     public boolean onTouch(View v, MotionEvent event) {
                         if (event.getAction() == MotionEvent.ACTION_DOWN) {
                             //Log.d("Button A", "clicked");
-                            ZirobaRobot.getInstance().sendSetDirCmd(ZirobaRobot.ZDevice.DCMOTOR1, 0);
-                            ZirobaRobot.getInstance().sendSetDirCmd(ZirobaRobot.ZDevice.DCMOTOR2, 0);
+                            ZirobaRobot.getInstance().sendSetDirCmd(ZirobaRobot.ZDevice.DCMOTOR1, 1);
+                            ZirobaRobot.getInstance().sendSetDirCmd(ZirobaRobot.ZDevice.DCMOTOR2, 1);
                             ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR1, 100);
                             ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR2, 100);
                         } else if (event.getAction() == MotionEvent.ACTION_UP) {
@@ -208,58 +208,6 @@ public class MainActivity extends Activity {
 
 
     }
-
-
-
-//    public void sendCommandA(View view) {
-//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-//        String cmd = prefs.getString(SettingsActivity.PREF_KEY_COMMAND_A, "");
-//        CmdClient.getInstance().sendMessage(cmd);
-//    }
-//
-//    public void sendCommandB(View view) {
-//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-//        String cmd = prefs.getString(SettingsActivity.PREF_KEY_COMMAND_B, "");
-//        CmdClient.getInstance().sendMessage(cmd);
-//    }
-//
-//    public void sendCommandC(View view) {
-//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-//        String cmd = prefs.getString(SettingsActivity.PREF_KEY_COMMAND_C, "");
-//        CmdClient.getInstance().sendMessage(cmd);
-//    }
-//
-//    public void sendCommandD(View view) {
-//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-//        String cmd = prefs.getString(SettingsActivity.PREF_KEY_COMMAND_D, "");
-//        CmdClient.getInstance().sendMessage(cmd);
-//    }
-//
-//    public void sendCommandE(View view) {
-//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-//        String cmd = prefs.getString(SettingsActivity.PREF_KEY_COMMAND_E, "");
-//        CmdClient.getInstance().sendMessage(cmd);
-//    }
-//
-//
-//    public void sendCommandF(View view) {
-//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-//        String cmd = prefs.getString(SettingsActivity.PREF_KEY_COMMAND_F, "");
-//        CmdClient.getInstance().sendMessage(cmd);
-//    }
-//
-//    public void sendCommandG(View view) {
-//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-//        String cmd = prefs.getString(SettingsActivity.PREF_KEY_COMMAND_G, "");
-//        CmdClient.getInstance().sendMessage(cmd);
-//    }
-//
-//    public void sendCommandH(View view) {
-//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-//        String cmd = prefs.getString(SettingsActivity.PREF_KEY_COMMAND_H, "");
-//        CmdClient.getInstance().sendMessage(cmd);
-//    }
-//
 
 
 }

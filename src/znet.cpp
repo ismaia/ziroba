@@ -54,20 +54,16 @@ void ZCommandService::wait()
 
 
 int ZCommandService::decodeBuff(ZNetCmd & zcmd) {
-  static char dev[10];
-  static char act[10];
-  static char val[10];
+  char dev[10];
+  char act[10];
+  char val[10];
 
-  memset(dev,'\0',10);
-  memset(act,'\0',10);
-  memset(val,'\0',10);
 
   //format dddd:aaaa:vvvvvvvv
   //       0123456789
   strncpy(dev, &buff[0] , 4);    //buff[0..3]
   strncpy(act, &buff[5] , 4);    //buff[5..7]
   strncpy(val, &buff[10], 8);    //buff[10..18]
-
 
   zcmd.device = std::atoi(dev);
   zcmd.action = std::atoi(act);

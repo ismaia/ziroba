@@ -2,6 +2,9 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <unistd.h>
+#include <errno.h>
+#include <time.h>
 
 
 DCMotor::DCMotor(mraa::Pwm * pwm, mraa::Gpio *gpio)
@@ -14,8 +17,6 @@ DCMotor::DCMotor(mraa::Pwm * pwm, mraa::Gpio *gpio)
 				 exit(1);
 		 }
 		 pwm->write(0.0f); //duty = 100%
-		 pwm->period_us(500);
-		 pwm->enable(1);
 
 		 if (gpio == NULL) {
 				 std::cerr << "Can't open GPIO!" << std::endl;
@@ -23,6 +24,7 @@ DCMotor::DCMotor(mraa::Pwm * pwm, mraa::Gpio *gpio)
 		 }
 		 gpio->dir(mraa::DIR_OUT);
 }
+
 
 void DCMotor::setDuty(float duty) {
 		 pwm->write(duty);
@@ -35,12 +37,12 @@ void DCMotor::stop() {
 		 pwm->write( 0.0f );
 }
 
-void DCMotor::enablePwm() {
-		 pwm->enable(1);
+void DCMotor::enable() {
+		 pwm->enable(true);
 }
 
-void DCMotor::disablePwm() {
-		 pwm->enable(0);
+void DCMotor::disable() {
+		 pwm->enable(false);
 }
 
 void DCMotor::toggleDir() {

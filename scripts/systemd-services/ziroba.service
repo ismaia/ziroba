@@ -1,0 +1,10 @@
+[Unit]
+Description=Ziroba Robot Service
+Requires=connman.service
+After=sshd.service
+
+[Service]
+ExecStart=/root/ziroba/bin/beaglebone_ziroba.run
+
+[Install]
+WantedBy=multi-user.target

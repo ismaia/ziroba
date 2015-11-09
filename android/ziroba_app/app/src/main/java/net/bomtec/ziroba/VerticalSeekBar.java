@@ -129,7 +129,6 @@ public class VerticalSeekBar extends SeekBar{
         else if (getId() == R.id.skb2)
             mZDevice = ZirobaRobot.ZDevice.DCMOTOR2;
 
-        ZirobaRobot.getInstance().sendCmdMsg(mZDevice, ZirobaRobot.ZAction.STOP,0);
 
         if (flag) {
             progressTable = new int[getMax()+10];

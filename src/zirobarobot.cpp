@@ -7,20 +7,28 @@ ZirobaRobot zbot;
 
 ZirobaRobot::ZirobaRobot() {
 	running = false;
-
 }
 
 
 void ZirobaRobot::start() {
-	running = true;
+
   if (zargs.enableDevs) {
-      if (zargs.pwmVec.size() >= 2 && zargs.gpioVec.size() >= 2) {
-         zbot.initDCMotor1(zargs.pwmVec[0], zargs.gpioVec[0]);
-         zbot.initDCMotor2(zargs.pwmVec[1], zargs.gpioVec[1]);
+      if (zargs.pwmVec.size() >= 2 && zargs.gpioVec.size() >= 3) {
+				 dcMotor1 = new DCMotor(zargs.pwmVec[0], zargs.gpioVec[0]);
+				 dcMotor2 = new DCMotor(zargs.pwmVec[1], zargs.gpioVec[1]);
+
          zbot.dcMotor1->setDuty(0.0f);
+				 zbot.dcMotor1->enable();
          zbot.dcMotor2->setDuty(0.0f);
+				 zbot.dcMotor2->enable();
+
+				 //status led
+				 statusLED = zargs.gpioVec[2];
+				 statusLED->dir(mraa::DIR_OUT);
+				 statusLED->write(1);
        }
   }
+	running = true;
 }
 
 
@@ -28,46 +36,45 @@ void ZirobaRobot::stop() {
 	running = false;
 }
 
-void ZirobaRobot::initDCMotor1(mraa::Pwm *pwm, mraa::Gpio *gpio) {
-  dcMotor1 = new DCMotor(pwm, gpio);
-	
-}
-
-void ZirobaRobot::initDCMotor2(mraa::Pwm *pwm, mraa::Gpio *gpio) {
-  dcMotor2 = new DCMotor(pwm, gpio);
-}
-
 
 void ZirobaRobot::executeCmd(ZNetCmd & zcmd) {
-  float duty = 0.0f;
+	//local copies
+	int dev     = zcmd.device;
+	int act     = zcmd.action;
+  float value = zcmd.value;
   DCMotor * dcMotor = NULL;
 
-  //select device
-  switch (zcmd.device) {
-      case DCMOTOR1:
-        dcMotor = dcMotor1;
-        break;
-      case DCMOTOR2:
-        dcMotor = dcMotor2;
-        break;
-      default:
-        break;
-    }
+	#pragma omp parallel shared(zcmd)
+	{
+		// //select device
+		switch (dev) {
+			case DCMOTOR1:
+			dcMotor = dcMotor1;
+			break;
+			case DCMOTOR2:
+			dcMotor = dcMotor2;
+			break;
+			default:
+			break;
+		}
 
-
-   switch (zcmd.action) {
-     case SET_DUTY:
-         duty = (float)zcmd.value/100.0f;
-         dcMotor->setDuty(duty);
-         if (zargs.debug) std::cout << "setduty:" << duty << std::endl;
-        break;
-     case SET_DIR:
-         dcMotor->setDir(zcmd.value);
-         if (zargs.debug) std::cout << "setdir:" << zcmd.value << std::endl;
-        break;
-     case STOP:
-         dcMotor->stop();
-     default:
-        break;
-   }
+		switch (act) {
+			case SET_DUTY:
+			value = (float)value/100.0f;
+			dcMotor->setDuty(value);
+			usleep(10000);
+			if (zargs.debug) std::cout << "setduty:" << value << std::endl;
+			break;
+			case SET_DIR:
+			dcMotor->setDir(value);
+			usleep(10000);
+			if (zargs.debug) std::cout << "setdir:" << value << std::endl;
+			break;
+			case STOP:
+			dcMotor->stop();
+			usleep(10000);
+			default:
+			break;
+		}
+	}
 }

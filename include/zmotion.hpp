@@ -12,8 +12,8 @@ class DCMotor {
        void setDir(int dir);
        void toggleDir();
        void stop();
-       void disablePwm();
-       void enablePwm();
+       void disable();
+       void enable();
     private:
        //dc motor 1
        mraa::Pwm          *pwm;
