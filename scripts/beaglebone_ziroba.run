@@ -74,9 +74,9 @@ if [ -z $NDEV ];	then
 		P9_16="ocp:P9_16_pinmux"
 		P9_16_chip=$(ls /sys/devices/platform/ocp/48302000.epwmss/48302200.ehrpwm/pwm | sed  's/[a-z]*//g')
 
+		GPIO_27="17"
+		GPIO_45="11"
 		GPIO_67="8"
-		GPIO_68="10"
-		GPIO_44="12"
 
 		#set pin modes to pwm
 		if [ -d /sys/class/pwm/pwmchip0 ] ;
@@ -90,9 +90,9 @@ if [ -z $NDEV ];	then
 
 		DEV_OPTS="--dev pwm_chip=$P8_13_chip,pwm_n=0  \
 		          --dev pwm_chip=$P8_19_chip,pwm_n=1  \
-		          --dev gpio_export=$GPIO_67          \
-		          --dev gpio_export=$GPIO_68          \
-		          --dev gpio_export=$GPIO_44"
+		          --dev gpio_export=$GPIO_27          \
+		          --dev gpio_export=$GPIO_45          \
+		          --dev gpio_export=$GPIO_67"
 
 
 fi

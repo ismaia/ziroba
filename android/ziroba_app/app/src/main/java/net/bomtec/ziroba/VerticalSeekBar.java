@@ -82,29 +82,33 @@ public class VerticalSeekBar extends SeekBar{
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 int newZProgress = progressTable[progress];
 
-                int    action = -1;
-                int    value  = -1;
-                String msg    = "";
-
-                if (oldZProgress == 0) {
-                    if (newZProgress > 0) {
-                        value = 1;
-                    } else if (newZProgress < 0) {
-                        value = 0;
-                    }
-                }
-
-                if (value != -1) {
-                    ZirobaRobot.getInstance().sendSetdirCmd(mZDevice, value);
-                    Log.d("SeekBar:setdir:", mZDevice + ":" + value);
-                }
-
 
                 if (newZProgress != oldZProgress) {
-                    action = ZirobaRobot.ZAction.SET_DUTY;
-                    value  = Math.abs(newZProgress);
+                    int  value  = -1;
+
+                    if (oldZProgress == 0) {
+                        if (newZProgress > 0) {
+                            value = 0;
+                        } else if (newZProgress < 0) {
+                            value = 1;
+                        }
+                    }
+
+                    if (value != -1) {
+                        ZirobaRobot.getInstance().sendSetdirCmd(mZDevice, value);
+                        Log.d("SeekBar:setdir:", mZDevice + ":" + value);
+                    }
+
+
+                    if (newZProgress==0)
+                        ZirobaRobot.getInstance().sendStopCmd(mZDevice);
+                    else {
+                        value  = Math.abs(newZProgress);
+                        ZirobaRobot.getInstance().sendDutyCmd(mZDevice, value);
+                    }
                     Log.d("SeekBar:Setduty:", mZDevice + ":" + value);
-                    ZirobaRobot.getInstance().sendDutyCmd(mZDevice, value);
+
+
                 }
 
                 oldZProgress = newZProgress;

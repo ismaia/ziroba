@@ -19,6 +19,7 @@ class DCMotor {
        mraa::Pwm          *pwm;
        mraa::Gpio         *gpio;
        bool               gpioVal;
+       float              duty;
 
 };
 

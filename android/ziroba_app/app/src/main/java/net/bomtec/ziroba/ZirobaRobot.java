@@ -138,7 +138,6 @@ public class ZirobaRobot {
         thread.start();
 
         //Blocks the current Thread until the receiver finishes its execution and dies.
-
         try {
             thread.join(2000);
         } catch (InterruptedException e) {
@@ -146,20 +145,20 @@ public class ZirobaRobot {
         }
 
 
-        if ( socket == null || !socket.isConnected() ) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            builder.setTitle("Connection");
-            builder.setMessage(R.string.dialog_connection_text);
-            builder.setCancelable(true);
-            builder.setNeutralButton("OK", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                    dialog.cancel();
-                }
-            });
-            builder.create();
-            builder.show();
-            return false;
-        }
+//        if ( socket == null || !socket.isConnected() ) {
+//            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+//            builder.setTitle("Connection");
+//            builder.setMessage(R.string.dialog_connection_text);
+//            builder.setCancelable(true);
+//            builder.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+//                public void onClick(DialogInterface dialog, int id) {
+//                    dialog.cancel();
+//                }
+//            });
+//            builder.create();
+//            builder.show();
+//            return false;
+//        }
 
         return true;
     }

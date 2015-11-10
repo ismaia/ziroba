@@ -16,11 +16,6 @@ void ZirobaRobot::start() {
 				 dcMotor1 = new DCMotor(zargs.pwmVec[0], zargs.gpioVec[0]);
 				 dcMotor2 = new DCMotor(zargs.pwmVec[1], zargs.gpioVec[1]);
 
-         zbot.dcMotor1->setDuty(0.0f);
-				 zbot.dcMotor1->enable();
-         zbot.dcMotor2->setDuty(0.0f);
-				 zbot.dcMotor2->enable();
-
 				 //status led
 				 statusLED = zargs.gpioVec[2];
 				 statusLED->dir(mraa::DIR_OUT);
@@ -33,6 +28,7 @@ void ZirobaRobot::start() {
 
 void ZirobaRobot::stop() {
 	running = false;
+	statusLED->write(0);
 }
 
 
@@ -59,19 +55,27 @@ void ZirobaRobot::executeCmd(ZNetCmd & zcmd) {
 		case SET_DUTY:
 				value = (float)value/100.0f;
 				dcMotor->setDuty(value);
-				usleep(10000);
+				usleep(20000);
 				if (zargs.debug) std::cout << "setduty:" << value << std::endl;
 				break;
 		case SET_DIR:
 				dcMotor->setDir(value);
-				usleep(10000);
+				usleep(20000);
 				if (zargs.debug) std::cout << "setdir:" << value << std::endl;
 				break;
 		case STOP:
-				dcMotor->stop();
-				usleep(10000);
+				dcMotor->disable();
+				usleep(20000);
 		  	break;
+		case TOGGLE_DIR:
+				dcMotor->toggleDir();
+				usleep(20000);
+		  	break;
+
 		default:
-		break;
+		    dcMotor1->disable();
+				dcMotor2->disable();
+		    usleep(20000);
+		    break;
 	}
 }
