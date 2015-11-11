@@ -134,8 +134,12 @@ public class MainActivity extends Activity {
                     public boolean onTouch(View v, MotionEvent event) {
                         if (event.getAction() == MotionEvent.ACTION_DOWN) {
                             ZirobaRobot.getInstance().sendSetdirCmd(ZirobaRobot.ZDevice.DCMOTOR2, 0);
-                            ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR2, seekBarProgress + 40);
+                            ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR2, seekBarProgress);
+                        }else if (event.getAction() == MotionEvent.ACTION_UP) {
+                            //Log.d("Button A", "released");
+                            ZirobaRobot.getInstance().sendStopCmd(ZirobaRobot.ZDevice.DCMOTOR2);
                         }
+
                         return false;
                     }
                 }
@@ -171,7 +175,10 @@ public class MainActivity extends Activity {
                     public boolean onTouch(View v, MotionEvent event) {
                         if (event.getAction() == MotionEvent.ACTION_DOWN) {
                             ZirobaRobot.getInstance().sendSetdirCmd(ZirobaRobot.ZDevice.DCMOTOR1, 0);
-                            ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR1, seekBarProgress+40);
+                            ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR1, seekBarProgress);
+                        }else if (event.getAction() == MotionEvent.ACTION_UP) {
+                            //Log.d("Button A", "released");
+                            ZirobaRobot.getInstance().sendStopCmd(ZirobaRobot.ZDevice.DCMOTOR1);
                         }
                         return false;
                     }
@@ -229,7 +236,10 @@ public class MainActivity extends Activity {
                     public boolean onTouch(View v, MotionEvent event) {
                         if (event.getAction() == MotionEvent.ACTION_DOWN) {
                             ZirobaRobot.getInstance().sendSetdirCmd(ZirobaRobot.ZDevice.DCMOTOR2, 1);
-                            ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR2, seekBarProgress+40);
+                            ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR2, seekBarProgress);
+                        }else if (event.getAction() == MotionEvent.ACTION_UP) {
+                            //Log.d("Button A", "released");
+                            ZirobaRobot.getInstance().sendStopCmd(ZirobaRobot.ZDevice.DCMOTOR2);
                         }
                         return false;
                     }
@@ -264,7 +274,10 @@ public class MainActivity extends Activity {
                     public boolean onTouch(View v, MotionEvent event) {
                         if (event.getAction() == MotionEvent.ACTION_DOWN) {
                             ZirobaRobot.getInstance().sendSetdirCmd(ZirobaRobot.ZDevice.DCMOTOR1, 1);
-                            ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR1, seekBarProgress+40);
+                            ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR1, seekBarProgress);
+                        }else if (event.getAction() == MotionEvent.ACTION_UP) {
+                            //Log.d("Button A", "released");
+                            ZirobaRobot.getInstance().sendStopCmd(ZirobaRobot.ZDevice.DCMOTOR1);
                         }
                         return false;
                     }

@@ -131,8 +131,6 @@ public class SettingsActivity extends PreferenceActivity {
 
             //sets the right value to the connection switch
             SwitchPreference sw = (SwitchPreference)findPreference(PREF_KEY_SW_CONNECTION);
-            //sw.setChecked(CmdClient.getInstance().isActive());
-            //sw.setChecked(ZirobaRobot.getInstance().isActive());
 
             updateSummaries();
         }
@@ -149,19 +147,6 @@ public class SettingsActivity extends PreferenceActivity {
                 String port = sharedPreferences.getString(PREF_KEY_PORT_TEXT, "");
                 ZirobaRobot.getInstance().connect(host,Integer.parseInt(port));
 
-                boolean swState = sharedPreferences.getBoolean(PREF_KEY_SW_CONNECTION, false);
-                SwitchPreference sw = (SwitchPreference)findPreference(PREF_KEY_SW_CONNECTION);
-
-//                boolean connStatus = false;
-//                if (swState) {
-//                    connStatus = ZirobaRobot.getInstance().connect(getActivity(),host,port);
-//                }else {
-//                    //close client socket
-//                    ZirobaRobot.getInstance().stop();
-//                }
-
-                //update the sw state
-                //sw.setChecked(connStatus);
             }
 
             updateSummaries();

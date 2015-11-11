@@ -67,7 +67,7 @@ public class ZirobaRobot {
                         socket.send(packet);
                         active = true;
                     } catch (Exception e) {
-                        //stop();
+                        stop();
                         e.printStackTrace();
                     }
                 }
