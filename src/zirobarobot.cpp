@@ -38,6 +38,7 @@ void ZirobaRobot::executeCmd(ZNetCmd & zcmd) {
 	int act     = zcmd.action;
   float value = zcmd.value;
   DCMotor * dcMotor = NULL;
+	static unsigned int sleep = 1000;
 
 	// //select device
 	switch (dev) {
@@ -55,27 +56,27 @@ void ZirobaRobot::executeCmd(ZNetCmd & zcmd) {
 		case SET_DUTY:
 				value = (float)value/100.0f;
 				dcMotor->setDuty(value);
-				usleep(20000);
+				usleep((useconds_t)sleep);
 				if (zargs.debug) std::cout << "setduty:" << value << std::endl;
 				break;
 		case SET_DIR:
 				dcMotor->setDir(value);
-				usleep(20000);
+				usleep((useconds_t)sleep);
 				if (zargs.debug) std::cout << "setdir:" << value << std::endl;
 				break;
 		case STOP:
 				dcMotor->disable();
-				usleep(20000);
+				usleep((useconds_t)sleep);
 		  	break;
 		case TOGGLE_DIR:
 				dcMotor->toggleDir();
-				usleep(20000);
-		  	break;
+				usleep((useconds_t)sleep);
+		    break;
 
 		default:
 		    dcMotor1->disable();
 				dcMotor2->disable();
-		    usleep(20000);
+				usleep((useconds_t)sleep);		    
 		    break;
 	}
 }

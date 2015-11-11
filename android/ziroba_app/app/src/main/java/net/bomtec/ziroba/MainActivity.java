@@ -71,32 +71,14 @@ public class MainActivity extends Activity {
 
     private synchronized void initViewsBehavior() {
 
-        VerticalSeekBar seekBar1 = (VerticalSeekBar)findViewById(R.id.skb1);
-        seekBar1.init();
-
-        VerticalSeekBar seekBar2 = (VerticalSeekBar)findViewById(R.id.skb2);
-        seekBar2.init();
-
-        Switch cameraSw = (Switch)findViewById(R.id.camera_switch);
-        cameraSw.setChecked(false);
-        boolean swState = cameraSw.isChecked();
-
-        cameraSw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView,
-                                         boolean isChecked) {
-                Log.d("CameraSW", "checked");
-            }
-
-        });
 
 
-        SeekBar seekBar3 = (SeekBar)findViewById(R.id.skb3);
+        SeekBar seekBar1 = (SeekBar)findViewById(R.id.skb1);
 
         if (zflag) {
-            seekBarprogressTable= new int[seekBar3.getMax()+10];
-            Arrays.fill(seekBarprogressTable, 0, 15,   0);
+            seekBarprogressTable= new int[seekBar1.getMax()+10];
+            Arrays.fill(seekBarprogressTable, 0, 5,   0);
+            Arrays.fill(seekBarprogressTable, 5, 15,   50);
             Arrays.fill(seekBarprogressTable, 15, 30 , 60);
             Arrays.fill(seekBarprogressTable, 30, 45 , 70);
             Arrays.fill(seekBarprogressTable, 45, 60 , 80);
@@ -106,7 +88,7 @@ public class MainActivity extends Activity {
             zflag = false;
         }
 
-        seekBar3.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        seekBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 seekBarProgress = seekBarprogressTable[progress];
@@ -123,20 +105,10 @@ public class MainActivity extends Activity {
             }
         });
 
-        connSw = (Switch)findViewById(R.id.connection_switch);
-
-        connSw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                String host = sharedPreferences.getString(SettingsActivity.PREF_KEY_HOST_TEXT, "");
-                String port = sharedPreferences.getString(SettingsActivity.PREF_KEY_PORT_TEXT, "");
-                if (isChecked) {
-                    boolean status  = ZirobaRobot.getInstance().connect(mainActivt, host, port);
-                    connSw.setChecked(status);
-                }
-            }
-
-        });
+        String host = sharedPreferences.getString(SettingsActivity.PREF_KEY_HOST_TEXT, "");
+        String port = sharedPreferences.getString(SettingsActivity.PREF_KEY_PORT_TEXT, "");
+        ZirobaRobot.getInstance().connect(host, Integer.parseInt(port));
+        Log.d("Connection:", host + ":" + port);
 
 
         ImageButton butX = (ImageButton)findViewById(R.id.butX);
@@ -153,6 +125,22 @@ public class MainActivity extends Activity {
                     }
                 }
         );
+
+        ImageButton butA = (ImageButton)findViewById(R.id.butA);
+
+        butA.setOnTouchListener(
+                new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                            ZirobaRobot.getInstance().sendSetdirCmd(ZirobaRobot.ZDevice.DCMOTOR2, 0);
+                            ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR2, seekBarProgress + 40);
+                        }
+                        return false;
+                    }
+                }
+        );
+
 
         ImageButton butUp = (ImageButton)findViewById(R.id.butUp);
         butUp.setOnTouchListener(
@@ -175,6 +163,21 @@ public class MainActivity extends Activity {
                     }
                 }
         );
+        ImageButton butB = (ImageButton)findViewById(R.id.butB);
+
+        butB.setOnTouchListener(
+                new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                            ZirobaRobot.getInstance().sendSetdirCmd(ZirobaRobot.ZDevice.DCMOTOR1, 0);
+                            ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR1, seekBarProgress+40);
+                        }
+                        return false;
+                    }
+                }
+        );
+
 
         ImageButton butLeft = (ImageButton)findViewById(R.id.butLeft);
         butLeft.setOnTouchListener(
@@ -218,6 +221,21 @@ public class MainActivity extends Activity {
                 }
         );
 
+        ImageButton butC = (ImageButton)findViewById(R.id.butC);
+
+        butC.setOnTouchListener(
+                new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                            ZirobaRobot.getInstance().sendSetdirCmd(ZirobaRobot.ZDevice.DCMOTOR2, 1);
+                            ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR2, seekBarProgress+40);
+                        }
+                        return false;
+                    }
+                }
+        );
+
         ImageButton butDown = (ImageButton)findViewById(R.id.butDown);
         butDown.setOnTouchListener(
                 new View.OnTouchListener() {
@@ -238,6 +256,21 @@ public class MainActivity extends Activity {
                     }
                 }
         );
+
+        ImageButton butD = (ImageButton)findViewById(R.id.butD);
+        butD.setOnTouchListener(
+                new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                            ZirobaRobot.getInstance().sendSetdirCmd(ZirobaRobot.ZDevice.DCMOTOR1, 1);
+                            ZirobaRobot.getInstance().sendDutyCmd(ZirobaRobot.ZDevice.DCMOTOR1, seekBarProgress+40);
+                        }
+                        return false;
+                    }
+                }
+        );
+
 
 
 

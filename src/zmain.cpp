@@ -68,7 +68,7 @@ int main(int argc, char ** argv) {
           if (zargs.enableDevs) {
 					  zbot.executeCmd(zCmd);
 					}
-					usleep(10000); //IO Wait
+					usleep(1000); //IO Wait
 					cmdService.clearBuff();
 			}
 	}

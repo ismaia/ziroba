@@ -13,6 +13,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.net.SocketException;
 
 /**
  * Created by isaac
@@ -53,16 +54,11 @@ public class ZirobaRobot {
     }
 
 
-    public void config(String host, String port) {
-        this.host = host;
-        this.port = Integer.parseInt(port);
-    }
-
 
     public synchronized void sendMessage(String msg) {
-        buff = msg.getBytes();
 
         if (socket != null) {
+            buff = msg.getBytes();
             Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
@@ -71,34 +67,23 @@ public class ZirobaRobot {
                         socket.send(packet);
                         active = true;
                     } catch (Exception e) {
-                        socket.disconnect();
-                        socket.close();
+                        //stop();
                         e.printStackTrace();
-                        active = false;
                     }
                 }
             });
             thread.start();
             try {
-                thread.join(500);
+                thread.join(250);
             }catch (InterruptedException e) {
 
             }
+        }else { //connect
+            connect(host, port);
         }
 
     }
 
-
-    public String getHost() {
-        return host;
-    }
-
-    public int getPort() {
-        return port;
-    }
-
-
-    public boolean isActive() { return  active; }
 
 
     public synchronized void stop() {
@@ -106,31 +91,29 @@ public class ZirobaRobot {
             if (socket != null) {
                 socket.disconnect();
                 socket.close();
+                socket = null;
             }
         }catch (Exception e) {
             e.printStackTrace();
+            socket = null;
         }
         active = false;
     }
 
 
-    public boolean connect(Context context, String host, String port) {
+    public  synchronized boolean connect(final String host, final int port) {
         this.host = host;
-        this.port = Integer.parseInt(port);
-
+        this.port = port;
         thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    hostAddr = InetAddress.getByName(getHost());
-                    socket = new DatagramSocket(getPort());
-                    socket.connect(hostAddr,getPort());
+                    hostAddr = InetAddress.getByName(host);
+                    socket = new DatagramSocket(port);
+                    socket.connect(hostAddr,port);
                     active = true;
                 } catch (Exception e) {
-                    active = false;
-                    socket.disconnect();
-                    socket.close();
-                    socket = null;
+                    stop();
                     e.printStackTrace();
                 }
             }
@@ -144,23 +127,7 @@ public class ZirobaRobot {
             e.printStackTrace();
         }
 
-
-//        if ( socket == null || !socket.isConnected() ) {
-//            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-//            builder.setTitle("Connection");
-//            builder.setMessage(R.string.dialog_connection_text);
-//            builder.setCancelable(true);
-//            builder.setNeutralButton("OK", new DialogInterface.OnClickListener() {
-//                public void onClick(DialogInterface dialog, int id) {
-//                    dialog.cancel();
-//                }
-//            });
-//            builder.create();
-//            builder.show();
-//            return false;
-//        }
-
-        return true;
+        return active;
     }
 
 
