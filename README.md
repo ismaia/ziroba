@@ -1,9 +1,9 @@
 Ziroba Robot
 ============
 
-Ziroba is a low cost car robot built from cheap parts
+Ziroba is a low cost mobile robot built from cheap parts
+The main goal is easy replication and modification
 
-Our main goal is easy replication and modification
  
 Features:
 ---------
@@ -38,6 +38,7 @@ Runing:
 
 Ziroba-Robot
 ------------
-![alt tag](https://github.com/ismaia/ziroba/raw/master/docs/ziroba.jpg)
+![alt tag](https://github.com/ismaia/ziroba/raw/master/docs/ziroba-v5-0)
+![alt tag](https://github.com/ismaia/ziroba/raw/master/docs/ziroba-v5-1)
 
 
