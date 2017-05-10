@@ -1,9 +1,14 @@
 Ziroba Robot
 ============
 
-Ziroba is a low cost car robot built from cheap parts
+Ziroba is a low cost mobile robot built from cheap parts
 
-Our main goal is easy replication and modification
+The main goals
+  * Easy replication and modification
+  * Education: Embedded RealTime Systems  
+
+
+![alt tag](https://github.com/ismaia/ziroba/raw/master/docs/ziroba-v5-0.jpeg)
  
 Features:
 ---------
@@ -22,8 +27,8 @@ Install:
     cd build
     cmake -DCMAKE_INSTALL_PREFIX=/path/to/installdir ../
 
-Runing:
-------
+Running:
+--------
     * setting up environment
        * source scripts/sysenv
 
@@ -38,6 +43,7 @@ Runing:
 
 Ziroba-Robot
 ------------
-![alt tag](https://github.com/ismaia/ziroba/raw/master/docs/ziroba.jpg)
+![alt tag](https://github.com/ismaia/ziroba/raw/master/docs/ziroba-v5-0.jpeg)
+![alt tag](https://github.com/ismaia/ziroba/raw/master/docs/ziroba-v5-1.jpeg)
 
 
