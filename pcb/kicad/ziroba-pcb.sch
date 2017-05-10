@@ -1,0 +1,157 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:SN754410
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L SN754410 IC?
+U 1 1 59138FD8
+P 3350 2100
+F 0 "IC?" H 2950 2800 50  0000 L BNN
+F 1 "SN754410" H 3550 1700 50  0000 L BNN
+F 2 "HBridge-DIP16" H 3350 2250 50  0001 C CNN
+F 3 "" H 3350 2100 60  0001 C CNN
+	1    3350 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L SN754410 IC?
+U 1 1 59139045
+P 5400 2100
+F 0 "IC?" H 5000 2800 50  0000 L BNN
+F 1 "SN754410" H 5600 1700 50  0000 L BNN
+F 2 "HBridge-DIP16" H 5400 2250 50  0001 C CNN
+F 3 "" H 5400 2100 60  0001 C CNN
+	1    5400 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 59139156
+P 5200 2750
+F 0 "#PWR?" H 5200 2500 50  0001 C CNN
+F 1 "GND" H 5200 2600 50  0000 C CNN
+F 2 "" H 5200 2750 50  0001 C CNN
+F 3 "" H 5200 2750 50  0001 C CNN
+	1    5200 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 5913916E
+P 3150 2750
+F 0 "#PWR?" H 3150 2500 50  0001 C CNN
+F 1 "GND" H 3150 2600 50  0000 C CNN
+F 2 "" H 3150 2750 50  0001 C CNN
+F 3 "" H 3150 2750 50  0001 C CNN
+	1    3150 2750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3350 1200 3350 1000
+Wire Wire Line
+	3350 1000 5400 1000
+Wire Wire Line
+	5400 1000 5400 1200
+Wire Wire Line
+	3450 1200 3450 1100
+Wire Wire Line
+	3450 1100 5500 1100
+Wire Wire Line
+	5500 1100 5500 1200
+Wire Wire Line
+	3150 2750 3150 2600
+Wire Wire Line
+	3150 2700 3450 2700
+Wire Wire Line
+	3250 2700 3250 2600
+Connection ~ 3150 2700
+Wire Wire Line
+	3350 2700 3350 2600
+Connection ~ 3250 2700
+Wire Wire Line
+	3450 2700 3450 2600
+Connection ~ 3350 2700
+Wire Wire Line
+	5200 2600 5200 2750
+Wire Wire Line
+	5300 2600 5300 2650
+Wire Wire Line
+	5200 2650 5500 2650
+Connection ~ 5200 2650
+Wire Wire Line
+	5400 2650 5400 2600
+Connection ~ 5300 2650
+Wire Wire Line
+	5500 2650 5500 2600
+Connection ~ 5400 2650
+$Comp
+L R R?
+U 1 1 591393EC
+P 2300 1900
+F 0 "R?" V 2380 1900 50  0000 C CNN
+F 1 "R" V 2300 1900 50  0000 C CNN
+F 2 "" V 2230 1900 50  0001 C CNN
+F 3 "" H 2300 1900 50  0001 C CNN
+	1    2300 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 5913941D
+P 2300 2200
+F 0 "#PWR?" H 2300 1950 50  0001 C CNN
+F 1 "GND" H 2300 2050 50  0000 C CNN
+F 2 "" H 2300 2200 50  0001 C CNN
+F 3 "" H 2300 2200 50  0001 C CNN
+	1    2300 2200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2300 2050 2300 2200
+Wire Wire Line
+	2050 1700 2750 1700
+Wire Wire Line
+	2300 1700 2300 1750
+Connection ~ 2300 1700
+$EndSCHEMATC
