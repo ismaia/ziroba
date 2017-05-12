@@ -29,6 +29,7 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:SN754410
+LIBS:ziroba-pcb-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -109,16 +110,45 @@ F 3 "" H 2300 2200 50  0001 C CNN
 	1    2300 2200
 	1    0    0    -1  
 $EndComp
-Text GLabel 1900 1300 0    60   Input ~ 0
-S1A
-Text GLabel 1900 1450 0    60   Input ~ 0
-S1B
 Text GLabel 3250 650  0    60   Input ~ 0
 VM
 Text GLabel 3250 800  0    60   Input ~ 0
 Pi5V
 Text GLabel 1900 1700 0    60   Input ~ 0
 PWM1
+$Comp
+L CONN_01X02 J?
+U 1 1 5915A944
+P 2650 2550
+F 0 "J?" H 2650 2700 50  0000 C CNN
+F 1 "CONN_01X02" V 2750 2550 50  0000 C CNN
+F 2 "" H 2650 2550 50  0001 C CNN
+F 3 "" H 2650 2550 50  0001 C CNN
+	1    2650 2550
+	0    1    1    0   
+$EndComp
+$Comp
+L CONN_01X02 J?
+U 1 1 5915A963
+P 4250 2550
+F 0 "J?" H 4250 2700 50  0000 C CNN
+F 1 "CONN_01X02" V 4350 2550 50  0000 C CNN
+F 2 "" H 4250 2550 50  0001 C CNN
+F 3 "" H 4250 2550 50  0001 C CNN
+	1    4250 2550
+	0    1    1    0   
+$EndComp
+$Comp
+L CONN_01X02 J?
+U 1 1 5915E15F
+P 1600 1350
+F 0 "J?" H 1600 1500 50  0000 C CNN
+F 1 "CONN_01X02" V 1700 1350 50  0000 C CNN
+F 2 "" H 1600 1350 50  0001 C CNN
+F 3 "" H 1600 1350 50  0001 C CNN
+	1    1600 1350
+	-1   0    0    1   
+$EndComp
 Wire Wire Line
 	3150 2600 3150 2750
 Wire Wire Line
@@ -178,11 +208,8 @@ Wire Wire Line
 Wire Wire Line
 	4150 1900 4050 1900
 Wire Wire Line
-	1900 1300 2750 1300
+	1800 1300 2750 1300
 Connection ~ 2750 1300
-Wire Wire Line
-	1900 1450 2650 1450
-Connection ~ 2650 1450
 Wire Wire Line
 	3450 650  3450 1200
 Wire Wire Line
@@ -191,28 +218,6 @@ Wire Wire Line
 	3450 650  3250 650 
 Wire Wire Line
 	3250 800  3350 800 
-$Comp
-L CONN_01X02 J?
-U 1 1 5915A944
-P 2650 2550
-F 0 "J?" H 2650 2700 50  0000 C CNN
-F 1 "CONN_01X02" V 2750 2550 50  0000 C CNN
-F 2 "" H 2650 2550 50  0001 C CNN
-F 3 "" H 2650 2550 50  0001 C CNN
-	1    2650 2550
-	0    1    1    0   
-$EndComp
-$Comp
-L CONN_01X02 J?
-U 1 1 5915A963
-P 4250 2550
-F 0 "J?" H 4250 2700 50  0000 C CNN
-F 1 "CONN_01X02" V 4350 2550 50  0000 C CNN
-F 2 "" H 4250 2550 50  0001 C CNN
-F 3 "" H 4250 2550 50  0001 C CNN
-	1    4250 2550
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	2700 2350 2700 2200
 Wire Wire Line
@@ -229,4 +234,7 @@ Wire Wire Line
 	4200 2350 4200 2100
 Wire Wire Line
 	4200 2100 4050 2100
+Wire Wire Line
+	1800 1400 2650 1400
+Connection ~ 2650 1400
 $EndSCHEMATC
